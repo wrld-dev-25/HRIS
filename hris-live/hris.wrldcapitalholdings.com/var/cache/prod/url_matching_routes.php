@@ -1,0 +1,203 @@
+<?php
+
+/**
+ * This file has been auto-generated
+ * by the Symfony Routing Component.
+ */
+
+return [
+    false, // $matchHost
+    [ // $staticRoutes
+        '/management/division' => [[['_route' => 'division', '_controller' => 'App\\Controller\\AdministrationController::viewDivision'], null, null, null, false, false, null]],
+        '/management/department' => [[['_route' => 'department', '_controller' => 'App\\Controller\\AdministrationController::viewDepartment'], null, null, null, false, false, null]],
+        '/management/position' => [[['_route' => 'position', '_controller' => 'App\\Controller\\AdministrationController::viewPosition'], null, null, null, false, false, null]],
+        '/form/submit_division' => [[['_route' => 'submit_division', '_controller' => 'App\\Controller\\AdministrationController::submitSubdivisionForm'], null, null, null, false, false, null]],
+        '/form/update_division' => [[['_route' => 'update_division', '_controller' => 'App\\Controller\\AdministrationController::updateDivisionForm'], null, null, null, false, false, null]],
+        '/form/archive_division' => [[['_route' => 'archive_division', '_controller' => 'App\\Controller\\AdministrationController::archiveDivisionForm'], null, null, null, false, false, null]],
+        '/form/submit_department' => [[['_route' => 'submit_department', '_controller' => 'App\\Controller\\AdministrationController::submitDepartmentForm'], null, null, null, false, false, null]],
+        '/form/update_department' => [[['_route' => 'update_department', '_controller' => 'App\\Controller\\AdministrationController::updateDepartmentForm'], null, null, null, false, false, null]],
+        '/form/archive_department' => [[['_route' => 'archive_department', '_controller' => 'App\\Controller\\AdministrationController::archiveDepartmentForm'], null, null, null, false, false, null]],
+        '/administration/owner' => [[['_route' => 'view_owner', '_controller' => 'App\\Controller\\AdministrationController::viewOwner'], null, null, null, false, false, null]],
+        '/form/submit_owner' => [[['_route' => 'submit_owner', '_controller' => 'App\\Controller\\AdministrationController::updateCategoryForm'], null, null, null, false, false, null]],
+        '/form/update_owner' => [[['_route' => 'update_owner', '_controller' => 'App\\Controller\\AdministrationController::updateOwner'], null, null, null, false, false, null]],
+        '/form/delete_owner' => [[['_route' => 'delete_owner', '_controller' => 'App\\Controller\\AdministrationController::deleteOwner'], null, null, null, false, false, null]],
+        '/administration/models' => [[['_route' => 'view_models', '_controller' => 'App\\Controller\\AdministrationController::viewModels'], null, null, null, false, false, null]],
+        '/form/submit_model' => [[['_route' => 'submit_model', '_controller' => 'App\\Controller\\AdministrationController::submitModel'], null, null, null, false, false, null]],
+        '/form/update_model' => [[['_route' => 'update_model', '_controller' => 'App\\Controller\\AdministrationController::updateModel'], null, null, null, false, false, null]],
+        '/form/archive_model' => [[['_route' => 'archive_model', '_controller' => 'App\\Controller\\AdministrationController::archiveModel'], null, null, null, false, false, null]],
+        '/administration/model-types' => [[['_route' => 'adm_model_types', '_controller' => 'App\\Controller\\AdministrationController::viewModelTypes'], null, null, null, false, false, null]],
+        '/form/submit_model_types' => [[['_route' => 'submit_model_types', '_controller' => 'App\\Controller\\AdministrationController::createModelTypes'], null, null, null, false, false, null]],
+        '/form/update_model_types' => [[['_route' => 'update_model_types', '_controller' => 'App\\Controller\\AdministrationController::updateModelTypes'], null, null, null, false, false, null]],
+        '/form/archive_model_types' => [[['_route' => 'archive_model_types', '_controller' => 'App\\Controller\\AdministrationController::archiveModelTypes'], null, null, null, false, false, null]],
+        '/administration/user-settings' => [[['_route' => 'adm_user_settings', '_controller' => 'App\\Controller\\AdministrationController::viewUserSettings'], null, null, null, false, false, null]],
+        '/form/update_emp_settings' => [[['_route' => 'update_emp_setting', '_controller' => 'App\\Controller\\AdministrationController::updateEmpSettings'], null, null, null, false, false, null]],
+        '/administration/shifts' => [[['_route' => 'adm_shifts', '_controller' => 'App\\Controller\\AdministrationController::viewShifts'], null, null, null, false, false, null]],
+        '/form/submit_shifts' => [[['_route' => 'submit_shifts', '_controller' => 'App\\Controller\\AdministrationController::createShifts'], null, null, null, false, false, null]],
+        '/form/update_shifts' => [[['_route' => 'update_shifts', '_controller' => 'App\\Controller\\AdministrationController::updateShifts'], null, null, null, false, false, null]],
+        '/form/archive_shifts' => [[['_route' => 'archive_shifts', '_controller' => 'App\\Controller\\AdministrationController::archiveShifts'], null, null, null, false, false, null]],
+        '/bir/config' => [[['_route' => 'app_bir_config', '_controller' => 'App\\Controller\\BIRConfigController::viewBIRConfig'], null, null, null, false, false, null]],
+        '/create-bir/config' => [[['_route' => 'app_bir_create_config', '_controller' => 'App\\Controller\\BIRConfigController::createBIRConfig'], null, null, null, false, false, null]],
+        '/update-bir/config' => [[['_route' => 'app_bir_update_config', '_controller' => 'App\\Controller\\BIRConfigController::updateBIRConfig'], null, null, null, false, false, null]],
+        '/delete-bir/config' => [[['_route' => 'app_bir_delete_config', '_controller' => 'App\\Controller\\BIRConfigController::deleteBIRConfig'], null, null, null, false, false, null]],
+        '/import-tax/config' => [[['_route' => 'app_tax_import_config', '_controller' => 'App\\Controller\\BIRConfigController::importTaxConfigFile'], null, ['POST' => 0], null, false, false, null]],
+        '/employee201/forms' => [[['_route' => 'employee201_form', '_controller' => 'App\\Controller\\Employee201Controller::index'], null, null, null, false, false, null]],
+        '/employee-leaves' => [[['_route' => 'app_employee_leaves', '_controller' => 'App\\Controller\\EmployeeLeavesController::view_employee_leaves'], null, null, null, true, false, null]],
+        '/employee-leaves/update' => [[['_route' => 'employee_leave_update', '_controller' => 'App\\Controller\\EmployeeLeavesController::updateEmployeeLeaves'], null, ['POST' => 0], null, false, false, null]],
+        '/employee-leaves/update-selected-leaves' => [[['_route' => 'update_selected_leave', '_controller' => 'App\\Controller\\EmployeeLeavesController::updateSelectedLeave'], null, ['POST' => 0], null, false, false, null]],
+        '/employee-payroll' => [[['_route' => 'view_employee_payroll', '_controller' => 'App\\Controller\\EmployeePayrollController::viewEmployeePayroll'], null, null, null, false, false, null]],
+        '/generate-employee-payslip' => [[['_route' => 'generate_payslip', '_controller' => 'App\\Controller\\EmployeePayrollController::viewEmployeePayrollPaySlip'], null, null, null, false, false, null]],
+        '/generate-payroll' => [[['_route' => 'generate_payroll', '_controller' => 'App\\Controller\\EmployeePayrollController::generatePayroll'], null, null, null, false, false, null]],
+        '/update-salary-adjustment' => [[['_route' => 'update_salary_adjustment', '_controller' => 'App\\Controller\\EmployeePayrollController::updateSalaryAdjustment'], null, null, null, false, false, null]],
+        '/update-salary-adjustment-v2' => [[['_route' => 'update_salary_adjustment_v2', '_controller' => 'App\\Controller\\EmployeePayrollController::updateSalaryAdjustmentV2'], null, null, null, false, false, null]],
+        '/generate-all-payroll' => [[['_route' => 'generate_all_employees_payroll', '_controller' => 'App\\Controller\\EmployeePayrollController::generateAllPayroll'], null, null, null, false, false, null]],
+        '/employee/payroll/profile/save' => [[['_route' => 'app_employee_payroll_profile_save', '_controller' => 'App\\Controller\\EmployeePayrollProfileController::saveEmployeePayrollProfile'], null, null, null, false, false, null]],
+        '/form/submit/upload_attachment' => [[['_route' => 'upload_attachment', '_controller' => 'App\\Controller\\EmployeeProfileController::uploadAttachment'], null, null, null, false, false, null]],
+        '/profile-create-leave' => [[['_route' => 'create_leave_request_profile', '_controller' => 'App\\Controller\\EmployeeProfileController::updateEmployeeLeavesProfile'], null, null, null, false, false, null]],
+        '/profile-update-overtime-request' => [
+            [['_route' => 'update_overtime_request', '_controller' => 'App\\Controller\\EmployeeProfileController::updateOvertimeRequest'], null, null, null, false, false, null],
+            [['_route' => 'update_overtime_request_v2', '_controller' => 'App\\Controller\\OvertimeRequestController::updateOvertimeRequestV2'], null, null, null, false, false, null],
+        ],
+        '/profile-create-overtime-request' => [[['_route' => 'create_overtime_request', '_controller' => 'App\\Controller\\EmployeeProfileController::createOvertimeRequest'], null, null, null, false, false, null]],
+        '/accountability-record-create' => [[['_route' => 'create_new_accountability_record', '_controller' => 'App\\Controller\\EmployeeProfileController::createAccountabilityRecord'], null, null, null, false, false, null]],
+        '/update-accountability-record' => [[['_route' => 'update_accountability_record', '_controller' => 'App\\Controller\\EmployeeProfileController::updateAccountabilityRecord'], null, null, null, false, false, null]],
+        '/upload-profile-picture' => [[['_route' => 'upload_profile_picture', '_controller' => 'App\\Controller\\EmployeeProfileController::uploadProfilePicture'], null, null, null, false, false, null]],
+        '/holidays' => [[['_route' => 'app_holiday', '_controller' => 'App\\Controller\\HolidayController::viewHolidays'], null, null, null, true, false, null]],
+        '/holidays/create' => [[['_route' => 'create_holidays_config', '_controller' => 'App\\Controller\\HolidayController::createHolidaysConfig'], null, ['POST' => 0], null, false, false, null]],
+        '/holidays/update' => [[['_route' => 'update_holidays_config', '_controller' => 'App\\Controller\\HolidayController::updateHolidaysConfig'], null, ['POST' => 0], null, false, false, null]],
+        '/holidays/delete' => [[['_route' => 'delete_holidays_config', '_controller' => 'App\\Controller\\HolidayController::deleteHolidaysConfig'], null, ['POST' => 0], null, false, false, null]],
+        '/holidays/bulk-add-holidays' => [[['_route' => 'bulk_add_holidays', '_controller' => 'App\\Controller\\HolidayController::bulkCreateHolidays'], null, ['POST' => 0], null, false, false, null]],
+        '/holidays/yearly-holiday/update' => [[['_route' => 'update_yearly_holidays_config', '_controller' => 'App\\Controller\\HolidayController::yearlyUpdateHolidaysConfig'], null, ['POST' => 0], null, false, false, null]],
+        '/holidays/yearly-holiday/delete' => [[['_route' => 'delete_yearly_holidays_config', '_controller' => 'App\\Controller\\HolidayController::yearlyDeleteHolidaysConfig'], null, ['POST' => 0], null, false, false, null]],
+        '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/validate_login' => [[['_route' => 'validate_login', '_controller' => 'App\\Controller\\HomeController::validateLogin'], null, null, null, false, false, null]],
+        '/revalidate-session' => [[['_route' => 'revalidate_session', '_controller' => 'App\\Controller\\HomeController::revalidateSession'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\HomeController::login'], null, null, null, false, false, null]],
+        '/auth-logout-boxed' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\HomeController::logout'], null, null, null, false, false, null]],
+        '/dashboards-hr' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\HomeController::viewDashboard'], null, null, null, false, false, null]],
+        '/validate_call' => [[['_route' => 'get_token', '_controller' => 'App\\Controller\\HomeController::getToken'], null, null, null, false, false, null]],
+        '/forget_password' => [[['_route' => 'forget_password', '_controller' => 'App\\Controller\\HomeController::forgetPassword'], null, null, null, false, false, null]],
+        '/email_forget_password' => [[['_route' => 'email_forget_password', '_controller' => 'App\\Controller\\HomeController::emailForgetPasswordEmail'], null, null, null, false, false, null]],
+        '/form/submit/reset_password' => [[['_route' => 'form_reset_password', '_controller' => 'App\\Controller\\HomeController::formSubmitResetPassword'], null, null, null, false, false, null]],
+        '/leave-policy' => [[['_route' => 'app_leave_policy', '_controller' => 'App\\Controller\\LeavePolicyController::view_leave_policy'], null, null, null, true, false, null]],
+        '/leave-policy/create' => [[['_route' => 'app_leave_policy_create', '_controller' => 'App\\Controller\\LeavePolicyController::createLeavePolicy'], null, ['POST' => 0], null, false, false, null]],
+        '/leave-policy/update' => [[['_route' => 'app_leave_policy_update', '_controller' => 'App\\Controller\\LeavePolicyController::updateLeavePolicy'], null, ['POST' => 0], null, false, false, null]],
+        '/leave-request' => [[['_route' => 'app_leave_request', '_controller' => 'App\\Controller\\LeaveRequestController::viewLeaveRequests'], null, null, null, true, false, null]],
+        '/leave-request/calendar' => [[['_route' => 'app_leave_calendar', '_controller' => 'App\\Controller\\LeaveRequestController::viewLeaveCalendar'], null, null, null, false, false, null]],
+        '/leave-request/create' => [[['_route' => 'create_leave_request', '_controller' => 'App\\Controller\\LeaveRequestController::updateEmployeeLeaves'], null, ['POST' => 0], null, false, false, null]],
+        '/leave-request/approve' => [[['_route' => 'approve_leave_request', '_controller' => 'App\\Controller\\LeaveRequestController::approveEmployeeLeaves'], null, ['POST' => 0], null, false, false, null]],
+        '/manpower/employee' => [[['_route' => 'app_employee', '_controller' => 'App\\Controller\\ManpowerController::viewEmployees'], null, null, null, false, false, null]],
+        '/manpower/daily-time-records' => [[['_route' => 'app_attendance', '_controller' => 'App\\Controller\\ManpowerController::viewAttendance'], null, null, null, false, false, null]],
+        '/manpower/employee-projects' => [[['_route' => 'app_emp_projects', '_controller' => 'App\\Controller\\ManpowerController::viewEmpProjects'], null, null, null, false, false, null]],
+        '/form/submit_employee' => [[['_route' => 'submit_employee', '_controller' => 'App\\Controller\\ManpowerController::submitEmployeeForm'], null, null, null, false, false, null]],
+        '/form/update/employee' => [[['_route' => 'update_employee', '_controller' => 'App\\Controller\\ManpowerController::updateEmployeeForm'], null, null, null, false, false, null]],
+        '/import/employee201' => [[['_route' => 'import_emp201', '_controller' => 'App\\Controller\\ManpowerController::uploadCsv'], null, null, null, false, false, null]],
+        '/import-csv' => [[['_route' => 'import_csv', '_controller' => 'App\\Controller\\ManpowerController::importCsv'], null, null, null, false, false, null]],
+        '/employee_project/create' => [[['_route' => 'create_employee_project', '_controller' => 'App\\Controller\\ManpowerController::createEmployeeProject'], null, ['POST' => 0], null, false, false, null]],
+        '/form/submit_task' => [[['_route' => 'submit_emp_task', '_controller' => 'App\\Controller\\ManpowerController::submitEmpTask'], null, null, null, false, false, null]],
+        '/form/submit-dtr-task' => [[['_route' => 'submit_emp_dtr_task', '_controller' => 'App\\Controller\\ManpowerController::submitDTREmpTask'], null, null, null, false, false, null]],
+        '/form/archive-employee-project' => [[['_route' => 'archive_emp_proj', '_controller' => 'App\\Controller\\ManpowerController::deleteEmpProj'], null, null, null, false, false, null]],
+        '/form/add-employee' => [[['_route' => 'add_emp_proj', '_controller' => 'App\\Controller\\ManpowerController::addNewEmpProj'], null, null, null, false, false, null]],
+        '/form/unassign-employee' => [[['_route' => 'unassign_emp_proj', '_controller' => 'App\\Controller\\ManpowerController::unassignEmpProj'], null, null, null, false, false, null]],
+        '/manpower/export_xls' => [[['_route' => 'export_xls', '_controller' => 'App\\Controller\\ManpowerController::exportXls'], null, null, null, false, false, null]],
+        '/import-dtr' => [[['_route' => 'import_dtr', '_controller' => 'App\\Controller\\ManpowerController::importDTR'], null, null, null, false, false, null]],
+        '/overtime/request' => [[['_route' => 'app_overtime_request', '_controller' => 'App\\Controller\\OvertimeRequestController::index'], null, null, null, false, false, null]],
+        '/profile-update-overtime-request-status' => [[['_route' => 'update_overtime_request_status', '_controller' => 'App\\Controller\\OvertimeRequestController::updateOvertimeRequest'], null, null, null, false, false, null]],
+        '/pagibig/config' => [[['_route' => 'app_pagibig_config', '_controller' => 'App\\Controller\\PagibigConfigController::index'], null, null, null, false, false, null]],
+        '/pagibig/config/create' => [[['_route' => 'app_pagibig_config_create', '_controller' => 'App\\Controller\\PagibigConfigController::create'], null, ['POST' => 0], null, false, false, null]],
+        '/pagibig/config/update' => [[['_route' => 'app_pagibig_config_edit', '_controller' => 'App\\Controller\\PagibigConfigController::edit'], null, ['POST' => 0], null, false, false, null]],
+        '/pagibig/config/delete' => [[['_route' => 'app_pagibig_config_delete', '_controller' => 'App\\Controller\\PagibigConfigController::delete'], null, ['POST' => 0], null, false, false, null]],
+        '/payroll/payslip/create' => [[['_route' => 'app_create_payslip', '_controller' => 'App\\Controller\\PayrollController::createPayslip'], null, null, null, false, false, null]],
+        '/payroll/payslip' => [[['_route' => 'app_view_payslip', '_controller' => 'App\\Controller\\PayrollController::viewPayslip'], null, null, null, false, false, null]],
+        '/payroll/empPayroll' => [[['_route' => 'app_emp_payroll', '_controller' => 'App\\Controller\\PayrollController::viewEmployeePayroll'], null, null, null, false, false, null]],
+        '/payroll-reports' => [[['_route' => 'app_payroll_reports', '_controller' => 'App\\Controller\\PayrollReportsController::viewPhilHealthConfig'], null, null, null, false, false, null]],
+        '/generate-mandatories-report' => [[['_route' => 'generate_mandatories_report', '_controller' => 'App\\Controller\\PayrollReportsController::exportManpowerReport'], null, null, null, false, false, null]],
+        '/generate-payrollsheet-report' => [[['_route' => 'generate_payroll_sheet', '_controller' => 'App\\Controller\\PayrollReportsController::exportPayrolls'], null, null, null, false, false, null]],
+        '/generate-payrollregister-report' => [[['_route' => 'generate_payroll_register', '_controller' => 'App\\Controller\\PayrollReportsController::exportPayrollsRegister'], null, null, null, false, false, null]],
+        '/generate-taxshield-report' => [[['_route' => 'generate_taxshield_report', '_controller' => 'App\\Controller\\PayrollReportsController::exportTaxShield'], null, null, null, false, false, null]],
+        '/generate-cashadvance-report' => [[['_route' => 'generate_cashadvance_report', '_controller' => 'App\\Controller\\PayrollReportsController::exportCashAdvance'], null, null, null, false, false, null]],
+        '/generate-salaryadjustment-report' => [[['_route' => 'generate_salaryadjustment_report', '_controller' => 'App\\Controller\\PayrollReportsController::exportSalaryAdjustment'], null, null, null, false, false, null]],
+        '/generate-govdues-report' => [[['_route' => 'generate_govdues', '_controller' => 'App\\Controller\\PayrollReportsController::exportGovDues'], null, null, null, false, false, null]],
+        '/generate-company-govdues-report' => [[['_route' => 'generate_company_govdues', '_controller' => 'App\\Controller\\PayrollReportsController::exportCompanyGovDues'], null, null, null, false, false, null]],
+        '/generate-payrollsummary-report' => [[['_route' => 'generate_payrollsummary', '_controller' => 'App\\Controller\\PayrollReportsController::exportPayrollSummary'], null, null, null, false, false, null]],
+        '/philhealth/config' => [[['_route' => 'app_phil_health_config', '_controller' => 'App\\Controller\\PhilHealthConfigController::viewPhilHealthConfig'], null, null, null, false, false, null]],
+        '/create-philhealth/config' => [[['_route' => 'app_phil_create_health_config', '_controller' => 'App\\Controller\\PhilHealthConfigController::createPhilHealthConfig'], null, null, null, false, false, null]],
+        '/update-philhealth/config' => [[['_route' => 'app_phil_update_health_config', '_controller' => 'App\\Controller\\PhilHealthConfigController::updatePhilHealthConfig'], null, null, null, false, false, null]],
+        '/delete-philhealth/config' => [[['_route' => 'app_phil_delete_health_config', '_controller' => 'App\\Controller\\PhilHealthConfigController::deletePhilHealthConfig'], null, null, null, false, false, null]],
+        '/project/subdivisions' => [[['_route' => 'subdivision', '_controller' => 'App\\Controller\\ProjectManagementController::viewSubdivision'], null, null, null, false, false, null]],
+        '/project/project' => [[['_route' => 'project', '_controller' => 'App\\Controller\\ProjectManagementController::viewProject'], null, null, null, false, false, null]],
+        '/project/category' => [[['_route' => 'category', '_controller' => 'App\\Controller\\ProjectManagementController::viewCategory'], null, null, null, false, false, null]],
+        '/project/phase' => [[['_route' => 'phase', '_controller' => 'App\\Controller\\ProjectManagementController::viewPhase'], null, null, null, false, false, null]],
+        '/project/subwizard' => [[['_route' => 'subwizard', '_controller' => 'App\\Controller\\ProjectManagementController::subdivisionWizard'], null, null, null, false, false, null]],
+        '/form/submit_subdivision' => [[['_route' => 'submit_form', '_controller' => 'App\\Controller\\ProjectManagementController::submitSubdivisionForm'], null, null, null, false, false, null]],
+        '/form/submit_project' => [[['_route' => 'submit_project_form', '_controller' => 'App\\Controller\\ProjectManagementController::submitProjectForm'], null, null, null, false, false, null]],
+        '/form/update_project' => [[['_route' => 'update_project_form', '_controller' => 'App\\Controller\\ProjectManagementController::updateProjectForm'], null, null, null, false, false, null]],
+        '/form/delete_project' => [[['_route' => 'delete_project_form', '_controller' => 'App\\Controller\\ProjectManagementController::deleteProjectForm'], null, null, null, false, false, null]],
+        '/form/submit_phase' => [[['_route' => 'submit_phase_form', '_controller' => 'App\\Controller\\ProjectManagementController::submitPhaseForm'], null, null, null, false, false, null]],
+        '/form/update_phase' => [[['_route' => 'update_phase_form', '_controller' => 'App\\Controller\\ProjectManagementController::updatePhaseForm'], null, null, null, false, false, null]],
+        '/form/delete_phase' => [[['_route' => 'delete_phase_form', '_controller' => 'App\\Controller\\ProjectManagementController::deletePhaseForm'], null, null, null, false, false, null]],
+        '/form/update_subdivision' => [[['_route' => 'update_subdivision_form', '_controller' => 'App\\Controller\\ProjectManagementController::updateSubdivision'], null, null, null, false, false, null]],
+        '/project/update_subdivision' => [[['_route' => 'project_update_subdivision_form', '_controller' => 'App\\Controller\\ProjectManagementController::projectUpdateSubdivision'], null, null, null, false, false, null]],
+        '/form/delete_subdivision' => [[['_route' => 'delete_subdivision_form', '_controller' => 'App\\Controller\\ProjectManagementController::deleteSubdivision'], null, null, null, false, false, null]],
+        '/project/delete_subdivision' => [[['_route' => 'project_delete_subdivision_form', '_controller' => 'App\\Controller\\ProjectManagementController::projectDeleteSubdivision'], null, null, null, false, false, null]],
+        '/form/submit_category' => [[['_route' => 'submit_category_form', '_controller' => 'App\\Controller\\ProjectManagementController::submitCategoryForm'], null, null, null, false, false, null]],
+        '/form/update_category' => [[['_route' => 'update_category_form', '_controller' => 'App\\Controller\\ProjectManagementController::updateCategoryForm'], null, null, null, false, false, null]],
+        '/form/delete_category' => [[['_route' => 'delete_category_form', '_controller' => 'App\\Controller\\ProjectManagementController::deleteCategoryForm'], null, null, null, false, false, null]],
+        '/wizard/create_project' => [[['_route' => 'wizard_project', '_controller' => 'App\\Controller\\ProjectManagementController::createWizardProject'], null, null, null, false, false, null]],
+        '/blocks/update_blocks' => [[['_route' => 'update_blocks', '_controller' => 'App\\Controller\\ProjectManagementController::updateBlocks'], null, ['POST' => 0], null, false, false, null]],
+        '/subdivision_profile/select' => [[['_route' => 'select_subdivision_profile', '_controller' => 'App\\Controller\\ProjectManagementController::getSubdivisionProfile'], null, ['POST' => 0], null, false, false, null]],
+        '/form/assign-workers-to-projects' => [[['_route' => 'assign_workers_to_projects', '_controller' => 'App\\Controller\\ProjectManagementController::assignWorkersToProjectsWithTask'], null, null, null, false, false, null]],
+        '/form/update-selected-project' => [[['_route' => 'update_selected_project_workers', '_controller' => 'App\\Controller\\ProjectManagementController::updateSelectedProjectWorkers'], null, null, null, false, false, null]],
+        '/sss/config' => [[['_route' => 'app_sss_config', '_controller' => 'App\\Controller\\SSSConfigController::viewSSSConfig'], null, null, null, false, false, null]],
+        '/create-sss/config' => [[['_route' => 'app_sss_create_config', '_controller' => 'App\\Controller\\SSSConfigController::createSSSConfig'], null, null, null, false, false, null]],
+        '/update-sss/config' => [[['_route' => 'app_sss_update_config', '_controller' => 'App\\Controller\\SSSConfigController::updateSSSConfig'], null, null, null, false, false, null]],
+        '/delete-sss/config' => [[['_route' => 'app_sss_delete_config', '_controller' => 'App\\Controller\\SSSConfigController::deleteSSSConfig'], null, null, null, false, false, null]],
+        '/import-sss/config' => [[['_route' => 'app_sss_import_config', '_controller' => 'App\\Controller\\SSSConfigController::importSSSConfigFile'], null, ['POST' => 0], null, false, false, null]],
+        '/super/admin' => [[['_route' => 'super_sync', '_controller' => 'App\\Controller\\SuperAdminController::viewSyncConn'], null, null, null, false, false, null]],
+        '/super/user-roles' => [[['_route' => 'super_roles', '_controller' => 'App\\Controller\\SuperAdminController::viewRolesAndPermission'], null, null, null, false, false, null]],
+        '/form/update_role_access' => [[['_route' => 'update_role_access', '_controller' => 'App\\Controller\\SuperAdminController::updateModelTypes'], null, null, null, false, false, null]],
+        '/form/delete/user-roles' => [[['_route' => 'delete_user_roles', '_controller' => 'App\\Controller\\SuperAdminController::deleteUserRole'], null, null, null, false, false, null]],
+        '/form/create/user-roles' => [[['_route' => 'submit_user_roles', '_controller' => 'App\\Controller\\SuperAdminController::submitSubdivisionForm'], null, null, null, false, false, null]],
+    ],
+    [ // $regexpList
+        0 => '{^(?'
+                .'|/e(?'
+                    .'|mployee/p(?'
+                        .'|ayroll/profile/(?'
+                            .'|update/([^/]++)(*:57)'
+                            .'|delete/([^/]++)(*:79)'
+                        .')'
+                        .'|rofile/([^/]++)(*:102)'
+                    .')'
+                    .'|rror/([^/]++)(*:124)'
+                .')'
+                .'|/d(?'
+                    .'|ownload/attachment/([^/]++)/([^/]++)(*:174)'
+                    .'|elete/attachment/([^/]++)/([^/]++)(*:216)'
+                .')'
+                .'|/reset_password/([^/]++)(*:249)'
+                .'|/manpower/(?'
+                    .'|attendance/([^/]++)/([^/]++)(*:298)'
+                    .'|employee\\-project(?'
+                        .'|/([^/]++)(*:335)'
+                        .'|\\-json/([^/]++)(*:358)'
+                    .')'
+                .')'
+            .')/?$}sDu',
+    ],
+    [ // $dynamicRoutes
+        57 => [[['_route' => 'app_employee_payroll_profile_update', '_controller' => 'App\\Controller\\EmployeePayrollProfileController::updateEmployeePayrollProfile'], ['id'], null, null, false, true, null]],
+        79 => [[['_route' => 'app_employee_payroll_profile_delete', '_controller' => 'App\\Controller\\EmployeePayrollProfileController::deleteEmployeePayrollProfile'], ['id'], null, null, false, true, null]],
+        102 => [[['_route' => 'employee_profile', '_controller' => 'App\\Controller\\EmployeeProfileController::viewProfile'], ['employee_code'], null, null, false, true, null]],
+        124 => [[['_route' => 'error', '_controller' => 'App\\Controller\\ErrorController::error'], ['statusCode'], null, null, false, true, null]],
+        174 => [[['_route' => 'download_attachment', '_controller' => 'App\\Controller\\EmployeeProfileController::downloadAttachment'], ['employee_code', 'file'], null, null, false, true, null]],
+        216 => [[['_route' => 'delete_attachment', '_controller' => 'App\\Controller\\EmployeeProfileController::deleteAttachment'], ['employee_code', 'id'], null, null, false, true, null]],
+        249 => [[['_route' => 'reset_password', '_controller' => 'App\\Controller\\HomeController::resetPassword'], ['token'], null, null, false, true, null]],
+        298 => [[['_route' => 'app_manpower', '_controller' => 'App\\Controller\\ManpowerController::viewManpower'], ['id', 'emp_code'], null, null, false, true, null]],
+        335 => [[['_route' => 'app_emp_project_id', '_controller' => 'App\\Controller\\ManpowerController::viewEmpProjectsId'], ['id'], null, null, false, true, null]],
+        358 => [
+            [['_route' => 'app_emp_project_json', '_controller' => 'App\\Controller\\ManpowerController::viewEmpProjectsJson'], ['id'], ['GET' => 0], null, false, true, null],
+            [null, null, null, null, false, false, 0],
+        ],
+    ],
+    null, // $checkCondition
+];

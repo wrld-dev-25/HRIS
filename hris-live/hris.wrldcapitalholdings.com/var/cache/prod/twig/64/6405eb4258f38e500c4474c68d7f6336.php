@@ -1,0 +1,65 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* @TwigComponent/Collector/icon.svg */
+class __TwigTemplate_ff64645e8d68e66705f955b3932939db extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        yield "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"
+     stroke-width=\"1.5\" viewBox=\"0 0 24 24\">
+    <path d=\"M12 8.29c0-1.37-.55-2.68-1.54-3.64a5.3 5.3 0 0 0-3.71-1.5H4.12v1.7a5.1 5.1 0 0 0 1.54 3.64A5.3 5.3 0 0 0 9.37 10H12m0 1.47c0-1.3.55-2.55 1.54-3.46a5.45 5.45 0 0 1 3.71-1.44h2.63v.82c0 1.3-.56 2.54-1.54 3.46a5.45 5.45 0 0 1-3.71 1.44H12m0 4.57V7.7M7.11 15 4 18l3.11 3M17 15l3.11 3L17 21\"/>
+</svg>
+";
+        return; yield '';
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName()
+    {
+        return "@TwigComponent/Collector/icon.svg";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo()
+    {
+        return array ();
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("", "@TwigComponent/Collector/icon.svg", "/var/www/hris.wrldcapitalholdings.com/vendor/symfony/ux-twig-component/templates/Collector/icon.svg");
+    }
+}
