@@ -62,6 +62,7 @@ class LeavePolicy
      * @var Collection<int, YearlyEmployeeLeave>
      */
     #[ORM\ManyToMany(targetEntity: YearlyEmployeeLeave::class, mappedBy: 'selected_leave_policies')]
+    #[ORM\OneToMany(mappedBy: 'leavePolicy', targetEntity: YearlyEmployeeLeave::class)]
     private Collection $yearlyEmployeeLeaves;
 
     /**

@@ -22,6 +22,8 @@ class YearlyEmployeeLeave
     #[ORM\JoinColumn(nullable: false)]
     private ?EmployeeRecords $emp_record = null;
 
+    #[ORM\ManyToOne(targetEntity: LeavePolicy::class, inversedBy: 'yearlyEmployeeLeaves')]
+    private ?LeavePolicy $leavePolicy = null;
     /**
      * @var Collection<int, SelectedEmployeeLeaves>
      */

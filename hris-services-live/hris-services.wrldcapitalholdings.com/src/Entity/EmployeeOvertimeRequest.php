@@ -14,8 +14,11 @@ class EmployeeOvertimeRequest
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employeeOvertimeRequests')]
+    #[ORM\ManyToOne(targetEntity: EmployeeRecords::class, inversedBy: 'overtimeRequestsMade')]
     private ?EmployeeRecords $emp_id = null;
+
+    #[ORM\ManyToOne(targetEntity: EmployeeRecords::class, inversedBy: 'employeeOvertimeRequests')]
+    private ?EmployeeRecords $emp_record = null;
 
     #[ORM\ManyToOne(inversedBy: 'employeeOvertimeRequests')]
     private ?WorkerLogs $worker_logs = null;
@@ -23,7 +26,8 @@ class EmployeeOvertimeRequest
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $status = null;
 
-    #[ORM\ManyToOne(inversedBy: 'employeeOvertimeRequests')]
+    
+#[ORM\ManyToOne(targetEntity: EmployeeRecords::class, inversedBy: 'overtimeRequestsApproved')]
     private ?EmployeeRecords $approved_by = null;
 
     #[ORM\Column]

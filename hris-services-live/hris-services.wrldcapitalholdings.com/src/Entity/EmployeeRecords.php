@@ -7,9 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Ignore;
-use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Serializer\Annotation\Groups;
+
 #[ORM\Entity(repositoryClass: EmployeeRecordsRepository::class)]
 class EmployeeRecords
 {
@@ -18,6 +17,16 @@ class EmployeeRecords
     #[ORM\Column]
     #[Groups(['employee','worker','worker_logs','all_worker_logs','emp_projects', 'employee_additional_records', 'employee_attachments'])]
     private ?int $id = null;
+
+    #[ORM\OneToMany(mappedBy: 'emp_id', targetEntity: EmployeeOvertimeRequest::class)]
+    private Collection $overtimeRequestsMade;
+
+        #[ORM\OneToMany(mappedBy: 'updated_by', targetEntity: LeaveRequest::class)]
+    private Collection $leaveRequestsUpdated;
+
+
+    #[ORM\OneToMany(mappedBy: 'approved_by', targetEntity: EmployeeOvertimeRequest::class)]
+    private Collection $overtimeRequestsApproved;
 
     #[ORM\Column(length: 255)]
     #[Groups(['employee','worker','worker_logs','all_worker_logs','emp_projects'])]
@@ -192,14 +201,15 @@ class EmployeeRecords
     /**
      * @var Collection<int, AccountabilityRecords>
      */
-    #[ORM\OneToMany(targetEntity: AccountabilityRecords::class, mappedBy: 'emp_id')]
+    #[ORM\OneToMany(targetEntity: AccountabilityRecords::class, mappedBy: 'employee_record')]
     private Collection $accountabilityRecords;
 
     /**
      * @var Collection<int, EmployeeOvertimeRequest>
      */
-    #[ORM\OneToMany(targetEntity: EmployeeOvertimeRequest::class, mappedBy: 'emp_id')]
+    #[ORM\OneToMany(targetEntity: EmployeeOvertimeRequest::class, mappedBy: 'emp_record')]
     private Collection $employeeOvertimeRequests;
+
 
     /**
      * @var Collection<int, DTRAdjutments>

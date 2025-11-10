@@ -18,10 +18,12 @@ class YearlyEmployeeLeave extends \App\Entity\YearlyEmployeeLeave implements \Do
     private const LAZY_OBJECT_PROPERTY_SCOPES = [
         "\0".parent::class."\0".'emp_record' => [parent::class, 'emp_record', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
+        "\0".parent::class."\0".'leavePolicy' => [parent::class, 'leavePolicy', null],
         "\0".parent::class."\0".'selectedEmployeeLeaves' => [parent::class, 'selectedEmployeeLeaves', null],
         "\0".parent::class."\0".'year' => [parent::class, 'year', null],
         'emp_record' => [parent::class, 'emp_record', null],
         'id' => [parent::class, 'id', null],
+        'leavePolicy' => [parent::class, 'leavePolicy', null],
         'selectedEmployeeLeaves' => [parent::class, 'selectedEmployeeLeaves', null],
         'year' => [parent::class, 'year', null],
     ];

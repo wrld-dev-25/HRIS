@@ -18,6 +18,7 @@ class EmployeeOvertimeRequest extends \App\Entity\EmployeeOvertimeRequest implem
     private const LAZY_OBJECT_PROPERTY_SCOPES = [
         "\0".parent::class."\0".'approved_by' => [parent::class, 'approved_by', null],
         "\0".parent::class."\0".'emp_id' => [parent::class, 'emp_id', null],
+        "\0".parent::class."\0".'emp_record' => [parent::class, 'emp_record', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
         "\0".parent::class."\0".'reason' => [parent::class, 'reason', null],
         "\0".parent::class."\0".'status' => [parent::class, 'status', null],
@@ -25,6 +26,7 @@ class EmployeeOvertimeRequest extends \App\Entity\EmployeeOvertimeRequest implem
         "\0".parent::class."\0".'worker_logs' => [parent::class, 'worker_logs', null],
         'approved_by' => [parent::class, 'approved_by', null],
         'emp_id' => [parent::class, 'emp_id', null],
+        'emp_record' => [parent::class, 'emp_record', null],
         'id' => [parent::class, 'id', null],
         'reason' => [parent::class, 'reason', null],
         'status' => [parent::class, 'status', null],

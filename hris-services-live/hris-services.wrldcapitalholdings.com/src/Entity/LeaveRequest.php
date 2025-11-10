@@ -14,8 +14,8 @@ class LeaveRequest
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'leaveRequests')]
-    #[ORM\JoinColumn(nullable: false)]
+
+    #[ORM\ManyToOne(targetEntity: EmployeeRecords::class, inversedBy: 'leaveRequests')]
     private ?EmployeeRecords $emp_record = null;
 
     #[ORM\ManyToOne(inversedBy: 'leaveRequests')]
@@ -43,7 +43,8 @@ class LeaveRequest
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
-    #[ORM\ManyToOne(inversedBy: 'leaveRequests')]
+  
+#[ORM\ManyToOne(targetEntity: EmployeeRecords::class, inversedBy: 'leaveRequestsUpdated')]
     private ?EmployeeRecords $updated_by = null;
 
     #[ORM\Column]
