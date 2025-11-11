@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelProdContainer::class, false)) {
 
 return new \ContainerZcu1ops\App_KernelProdContainer([
     'container.build_hash' => 'Zcu1ops',
-    'container.build_id' => 'd5675e76',
-    'container.build_time' => 1762736396,
+    'container.build_id' => '5c1655de',
+    'container.build_time' => 1762820964,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerZcu1ops');

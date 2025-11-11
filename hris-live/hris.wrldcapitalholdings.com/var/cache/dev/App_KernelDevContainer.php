@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevContainer::class, false)) {
 
 return new \ContainerEdPv8AT\App_KernelDevContainer([
     'container.build_hash' => 'EdPv8AT',
-    'container.build_id' => '245f2b61',
-    'container.build_time' => 1762735883,
+    'container.build_id' => '86f165ca',
+    'container.build_time' => 1762820991,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerEdPv8AT');

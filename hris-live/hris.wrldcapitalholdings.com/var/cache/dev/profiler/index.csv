@@ -1,7 +1,0 @@
-103b89,127.0.0.1,GET,http://127.0.0.1:8000/,1762735391,,200,request
-fc0dd6,127.0.0.1,GET,http://127.0.0.1:8000/api/notifications/find-by-employee/,1762735451,c941f6,200,request
-c941f6,127.0.0.1,GET,http://127.0.0.1:8000/api/notifications/find-by-employee/,1762735511,,404,request
-c234d4,127.0.0.1,GET,http://127.0.0.1:8000/,1762735571,,200,request
-9d238e,127.0.0.1,GET,http://127.0.0.1:8000/api/notifications/find-by-employee/,1762735632,faf8e0,200,request
-faf8e0,127.0.0.1,GET,http://127.0.0.1:8000/api/notifications/find-by-employee/,1762735692,,404,request
-9c0e55,127.0.0.1,GET,http://127.0.0.1:8000/,1762735945,,200,request
