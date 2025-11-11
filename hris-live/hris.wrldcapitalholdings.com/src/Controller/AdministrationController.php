@@ -34,21 +34,33 @@ class AdministrationController extends AbstractController
     #[Route('management/division', name: 'division')]
     public function viewDivision(Request $request): Response
     {
-        $getEmployees = $this->apiFunctions->getEmployees($request)->toArray();
-        if($this->apiFunctions->getDivision($request)->getStatusCode() === 200){
-            $divisions = $this->apiFunctions->getDivision($request)->toArray();
-            return $this->render('administration/division.html.twig', [
-                'controller_name' => 'AdministrationController',
-                'divisions' => $divisions['division'],
-                'employees_list' => $getEmployees['employees'],
-            ]);
+        // Get employees response and normalize to array
+        $employeesResponse = $this->apiFunctions->getEmployees($request);
+        if (is_array($employeesResponse)) {
+            $employeesList = $employeesResponse['employees'] ?? [];
+        } elseif (method_exists($employeesResponse, 'getStatusCode') && $employeesResponse->getStatusCode() === 200) {
+            $employeesArr = $employeesResponse->toArray();
+            $employeesList = $employeesArr['employees'] ?? [];
         } else {
-            return $this->render('administration/division.html.twig', [
-                'controller_name' => 'AdministrationController',
-                'divisions' => [],
-                'employees_list' => $getEmployees['employees'],
-            ]);
+            $employeesList = [];
         }
+
+        // Get divisions response and normalize to array
+        $divisionResponse = $this->apiFunctions->getDivision($request);
+        if (is_array($divisionResponse)) {
+            $divisions = $divisionResponse['division'] ?? [];
+        } elseif (method_exists($divisionResponse, 'getStatusCode') && $divisionResponse->getStatusCode() === 200) {
+            $divisionsArr = $divisionResponse->toArray();
+            $divisions = $divisionsArr['division'] ?? [];
+        } else {
+            $divisions = [];
+        }
+
+        return $this->render('administration/division.html.twig', [
+            'controller_name' => 'AdministrationController',
+            'divisions' => $divisions,
+            'employees_list' => $employeesList,
+        ]);
     }
 
     #[Route('management/department', name: 'department')]

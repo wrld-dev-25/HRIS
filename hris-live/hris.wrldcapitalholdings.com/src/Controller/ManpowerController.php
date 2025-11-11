@@ -126,13 +126,20 @@ class ManpowerController extends AbstractController
         ]);
     }
 
-    #[Route('manpower/daily-time-records', name: 'app_attendance')]
+   #[Route('manpower/daily-time-records', name: 'app_attendance')]
     public function viewAttendance(Request $request)
     {
-        $workerData = $this->apiFunctions->getWorker($request)->toArray();
-        $projectData = $this->apiFunctions->getProject($request)->toArray();
-        $empProjects = $this->apiFunctions->getEmpProjects($request)->toArray();
-        $employees = $this->apiFunctions->getEmployees($request)->toArray();
+        $workerDataResponse = $this->apiFunctions->getWorker($request);
+        $workerData = is_array($workerDataResponse) ? $workerDataResponse : $workerDataResponse->toArray();
+        
+        $projectDataResponse = $this->apiFunctions->getProject($request);
+        $projectData = is_array($projectDataResponse) ? $projectDataResponse : $projectDataResponse->toArray();
+        
+        $empProjectsResponse = $this->apiFunctions->getEmpProjects($request);
+        $empProjects = is_array($empProjectsResponse) ? $empProjectsResponse : $empProjectsResponse->toArray();
+        
+        $employeesResponse = $this->apiFunctions->getEmployees($request);
+        $employees = is_array($employeesResponse) ? $employeesResponse : $employeesResponse->toArray();
         // $javascriptSnippet = "<script></script>";
         // $statusCode = $request->query->get('status');
         // $content = json_decode($request->query->get('content'));
@@ -147,16 +154,14 @@ class ManpowerController extends AbstractController
         //         showToast('An Error Occured, DTR upload failed', 'bg-red-500');
         //     </script>";
         // }
-
         return $this->render('manpower/apps-attendance.html.twig', [
-            'workers' => $workerData['workers'],
+            'workers' => $workerData['workers'] ?? [],
             'projects' => $projectData['project'] ?? [],
-            'tasks' => $empProjects['employee_projects'],
-            'employee_list' => $employees['employees'],
+            'tasks' => $empProjects['employee_projects'] ?? [],
+            'employee_list' => $employees['employees'] ?? [],
             //'javascriptSnippet' => $javascriptSnippet,
         ]);
     }
-
     #[Route('manpower/employee-projects', name: 'app_emp_projects')]
     public function viewEmpProjects(Request $request)
     {

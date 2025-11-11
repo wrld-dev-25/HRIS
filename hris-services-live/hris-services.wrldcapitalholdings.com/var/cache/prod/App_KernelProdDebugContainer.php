@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelProdDebugContainer::class, false)) {
 
 return new \Container3EnSpyM\App_KernelProdDebugContainer([
     'container.build_hash' => '3EnSpyM',
-    'container.build_id' => '813d8694',
-    'container.build_time' => 1762735783,
+    'container.build_id' => '88028394',
+    'container.build_time' => 1762823286,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'Container3EnSpyM');
