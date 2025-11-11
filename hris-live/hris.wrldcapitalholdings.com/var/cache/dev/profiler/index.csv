@@ -99,3 +99,6 @@ e4dde1,127.0.0.1,GET,http://127.0.0.1:8001/management/department,1762829266,,200
 6dc837,127.0.0.1,GET,http://127.0.0.1:8001/manpower/employee,1762829292,,200,request
 55504b,127.0.0.1,GET,http://127.0.0.1:8001/payroll-reports,1762829533,,200,request
 ef5465,127.0.0.1,GET,http://127.0.0.1:8001/payroll-reports,1762829548,,200,request
+4bdfb7,127.0.0.1,GET,http://127.0.0.1:8001/manpower/daily-time-records,1762829728,,200,request
+ad8168,127.0.0.1,GET,http://127.0.0.1:8001/validate_call,1762829730,,200,request
+ac135d,127.0.0.1,GET,http://127.0.0.1:8001/payroll-reports,1762829741,,200,request
