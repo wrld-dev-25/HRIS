@@ -32,6 +32,14 @@
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" required data-provider="flatpickr" data-date-format="Y-m-d" placeholder="Select Date" data-range-date="true" id="gen_timesheet">
                                 </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                </div>
                                 <div class="flex gap-2 mt-5">
                                     {# <a href="{{path('generate_mandatories_report')}}" target="_blank" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow"><i data-lucide="download" class="inline-block size-4 ltr:mr-1 rtl:ml-1"></i> <span class="align-middle">Generate Report</span></a> #}
                                     {# <div class="relative dropdown">
@@ -63,6 +71,14 @@
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
                                 </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
                                 </div>
@@ -78,6 +94,14 @@
                                 <div class="mt-4">
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
+                                </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
                                 </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
@@ -95,6 +119,14 @@
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
                                 </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
                                 </div>
@@ -110,6 +142,14 @@
                                 <div class="mt-4">
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Startdwadadaw</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" readonly="readonly" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
+                                </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
                                 </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
@@ -127,6 +167,14 @@
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" readonly="readonly" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
                                 </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
                                 </div>
@@ -142,6 +190,14 @@
                                 <div class="mt-4">
                                     <label for="payroll_date_range" class="inline-block mb-2 text-base font-medium">Date Start</label>
                                     <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-provider="flatpickr" data-date-format="Y-m-d" readonly="readonly" placeholder="Select Date" data-range-date="true" id="worker_log_date" required>
+                                </div>
+                                <div class="mt-4">
+                                    <select id="company_id" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                        {% for companyItem in companyList %}
+                                            <option value="{{companyItem.id}}">{{companyItem.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
                                 </div>
                                 <div class="flex gap-2 mt-5">
                                     <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>

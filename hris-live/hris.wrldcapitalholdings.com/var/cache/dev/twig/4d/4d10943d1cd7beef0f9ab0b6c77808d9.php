@@ -164,9 +164,24 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                                         </div>
                                     </div>
                                 </div>
-                                ";
-        // line 119
-        yield "                            </div>
+                                <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
+                                    <div class=\"grow\">
+                                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">10</b> of <b class=\"total-records\">0</b> Results</p>
+                                    </div>
+                                    <div id=\"currentPage\" class=\"hidden\" data-page=\"1\"></div>
+                                    <div id=\"pageLimit\" class=\"hidden\" data-limit=\"10\"></div>
+                                    <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container\">
+                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev disabled\" href=\"javascript:void(0)\">
+                                            <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev
+                                        </a>
+                                        <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\">
+                                        </ul>
+                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next disabled\" href=\"javascript:void(0)\">
+                                            Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div><!--end col-->
                 </div><!--end grid-->
@@ -779,7 +794,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
      */
     public function getDebugInfo()
     {
-        return array (  635 => 512,  336 => 209,  332 => 207,  328 => 206,  324 => 204,  314 => 203,  288 => 186,  284 => 184,  271 => 183,  266 => 182,  264 => 181,  261 => 180,  253 => 174,  247 => 170,  243 => 168,  232 => 167,  227 => 166,  225 => 165,  221 => 163,  211 => 155,  208 => 154,  183 => 131,  169 => 119,  157 => 92,  152 => 75,  120 => 44,  114 => 8,  111 => 7,  101 => 6,  82 => 3,  62 => 2,  39 => 1,);
+        return array (  650 => 512,  351 => 209,  347 => 207,  343 => 206,  339 => 204,  329 => 203,  303 => 186,  299 => 184,  286 => 183,  281 => 182,  279 => 181,  276 => 180,  268 => 174,  262 => 170,  258 => 168,  247 => 167,  242 => 166,  240 => 165,  236 => 163,  226 => 155,  223 => 154,  198 => 131,  157 => 92,  152 => 75,  120 => 44,  114 => 8,  111 => 7,  101 => 6,  82 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -885,23 +900,23 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                                         </div>
                                     </div>
                                 </div>
-                                {# <div class=\"flex flex-col items-center mt-5 md:flex-row\">
-                                    <div class=\"mb-4 grow md:mb-0\">
-                                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b>10</b> of <b>15</b> Results</p>
+                                <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
+                                    <div class=\"grow\">
+                                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">10</b> of <b class=\"total-records\">0</b> Results</p>
                                     </div>
-                                    <div class=\"col-sm-auto mt-sm-0\">
-                                        <div class=\"flex gap-2 pagination-wrap justify-content-center\">
-                                            <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev \" href=\"javascript:void(0)\">
-                                                <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev
-                                            </a>
-                                            <ul class=\"flex flex-wrap items-center gap-2 pagination listjs-pagination\">
-                                            </ul>
-                                            <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next\" href=\"javascript:void(0)\">
-                                                Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i>
-                                            </a>
-                                        </div>
+                                    <div id=\"currentPage\" class=\"hidden\" data-page=\"1\"></div>
+                                    <div id=\"pageLimit\" class=\"hidden\" data-limit=\"10\"></div>
+                                    <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container\">
+                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev disabled\" href=\"javascript:void(0)\">
+                                            <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev
+                                        </a>
+                                        <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\">
+                                        </ul>
+                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next disabled\" href=\"javascript:void(0)\">
+                                            Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i>
+                                        </a>
                                     </div>
-                                </div> #}
+                                </div>
                             </div>
                         </div>
                     </div><!--end col-->
