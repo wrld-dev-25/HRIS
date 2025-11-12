@@ -2,177 +2,108 @@
 
 namespace App\Service;
 
-use Doctrine\Instantiator\Exception\ExceptionInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpClient\HttpClient;
 use InvalidArgumentException;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
-//use Predis\Response\ResponseInterface;
-use Psr\Http\Message\ResponseInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class APIRequest
 {
-    //private $baseURL = "http://127.0.0.1:8000/" ;
-    // private $baseURL = "https://hris-services.wrldcapitalholdings.com/";
-    private $baseURL = "http://127.0.0.1:8000/" ;
-    public function apiRequest($method, $apiurl, $jsonBody, $token)
+    // public string $baseURL = "https://hris-services.wrldcapitalholdings.com/";
+    public string $baseURL = "http://127.0.0.1:8000/";
+
+    public function __construct(private LoggerInterface $logger) {}
+
+    /**
+     * @param string                $method (GET|POST|PUT|PATCH|DELETE)
+     * @param string                $apiurl e.g. 'api/timesheet'
+     * @param array|string|null     $jsonBody (array or json string)
+     * @param string|null           $token
+     * @return ResponseInterface|array
+     */
+    public function apiRequest(string $method, string $apiurl, array|string|null $jsonBody, ?string $token)
     {
         if (!$method || !$apiurl) {
             throw new InvalidArgumentException("All parameters must not be empty");
         }
 
-        $authorizationToken = 'Bearer ' . $token;
+        $method     = strtoupper($method);
         $httpClient = HttpClient::create();
-        $fullUrl = $this->baseURL . $apiurl;
+        $fullUrl    = rtrim($this->baseURL, '/') . '/' . ltrim($apiurl, '/');
+
+        // normalize payload to array
+        $payloadArray = [];
+        if (is_array($jsonBody)) {
+            $payloadArray = $jsonBody;
+        } elseif (is_string($jsonBody) && $jsonBody !== '') {
+            $decoded = json_decode($jsonBody, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $payloadArray = $decoded;
+            }
+        }
+
+        // headers
+        $headers = ['Accept' => 'application/json'];
+        if (!empty($token)) {
+            $headers['Authorization'] = 'Bearer ' . $token;
+        }
+
+        // options
+        $options = [
+            'headers' => $headers,
+            'timeout' => 45,
+        ];
+
+        /**
+         * IMPORTANT:
+         * Some of your endpoints accept GET **with JSON body**.
+         * To satisfy both styles, we send BOTH query and json when method === GET.
+         */
+        if ($method === 'GET') {
+            if (!empty($payloadArray)) {
+                $options['query'] = $payloadArray; // URL params
+                $options['json']  = $payloadArray; // JSON body (for APIs expecting body on GET)
+            }
+        } else {
+            if (!empty($payloadArray)) {
+                $options['json'] = $payloadArray;
+            } elseif (is_string($jsonBody) && $jsonBody !== '') {
+                $options['headers']['Content-Type'] = 'application/json';
+                $options['body'] = $jsonBody;
+            }
+        }
+
+        $this->logger->debug('APIRequest starting', [
+            'method' => $method,
+            'url'    => $fullUrl,
+            'query'  => $options['query'] ?? null,
+            'json'   => $options['json'] ?? null,
+        ]);
 
         try {
-            $response = $httpClient->request($method, $fullUrl, [
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'Authorization' => $authorizationToken,
-                ],
-                'body' => $jsonBody
-            ]);
-
-            // Get the response status code
+            $response   = $httpClient->request($method, $fullUrl, $options);
             $statusCode = $response->getStatusCode();
 
-            // Check if the response status code indicates success
             if ($statusCode >= 200 && $statusCode < 300) {
-                // Success response, return the response object to convert to array later
                 return $response;
             }
 
-            // Handle specific error cases (like 404 or 500) and return a custom error response
             return [
-                'error' => true,
-                'status' => $statusCode,
-                'message' => $response->getContent(false),  // Don't throw an exception, return raw content
+                'error'   => true,
+                'status'  => $statusCode,
+                'message' => $response->getContent(false),
             ];
-
         } catch (ClientExceptionInterface $e) {
-            // Handle 4xx errors like 404, 403, etc.
-            return [
-                'error' => true,
-                'status' => $e->getCode(),
-                'message' => 'Client error: ' . $e->getMessage(),
-            ];
-
+            return ['error' => true, 'status' => $e->getCode(), 'message' => 'Client error: ' . $e->getMessage()];
         } catch (ServerExceptionInterface $e) {
-            // Handle 5xx errors like 500, 503, etc.
-            return [
-                'error' => true,
-                'status' => $e->getCode(),
-                'message' => 'Server error: ' . $e->getMessage(),
-            ];
-
+            return ['error' => true, 'status' => $e->getCode(), 'message' => 'Server error: ' . $e->getMessage()];
         } catch (TransportExceptionInterface $e) {
-            // Handle network issues, DNS resolution failures, etc.
-            return [
-                'error' => true,
-                'status' => 0,  // You can set this to 0 or a custom status for transport errors
-                'message' => 'Network error: ' . $e->getMessage(),
-            ];
-
+            return ['error' => true, 'status' => 0, 'message' => 'Network error: ' . $e->getMessage()];
         } catch (\Exception $e) {
-            // Catch all other exceptions and return a generic error
-            return [
-                'error' => true,
-                'status' => 0,
-                'message' => 'Unexpected error: ' . $e->getMessage(),
-            ];
+            return ['error' => true, 'status' => 0, 'message' => 'Unexpected error: ' . $e->getMessage()];
         }
     }
-    // public function apiRequest($method, $apiurl, $jsonBody, $token)
-    // {
-    //     if(!$method || !$apiurl){
-    //         throw new InvalidArgumentException("All parameters must not be empty");
-    //     }
-    //     $authorizationToken = 'Bearer '.$token;
-    //     $httpClient = HttpClient::create();
-    //     $fullUrl = $this->baseURL.$apiurl;
-    //     $response = $httpClient->request($method, $fullUrl,[
-    //         'headers' => [
-    //             'Content-Type' => 'application/json',
-    //             'Authorization' => $authorizationToken,
-    //         ],
-    //         'body' => $jsonBody
-    //     ]);
-    //     return $response;
-    // }
-    // public function apiRequest($method, $apiurl, $jsonBody, $token)
-    // {
-    //     if (!$method || !$apiurl) {
-    //         throw new InvalidArgumentException("All parameters must not be empty");
-    //     }
-
-    //     $authorizationToken = 'Bearer ' . $token;
-    //     $httpClient = HttpClient::create();
-    //     $fullUrl = $this->baseURL . $apiurl;
-
-    //     try {
-    //         $response = $httpClient->request($method, $fullUrl, [
-    //             'headers' => [
-    //                 'Content-Type' => 'application/json',
-    //                 'Authorization' => $authorizationToken,
-    //             ],
-    //             'body' => $jsonBody
-    //         ]);
-
-    //         // Check if the response status code indicates success
-    //         $statusCode = $response->getStatusCode();
-    //         if ($statusCode >= 200 && $statusCode < 300) {
-    //             // Success response
-    //             return $response;
-    //         } else {
-    //             // Error response: return empty value
-    //             return [];  // Return an empty array or another appropriate value
-    //         }
-    //     } catch (ExceptionInterface $e) {
-    //         // Handle exception and return empty value
-    //         return [];  // Return an empty array or another appropriate value
-    //     }
-    // }
-
-    // private function createEmptyResponse(): ResponseInterface
-    // {
-    //     // Create a ResponseInterface stub with empty content
-    //     return new class implements ResponseInterface {
-    //         public function getStatusCode(): int
-    //         {
-    //             return 0; // Default status code for empty response
-    //         }
-
-    //         public function getHeaders(bool $throw = true): array
-    //         {
-    //             return [];
-    //         }
-
-    //         public function getContent(bool $throw = true): string
-    //         {
-    //             return ''; // Default empty content
-    //         }
-
-    //         public function toArray(bool $throw = true): array
-    //         {
-    //             return []; // Default empty array
-    //         }
-
-    //         public function cancel(): void
-    //         {
-    //             // No-op
-    //         }
-
-    //         // Add any additional methods required by ResponseInterface
-    //         public function getInfo(string $type = null)
-    //         {
-    //             return null;
-    //         }
-    //     };
-    // }
 }
