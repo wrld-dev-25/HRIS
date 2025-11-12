@@ -9,8 +9,8 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev</parameter>
-    <parameter key="kernel.cache_dir">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev</parameter>
+    <parameter key="kernel.build_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -91,12 +91,12 @@
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev</parameter>
+    <parameter key="router.cache_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
     <parameter key="cache.prefix.seed">_C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com.App_KernelDevDebugContainer</parameter>
@@ -112,7 +112,7 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/profiler</parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
@@ -617,7 +617,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/http_cache</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -627,7 +627,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -1468,7 +1468,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1487,7 +1487,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1815,7 +1815,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
@@ -2968,7 +2968,7 @@
       <argument type="service" id=".service_locator.PvoQzFT.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -3120,7 +3120,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/sessions</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3404,7 +3404,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/profiler</argument>
+      <argument>file:C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -3463,7 +3463,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/App_KernelDevDebugContainer</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id=".virtual_request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -3681,7 +3681,7 @@
       <tag name="container.preload" class="Twig\TemplateWrapper"/>
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
-        <argument key="cache">C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/twig</argument>
+        <argument key="cache">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -4220,10 +4220,10 @@
       <argument type="collection">
         <argument key="_default">C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com/public/build/entrypoints.json</argument>
       </argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/webpack_encore.cache.php</argument>
     </service>
     <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/webpack_encore.cache.php</argument>
       <argument type="service" id="cache.webpack_encore"/>
     </service>
     <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
@@ -6883,7 +6883,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>QUhQKZbU19</argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -6893,7 +6893,7 @@
       <argument>VCyOopbo7Q</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6901,7 +6901,7 @@
       <argument>Rf8ZERJejZ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6909,7 +6909,7 @@
       <argument>hliRhubFZY</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6917,14 +6917,14 @@
       <argument>xPGJGtbTyZ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.messenger.restart_workers_signal.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>JYQM8rc35f</argument>
       <argument>0</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -6943,7 +6943,7 @@
       <argument>qOxFmvRUDJ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6951,7 +6951,7 @@
       <argument>4qM+HNCLky</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6959,7 +6959,7 @@
       <argument>WQ5bkGW8t1</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/xampp/htdocs/HRIS/hris-live/hris.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\HRIS\hris-live\hris.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
