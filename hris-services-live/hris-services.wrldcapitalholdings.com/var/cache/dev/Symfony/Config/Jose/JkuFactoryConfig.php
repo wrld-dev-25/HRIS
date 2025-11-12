@@ -14,7 +14,7 @@ class JkuFactoryConfig
     private $client;
     private $requestFactory;
     private $_usedProperties = [];
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -24,10 +24,10 @@ class JkuFactoryConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * HTTP Client used to retrieve key sets.
      * @default null
@@ -38,10 +38,10 @@ class JkuFactoryConfig
     {
         $this->_usedProperties['client'] = true;
         $this->client = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * The request factory service.
      * @default null
@@ -52,10 +52,10 @@ class JkuFactoryConfig
     {
         $this->_usedProperties['requestFactory'] = true;
         $this->requestFactory = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -63,24 +63,24 @@ class JkuFactoryConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('client', $value)) {
             $this->_usedProperties['client'] = true;
             $this->client = $value['client'];
             unset($value['client']);
         }
-
+    
         if (array_key_exists('request_factory', $value)) {
             $this->_usedProperties['requestFactory'] = true;
             $this->requestFactory = $value['request_factory'];
             unset($value['request_factory']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -93,7 +93,7 @@ class JkuFactoryConfig
         if (isset($this->_usedProperties['requestFactory'])) {
             $output['request_factory'] = $this->requestFactory;
         }
-
+    
         return $output;
     }
 

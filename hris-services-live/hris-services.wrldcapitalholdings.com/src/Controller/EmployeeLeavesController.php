@@ -67,8 +67,9 @@ class EmployeeLeavesController extends AbstractController
             $data[] = [
                 'emp_id'            => $employee->getId(),
                 'year'              => $selectedYear,
-                'emp_fullname'      => $employee->getLastName().", ".$employee->getFirstName()." ".$employee->getLastName(),
+                'emp_fullname'      => $employee->getLastName().", ".$employee->getFirstName()." ".$employee->getMiddleName(),
                 'employee_leaves'   => $employeeLeaveData, 
+                'emp_code'          => $employee->getEmployeeCode(),
             ];
         }
 

@@ -162,6 +162,6 @@ class __TwigTemplate_85761995dc4f380106ac0eb706640092 extends Template
 <script src=\"{{ asset('assets/js/api.js') }}\"></script>
 <script src=\"{{ asset('assets/js/permission.js') }}\"></script>
 <script src=\"{{ asset('assets/js/global_functions.js') }}\"></script>
-", "partials/_vendor-scripts.html.twig", "C:\\Users\\SUNIT226\\Desktop\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_vendor-scripts.html.twig");
+", "partials/_vendor-scripts.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_vendor-scripts.html.twig");
     }
 }

@@ -74,6 +74,6 @@ class __TwigTemplate_3c49bebfcfd243d8d03d697f09673f08 extends Template
         return new Source("
 <!DOCTYPE html>
 <html lang=\"en\" class=\"light scroll-smooth group\" data-layout=\"horizontal\" data-sidebar=\"light\" data-sidebar-size=\"lg\" data-mode=\"light\" data-topbar=\"light\" data-skin=\"default\" data-navbar=\"sticky\" data-content=\"fluid\" dir=\"ltr\">
-", "partials/_main.html.twig", "C:\\Users\\SUNIT226\\Desktop\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_main.html.twig");
+", "partials/_main.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_main.html.twig");
     }
 }

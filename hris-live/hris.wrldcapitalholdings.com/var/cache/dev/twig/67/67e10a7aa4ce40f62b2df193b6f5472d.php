@@ -386,6 +386,6 @@ class __TwigTemplate_b7b93aac95d004d544cfd02e714083b8 extends Template
     <script src=\"assets/js/pages/auth-login.init.js\"></script>
     <script src=\"{{ asset('assets/js/app.js') }}\"></script>
     {{ javascriptSnippet|default('')|raw }}
-{% endblock %}", "auth-login-boxed.html.twig", "C:\\Users\\SUNIT226\\Desktop\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\auth-login-boxed.html.twig");
+{% endblock %}", "auth-login-boxed.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\auth-login-boxed.html.twig");
     }
 }

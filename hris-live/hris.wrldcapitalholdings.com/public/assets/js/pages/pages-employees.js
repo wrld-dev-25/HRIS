@@ -638,6 +638,7 @@ $(document).ready(function () {
                     <td class="edit-emp_list px-5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 position"><input type="checkbox" name="rowCheckbox" id="rowCheckbox" class="rowCheckbox"></td>
                     <td class="hidden" id="employeeData" data-value="${employeeData}"></td>
                     <td class="hidden" id="employeeId" data-value="${employee.id}"></td>
+                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 company">${ employee.affiliated_company.code }</td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employeeCode"><h6 class="grow">${employee.employee_code}</h6></td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 name">
                         <div class="flex items-center gap-3">

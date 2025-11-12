@@ -19,7 +19,7 @@ class JweConfig
     private $serializers;
     private $loaders;
     private $_usedProperties = [];
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -31,20 +31,20 @@ class JweConfig
         if (!\is_array($value)) {
             $this->_usedProperties['builders'] = true;
             $this->builders[$name] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->builders[$name]) || !$this->builders[$name] instanceof \Symfony\Config\Jose\Jwe\BuildersConfig) {
             $this->_usedProperties['builders'] = true;
             $this->builders[$name] = new \Symfony\Config\Jose\Jwe\BuildersConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "builders()" has already been initialized. You cannot pass values the second time you call builders().');
         }
-
+    
         return $this->builders[$name];
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -56,20 +56,20 @@ class JweConfig
         if (!\is_array($value)) {
             $this->_usedProperties['decrypters'] = true;
             $this->decrypters[$name] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->decrypters[$name]) || !$this->decrypters[$name] instanceof \Symfony\Config\Jose\Jwe\DecryptersConfig) {
             $this->_usedProperties['decrypters'] = true;
             $this->decrypters[$name] = new \Symfony\Config\Jose\Jwe\DecryptersConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "decrypters()" has already been initialized. You cannot pass values the second time you call decrypters().');
         }
-
+    
         return $this->decrypters[$name];
     }
-
+    
     public function serializers(string $name, array $value = []): \Symfony\Config\Jose\Jwe\SerializersConfig
     {
         if (!isset($this->serializers[$name])) {
@@ -78,10 +78,10 @@ class JweConfig
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "serializers()" has already been initialized. You cannot pass values the second time you call serializers().');
         }
-
+    
         return $this->serializers[$name];
     }
-
+    
     /**
      * @template TValue
      * @param TValue $value
@@ -93,20 +93,20 @@ class JweConfig
         if (!\is_array($value)) {
             $this->_usedProperties['loaders'] = true;
             $this->loaders[$name] = $value;
-
+    
             return $this;
         }
-
+    
         if (!isset($this->loaders[$name]) || !$this->loaders[$name] instanceof \Symfony\Config\Jose\Jwe\LoadersConfig) {
             $this->_usedProperties['loaders'] = true;
             $this->loaders[$name] = new \Symfony\Config\Jose\Jwe\LoadersConfig($value);
         } elseif (1 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "loaders()" has already been initialized. You cannot pass values the second time you call loaders().');
         }
-
+    
         return $this->loaders[$name];
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('builders', $value)) {
@@ -114,30 +114,30 @@ class JweConfig
             $this->builders = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Jose\Jwe\BuildersConfig($v) : $v, $value['builders']);
             unset($value['builders']);
         }
-
+    
         if (array_key_exists('decrypters', $value)) {
             $this->_usedProperties['decrypters'] = true;
             $this->decrypters = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Jose\Jwe\DecryptersConfig($v) : $v, $value['decrypters']);
             unset($value['decrypters']);
         }
-
+    
         if (array_key_exists('serializers', $value)) {
             $this->_usedProperties['serializers'] = true;
             $this->serializers = array_map(fn ($v) => new \Symfony\Config\Jose\Jwe\SerializersConfig($v), $value['serializers']);
             unset($value['serializers']);
         }
-
+    
         if (array_key_exists('loaders', $value)) {
             $this->_usedProperties['loaders'] = true;
             $this->loaders = array_map(fn ($v) => \is_array($v) ? new \Symfony\Config\Jose\Jwe\LoadersConfig($v) : $v, $value['loaders']);
             unset($value['loaders']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -153,7 +153,7 @@ class JweConfig
         if (isset($this->_usedProperties['loaders'])) {
             $output['loaders'] = array_map(fn ($v) => $v instanceof \Symfony\Config\Jose\Jwe\LoadersConfig ? $v->toArray() : $v, $this->loaders);
         }
-
+    
         return $output;
     }
 

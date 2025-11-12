@@ -119,6 +119,6 @@ class __TwigTemplate_278adaeeb3120844042e977774780d1a extends Template
 <link rel=\"stylesheet\" href=\"{{ asset('assets/css/tailwind2.css') }}\">
 <!-- Page Loader Animation CSS -->
 <link rel=\"stylesheet\" href=\"{{ asset('assets/css/page-loader.css') }}\">
-", "partials/_head-css.html.twig", "C:\\Users\\SUNIT226\\Desktop\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_head-css.html.twig");
+", "partials/_head-css.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\_head-css.html.twig");
     }
 }
