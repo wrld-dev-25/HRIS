@@ -1,0 +1,873 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+use Twig\TemplateWrapper;
+
+/* ui-alerts.html.twig */
+class __TwigTemplate_2b053ef5798028a5408afc016081dcc2 extends Template
+{
+    private Source $source;
+    /**
+     * @var array<string, Template>
+     */
+    private array $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'content' => [$this, 'block_content'],
+            'javascripts' => [$this, 'block_javascripts'],
+        ];
+    }
+
+    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
+    {
+        // line 1
+        return "partials/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "ui-alerts.html.twig"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "ui-alerts.html.twig"));
+
+        $this->parent = $this->load("partials/base.html.twig", 1);
+        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 2
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_title(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Alerts";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 4
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_content(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
+        // line 5
+        yield "
+            ";
+        // line 6
+        yield $this->env->getRuntime('Symfony\UX\TwigComponent\Twig\ComponentRuntime')->render("breadcrumb", ["pagetitle" => "UI Elements", "title" => "Alerts"]);
+        yield "
+
+                <div>
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Basic Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm border border-transparent rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 border border-transparent rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 border border-transparent rounded-md bg-orange-50 dark:bg-orange-400/20\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border border-transparent rounded-md text-sky-500 bg-sky-50 dark:bg-sky-400/20\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 border border-transparent rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 border border-transparent rounded-md bg-purple-50 dark:bg-purple-400/20\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm rounded-md text-slate-500 bg-slate-50 dark:bg-zink-400/20 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Outline Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md border-custom-300 text-custom-500 dark:bg-zink-700 dark:border-custom-500\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 bg-white border border-green-300 rounded-md dark:bg-zink-700 dark:border-green-500\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 bg-white border border-orange-300 rounded-md dark:bg-zink-700 dark:border-orange-500\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md border-sky-300 text-sky-500 dark:bg-zink-700\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 bg-white border border-yellow-300 rounded-md dark:bg-zink-700 dark:border-yellow-500\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 bg-white border border-red-300 rounded-md dark:bg-zink-700 dark:border-red-500\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 bg-white border border-purple-300 rounded-md dark:bg-zink-700 dark:border-purple-500\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md text-slate-500 border-slate-300 dark:bg-zink-700 dark:border-zink-500 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Bordered Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm border rounded-md border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border rounded-md border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border rounded-md text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Dismiss Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-500 dark:text-custom-400/50 dark:hover:text-custom-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-green-500 border border-transparent rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-500 dark:text-green-400/50 dark:hover:text-green-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-orange-500 border border-transparent rounded-md bg-orange-50 dark:bg-orange-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-orange-200 transition hover:text-orange-500 dark:text-orange-400/50 dark:hover:text-orange-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-sky-500 bg-sky-50 dark:bg-sky-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-sky-200 hover:text-sky-500 dark:text-sky-400/50 dark:hover:text-sky-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm text-yellow-500 border border-transparent rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-yellow-200 transition hover:text-yellow-500 dark:text-yellow-400/50 dark:hover:text-yellow-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-red-200 transition hover:text-red-500 dark:text-red-400/50 dark:hover:text-red-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-purple-500 border border-transparent rounded-md bg-purple-50 dark:bg-purple-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-purple-200 transition hover:text-purple-500 dark:text-purple-400/50 dark:hover:text-purple-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-slate-500 bg-slate-50 dark:bg-zink-400/20 dark:text-zink-200\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-slate-200 hover:text-slate-500 dark:text-zink-300 dark:hover:text-zink-200\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Alerts with Icon</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md md:items-center bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md md:items-center bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md md:items-center bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md md:items-center bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md md:items-center bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Alerts with Images</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <img src=\"assets/images/users/avatar-1.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md md:items-center bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <img src=\"assets/images/users/avatar-2.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md md:items-center bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <img src=\"assets/images/users/avatar-3.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <img src=\"assets/images/users/avatar-4.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md md:items-center bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <img src=\"assets/images/users/avatar-5.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md md:items-center bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <img src=\"assets/images/users/avatar-6.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md md:items-center bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <img src=\"assets/images/users/avatar-7.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <img src=\"assets/images/users/avatar-8.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Top Border Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-t-2 border-transparent rounded-md border-t-custom-500 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-t-custom-500/50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-500 dark:text-custom-400/50 dark:hover:text-custom-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm text-green-500 border border-t-2 border-transparent rounded-md bg-green-50 border-t-green-300 dark:bg-green-400/20 dark:border-t-green-500/50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-500 dark:text-green-400/50 dark:hover:text-green-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Content Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-3 p-4 text-sm rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <i data-lucide=\"alert-circle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Hi! A simple Primary alert —check it out!</h6>
+                                            <ul class=\"ml-2 list-disc list-inside\">
+                                                <li>Send the billing agreement</li>
+                                                <li>Send over all the documentation.</li>
+                                                <li>Meeting with daron to review the intake form</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class=\"flex gap-3 p-4 text-sm text-green-500 rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <i data-lucide=\"check-circle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Yey! Everything worked! A simple success alert —check it out!</h6>
+                                            <ul class=\"ml-2 list-disc list-inside\">
+                                                <li>Send the billing agreement</li>
+                                                <li>Send over all the documentation.</li>
+                                                <li>Meeting with daron to review the intake form</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-3 p-4 text-sm text-yellow-500 rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <i data-lucide=\"alert-octagon\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Uh oh, something went wrong!</h6>
+                                            <p>Better check yourself, you're not looking too good. Whenever you need to, be sure to use margin utilities to keep things nice and tidy. If your device is running an outdated version of Android, this could be causing the issue. To check for updates, open your device's Settings app, go to System, and then tap System update.</p>
+                                        </div>
+                                    </div>
+                                    <div class=\"flex gap-3 p-4 text-sm text-red-500 rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <i data-lucide=\"alert-triangle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Something is very wrong!</h6>
+                                            <p class=\"mb-2\">Change a few things up and try submitting again. A few informal nouns for a mistake are a blooper, boo-boo, and blunder. We also have hiccup, which means a minor problem/mistake that was corrected.</p>
+                                            <a href=\"#!\" class=\"font-semibold text-red-600 transition hover:text-red-700\">Read More <i data-lucide=\"move-right\" class=\"inline-block h-4 align-middle\"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Fill Solid Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-custom-50 bg-custom-500\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-green-500 border border-transparent rounded-md text-green-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-orange-500 border border-transparent rounded-md text-orange-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-orange-200 transition hover:text-orange-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-sky-50 bg-sky-500\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-sky-200 hover:text-sky-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm bg-yellow-500 border border-transparent rounded-md text-yellow-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-yellow-200 transition hover:text-yellow-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-red-500 border border-transparent rounded-md text-red-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-red-200 transition hover:text-red-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-purple-500 border border-transparent rounded-md text-purple-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-purple-200 transition hover:text-purple-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-slate-50 bg-slate-500 dark:bg-zink-500 dark:border-zink-500 dark:text-zink-100\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-slate-200 hover:text-slate-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                </div>
+        
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 350
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_javascripts(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 351
+        yield "
+<!-- App js -->
+<script src=\"";
+        // line 353
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/app.js"), "html", null, true);
+        yield "\"></script>
+";
+        // line 355
+        yield "
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName(): string
+    {
+        return "ui-alerts.html.twig";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo(): array
+    {
+        return array (  479 => 355,  475 => 353,  471 => 351,  458 => 350,  104 => 6,  101 => 5,  88 => 4,  65 => 2,  42 => 1,);
+    }
+
+    public function getSourceContext(): Source
+    {
+        return new Source("{% extends 'partials/base.html.twig' %}
+{% block title %}Alerts{% endblock %}
+
+{% block content %}
+
+            {{ component('breadcrumb', { pagetitle: 'UI Elements', title: 'Alerts' }) }}
+
+                <div>
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Basic Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm border border-transparent rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 border border-transparent rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 border border-transparent rounded-md bg-orange-50 dark:bg-orange-400/20\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border border-transparent rounded-md text-sky-500 bg-sky-50 dark:bg-sky-400/20\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 border border-transparent rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 border border-transparent rounded-md bg-purple-50 dark:bg-purple-400/20\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm rounded-md text-slate-500 bg-slate-50 dark:bg-zink-400/20 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Outline Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md border-custom-300 text-custom-500 dark:bg-zink-700 dark:border-custom-500\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 bg-white border border-green-300 rounded-md dark:bg-zink-700 dark:border-green-500\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 bg-white border border-orange-300 rounded-md dark:bg-zink-700 dark:border-orange-500\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md border-sky-300 text-sky-500 dark:bg-zink-700\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 bg-white border border-yellow-300 rounded-md dark:bg-zink-700 dark:border-yellow-500\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 bg-white border border-red-300 rounded-md dark:bg-zink-700 dark:border-red-500\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 bg-white border border-purple-300 rounded-md dark:bg-zink-700 dark:border-purple-500\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm bg-white border rounded-md text-slate-500 border-slate-300 dark:bg-zink-700 dark:border-zink-500 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Bordered Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm border rounded-md border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border rounded-md border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"px-4 py-3 text-sm border rounded-md text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Dismiss Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-500 dark:text-custom-400/50 dark:hover:text-custom-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-green-500 border border-transparent rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-500 dark:text-green-400/50 dark:hover:text-green-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-orange-500 border border-transparent rounded-md bg-orange-50 dark:bg-orange-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-orange-200 transition hover:text-orange-500 dark:text-orange-400/50 dark:hover:text-orange-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-sky-500 bg-sky-50 dark:bg-sky-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-sky-200 hover:text-sky-500 dark:text-sky-400/50 dark:hover:text-sky-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm text-yellow-500 border border-transparent rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-yellow-200 transition hover:text-yellow-500 dark:text-yellow-400/50 dark:hover:text-yellow-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-red-200 transition hover:text-red-500 dark:text-red-400/50 dark:hover:text-red-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm text-purple-500 border border-transparent rounded-md bg-purple-50 dark:bg-purple-400/20\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-purple-200 transition hover:text-purple-500 dark:text-purple-400/50 dark:hover:text-purple-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-slate-500 bg-slate-50 dark:bg-zink-400/20 dark:text-zink-200\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-slate-200 hover:text-slate-500 dark:text-zink-300 dark:hover:text-zink-200\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Alerts with Icon</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md md:items-center bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md md:items-center bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md md:items-center bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md md:items-center bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md md:items-center bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-1 px-4 py-3 text-sm border rounded-md md:items-center text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <i data-lucide=\"alert-circle\" class=\"h-4\"></i> <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Alerts with Images</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center border-custom-200 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-custom-500/50\">
+                                        <img src=\"assets/images/users/avatar-1.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-green-500 border border-green-200 rounded-md md:items-center bg-green-50 dark:bg-green-400/20 dark:border-green-500/50\">
+                                        <img src=\"assets/images/users/avatar-2.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-orange-500 border border-orange-200 rounded-md md:items-center bg-orange-50 dark:bg-orange-400/20 dark:border-orange-500/50\">
+                                        <img src=\"assets/images/users/avatar-3.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center border-sky-200 text-sky-500 bg-sky-50 dark:bg-sky-400/20 dark:border-sky-500/50\">
+                                        <img src=\"assets/images/users/avatar-4.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-yellow-500 border border-yellow-200 rounded-md md:items-center bg-yellow-50 dark:bg-yellow-400/20 dark:border-yellow-500/50\">
+                                        <img src=\"assets/images/users/avatar-5.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-red-500 border border-red-200 rounded-md md:items-center bg-red-50 dark:bg-red-400/20 dark:border-red-500/50\">
+                                        <img src=\"assets/images/users/avatar-6.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm text-purple-500 border border-purple-200 rounded-md md:items-center bg-purple-50 dark:bg-purple-400/20 dark:border-purple-500/50\">
+                                        <img src=\"assets/images/users/avatar-7.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"flex gap-2 px-4 py-3 text-sm border rounded-md md:items-center text-slate-500 border-slate-200 bg-slate-50 dark:bg-zink-500/30 dark:border-zink-500 dark:text-zink-200\">
+                                        <img src=\"assets/images/users/avatar-8.png\" alt=\"\" class=\"size-8 rounded-full\">
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Top Border Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-t-2 border-transparent rounded-md border-t-custom-500 text-custom-500 bg-custom-50 dark:bg-custom-400/20 dark:border-t-custom-500/50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-500 dark:text-custom-400/50 dark:hover:text-custom-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm text-green-500 border border-t-2 border-transparent rounded-md bg-green-50 border-t-green-300 dark:bg-green-400/20 dark:border-t-green-500/50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-500 dark:text-green-400/50 dark:hover:text-green-500\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Content Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-3 p-4 text-sm rounded-md text-custom-500 bg-custom-50 dark:bg-custom-400/20\">
+                                        <i data-lucide=\"alert-circle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Hi! A simple Primary alert —check it out!</h6>
+                                            <ul class=\"ml-2 list-disc list-inside\">
+                                                <li>Send the billing agreement</li>
+                                                <li>Send over all the documentation.</li>
+                                                <li>Meeting with daron to review the intake form</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class=\"flex gap-3 p-4 text-sm text-green-500 rounded-md bg-green-50 dark:bg-green-400/20\">
+                                        <i data-lucide=\"check-circle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Yey! Everything worked! A simple success alert —check it out!</h6>
+                                            <ul class=\"ml-2 list-disc list-inside\">
+                                                <li>Send the billing agreement</li>
+                                                <li>Send over all the documentation.</li>
+                                                <li>Meeting with daron to review the intake form</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"flex gap-3 p-4 text-sm text-yellow-500 rounded-md bg-yellow-50 dark:bg-yellow-400/20\">
+                                        <i data-lucide=\"alert-octagon\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Uh oh, something went wrong!</h6>
+                                            <p>Better check yourself, you're not looking too good. Whenever you need to, be sure to use margin utilities to keep things nice and tidy. If your device is running an outdated version of Android, this could be causing the issue. To check for updates, open your device's Settings app, go to System, and then tap System update.</p>
+                                        </div>
+                                    </div>
+                                    <div class=\"flex gap-3 p-4 text-sm text-red-500 rounded-md bg-red-50 dark:bg-red-400/20\">
+                                        <i data-lucide=\"alert-triangle\" class=\"inline-block size-4 mt-0.5 shrink-0\"></i>
+                                        <div>
+                                            <h6 class=\"mb-1\">Something is very wrong!</h6>
+                                            <p class=\"mb-2\">Change a few things up and try submitting again. A few informal nouns for a mistake are a blooper, boo-boo, and blunder. We also have hiccup, which means a minor problem/mistake that was corrected.</p>
+                                            <a href=\"#!\" class=\"font-semibold text-red-600 transition hover:text-red-700\">Read More <i data-lucide=\"move-right\" class=\"inline-block h-4 align-middle\"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <h6 class=\"mb-4 text-15\">Fill Solid Alerts</h6>
+                            <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-2\">
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-custom-50 bg-custom-500\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-custom-200 hover:text-custom-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Custom</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-green-500 border border-transparent rounded-md text-green-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-green-200 transition hover:text-green-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Green</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-orange-500 border border-transparent rounded-md text-orange-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-orange-200 transition hover:text-orange-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Orange</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-sky-50 bg-sky-500\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-sky-200 hover:text-sky-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Sky</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                                <div class=\"flex flex-col gap-3\">
+                                    <div class=\"relative p-3 pr-12 text-sm bg-yellow-500 border border-transparent rounded-md text-yellow-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-yellow-200 transition hover:text-yellow-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Yellow</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-red-500 border border-transparent rounded-md text-red-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-red-200 transition hover:text-red-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Red</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm bg-purple-500 border border-transparent rounded-md text-purple-50\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 text-purple-200 transition hover:text-purple-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Warning</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                    <div class=\"relative p-3 pr-12 text-sm border border-transparent rounded-md text-slate-50 bg-slate-500 dark:bg-zink-500 dark:border-zink-500 dark:text-zink-100\">
+                                        <button class=\"absolute top-0 bottom-0 right-0 p-3 transition text-slate-200 hover:text-slate-100\"><i data-lucide=\"x\" class=\"h-5\"></i></button>
+                                        <span class=\"font-bold\">Light</span> alert! You should check in on some of those fields below.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-->
+                </div>
+        
+
+{% endblock %}
+    
+{% block javascripts %}
+
+<!-- App js -->
+<script src=\"{{ asset('assets/js/app.js') }}\"></script>
+{# <script src=\"assets/js/app.js\"></script> #}
+
+{% endblock %}", "ui-alerts.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\ui-alerts.html.twig");
+    }
+}
