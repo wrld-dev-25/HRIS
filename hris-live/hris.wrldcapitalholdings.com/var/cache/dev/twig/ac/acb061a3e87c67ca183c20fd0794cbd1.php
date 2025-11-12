@@ -263,6 +263,6 @@ class __TwigTemplate_ff0661901f7a96b48458a38bdf72cf37 extends Template
 
         {% endblock %}
     </body>
-</html>", "partials/without-nav.html.twig", "C:\\Users\\SUNIT226\\Desktop\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\without-nav.html.twig");
+</html>", "partials/without-nav.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\partials\\without-nav.html.twig");
     }
 }

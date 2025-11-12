@@ -43,6 +43,12 @@
 
 # Build data
 /build/
+/node_modules/
+/public/build/
+/public/assets/
+/.cache/
+/tmp/
+/dist/
 
 # Composer PHAR
 /composer.phar
@@ -50,5 +56,11 @@
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 
+/.idea/
+/.vscode/
+/.DS_Store
+Thumbs.db
 # Embedded web-server pid file
 /.web-server-pid
+/phpunit.xml
+/phpunit.xml.cache
