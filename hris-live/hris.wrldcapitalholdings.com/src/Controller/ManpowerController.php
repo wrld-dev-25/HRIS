@@ -126,42 +126,46 @@ class ManpowerController extends AbstractController
         ]);
     }
 
-   #[Route('manpower/daily-time-records', name: 'app_attendance')]
-    public function viewAttendance(Request $request)
-    {
-        $workerDataResponse = $this->apiFunctions->getWorker($request);
-        $workerData = is_array($workerDataResponse) ? $workerDataResponse : $workerDataResponse->toArray();
-        
-        $projectDataResponse = $this->apiFunctions->getProject($request);
-        $projectData = is_array($projectDataResponse) ? $projectDataResponse : $projectDataResponse->toArray();
-        
-        $empProjectsResponse = $this->apiFunctions->getEmpProjects($request);
-        $empProjects = is_array($empProjectsResponse) ? $empProjectsResponse : $empProjectsResponse->toArray();
-        
-        $employeesResponse = $this->apiFunctions->getEmployees($request);
-        $employees = is_array($employeesResponse) ? $employeesResponse : $employeesResponse->toArray();
-        // $javascriptSnippet = "<script></script>";
-        // $statusCode = $request->query->get('status');
-        // $content = json_decode($request->query->get('content'));
+#[Route('manpower/daily-time-records', name: 'app_attendance')]
+public function viewAttendance(Request $request)
+{
+    $workerDataResponse = $this->apiFunctions->getWorker($request);
+    $workerData = is_array($workerDataResponse) ? $workerDataResponse : $workerDataResponse->toArray();
+    
+    $projectDataResponse = $this->apiFunctions->getProject($request);
+    $projectData = is_array($projectDataResponse) ? $projectDataResponse : $projectDataResponse->toArray();
+    
+    $empProjectsResponse = $this->apiFunctions->getEmpProjects($request);
+    $empProjects = is_array($empProjectsResponse) ? $empProjectsResponse : $empProjectsResponse->toArray();
+    
+    $page = $request->query->getInt('p', 1);
+    $limit = $request->query->getInt('l', 50);
 
-        // if($statusCode == 200 || $statusCode == 201){
-        //     $javascriptSnippet = "<script>
-        //         showToast('DTR uploaded Successfully','bg-green-500')
-        //     </script>";
-        // }
-        // else if($statusCode >= 300) {
-        //     $javascriptSnippet = "<script>
-        //         showToast('An Error Occured, DTR upload failed', 'bg-red-500');
-        //     </script>";
-        // }
-        return $this->render('manpower/apps-attendance.html.twig', [
-            'workers' => $workerData['workers'] ?? [],
-            'projects' => $projectData['project'] ?? [],
-            'tasks' => $empProjects['employee_projects'] ?? [],
-            'employee_list' => $employees['employees'] ?? [],
-            //'javascriptSnippet' => $javascriptSnippet,
-        ]);
+    // Paginated Employees
+    $employeeAPI = $this->apiFunctions->getEmployeesPaginated($request, $page, $limit);
+
+    if ($employeeAPI->getStatusCode() === 200) {
+        $response = $employeeAPI->toArray();
+        $employees = $response['employees'];
+        $totalEmployees = $response['totalEmployees'];
+    } else {
+        $employees = [];
+        $totalEmployees = 0;
     }
+
+    return $this->render('manpower/apps-attendance.html.twig', [
+        'workers' => $workerData['workers'] ?? [],
+        'projects' => $projectData['project'] ?? [],
+        'tasks' => $empProjects['employee_projects'] ?? [],
+        'employee_list' => $employees ?? [],
+        'currentPage' => $page,
+        'limit' => $limit,
+        'totalPages' => ceil($totalEmployees / $limit),
+        'totalEmployees' => $totalEmployees,
+    ]);
+}
+
+    
     #[Route('manpower/employee-projects', name: 'app_emp_projects')]
     public function viewEmpProjects(Request $request)
     {

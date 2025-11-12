@@ -116,7 +116,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
 
                 <div class=\"grid grid-cols-1 gap-x-5\">
                     ";
-        // line 44
+        // line 12
         yield "                    <div class=\"xl:col-span-9 lg:col-span-12\">
                         <div class=\"card\" id=\"manpowerTable\">
                             <div class=\"card-body\">
@@ -147,40 +147,36 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Check In</th>
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Check Out</th>
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Rendered Hours</th>
-                                                ";
-        // line 75
-        yield "                                            </tr>
+                                            </tr>
                                         </thead>
-                                        <tbody id=\"tbody_worker_logs\">
+                                        <tbody id=\"tbody_worker_logs\" class=\"list\">
                                             ";
-        // line 92
+        // line 46
         yield "                                        </tbody>
                                     </table>
-                                    <div class=\"noresult\" id=\"noresult\">
+                                    <div class=\"noresult\" id=\"noresult\" style=\"display:none;\">
                                         <div class=\"py-6 text-center\">
                                             <i data-lucide=\"search\" class=\"size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20\"></i>
                                             <h5 class=\"mt-2\">Sorry! No Result Found</h5>
-                                            <p class=\"mb-0 text-slate-500 dark:text-zink-200\"</p>
+                                            <p class=\"mb-0 text-slate-500 dark:text-zink-200\">Try a different keyword or date.</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
-                                    <div class=\"grow\">
-                                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">10</b> of <b class=\"total-records\">0</b> Results</p>
-                                    </div>
-                                    <div id=\"currentPage\" class=\"hidden\" data-page=\"1\"></div>
-                                    <div id=\"pageLimit\" class=\"hidden\" data-limit=\"10\"></div>
-                                    <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container\">
-                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev disabled\" href=\"javascript:void(0)\">
-                                            <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev
-                                        </a>
-                                        <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\">
-                                        </ul>
-                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next disabled\" href=\"javascript:void(0)\">
-                                            Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                        <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
+                            <div class=\"grow\">
+                                <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">0</b> of <b class=\"total-records\">0</b> Results</p>
+                            </div>
+                            <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container items-center\">
+                                <a id=\"pagination-first\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500\"> 
+                                    <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevrons-left\"></i> First
+                                </a>
+                                <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\"></ul>
+                                <a id=\"pagination-last\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500\">
+                                    Last <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevrons-right\"></i>
+                                </a>
+                            </div>
+                        </div>
+
                             </div>
                         </div>
                     </div><!--end col-->
@@ -194,7 +190,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 131
+        // line 83
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("import_dtr");
         yield "\" method=\"post\" enctype=\"multipart/form-data\">
                 <div>
@@ -218,12 +214,8 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
             <form id=\"export-form\" action=\"#\" method=\"post\">
                 <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\" id=\"export-form-container\">
                     <div class=\"xl:col-span-12\">
-                    ";
-        // line 154
-        yield "                        <label for=\"filter\" class=\"inline-block mb-2 text-base font-medium\">Filter By</label>
-                        <select name=\"filter\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" ";
-        // line 155
-        yield " id=\"filter\">
+                        <label for=\"filter\" class=\"inline-block mb-2 text-base font-medium\">Filter By</label>
+                        <select name=\"filter\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"filter\">
                             <option value=\"project\">Project</option>
                             <option value=\"task_activity\">Task/Activity</option>
                             <option value=\"employee\">Employee</option>
@@ -231,75 +223,69 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     </div>
                     <div class=\"xl:col-span-12 active\" id=\"project-container\">
                         <label for=\"project\" class=\"inline-block mb-2 text-base font-medium\">Projects</label>
-                        <select name=\"project\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" ";
-        // line 163
-        yield " id=\"project\">
+                        <select name=\"project\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"project\">
                             <option value=\"all\">All Projects</option>
                             ";
-        // line 165
-        if (( !Twig\Extension\CoreExtension::testEmpty((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 165, $this->source); })())) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 165, $this->source); })())) > 0))) {
-            // line 166
+        // line 116
+        if (( !Twig\Extension\CoreExtension::testEmpty((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 116, $this->source); })())) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 116, $this->source); })())) > 0))) {
+            // line 117
             yield "                               ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 166, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["projects"]) || array_key_exists("projects", $context) ? $context["projects"] : (function () { throw new RuntimeError('Variable "projects" does not exist.', 117, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["project"]) {
-                // line 167
+                // line 118
                 yield "                                    <option value=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 167), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["project"], "id", [], "any", false, false, false, 118), "html", null, true);
                 yield "\">";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 167), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["project"], "name", [], "any", false, false, false, 118), "html", null, true);
                 yield "</option>
                                 ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['project'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 168
+            // line 119
             yield " 
                             ";
         }
-        // line 170
+        // line 121
         yield "                        </select>
                     </div>
                     <div class=\"xl:col-span-12 hidden\" id=\"task-activity-container\">
                         <label for=\"task_activity\" class=\"inline-block mb-2 text-base font-medium\">Tasks/Activities</label>
-                        <select name=\"task_activity\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" ";
-        // line 174
-        yield " id=\"task_activity\">
+                        <select name=\"task_activity\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"task_activity\">
                             <option value=\"all\">All Tasks/Activities</option>
                         </select>
                     </div>
                     <div class=\"xl:col-span-12 hidden\" id=\"employee-container\">
                         <label for=\"employee\" class=\"inline-block mb-2 text-base font-medium\">Employees</label>
-                        <select name=\"employee\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" ";
-        // line 180
-        yield " id=\"employee\">
+                        <select name=\"employee\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"employee\">
                             ";
-        // line 181
-        if (( !Twig\Extension\CoreExtension::testEmpty((isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 181, $this->source); })())) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 181, $this->source); })())) > 0))) {
-            // line 182
+        // line 132
+        if (( !Twig\Extension\CoreExtension::testEmpty((isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 132, $this->source); })())) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 132, $this->source); })())) > 0))) {
+            // line 133
             yield "                               ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 182, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["employee_list"]) || array_key_exists("employee_list", $context) ? $context["employee_list"] : (function () { throw new RuntimeError('Variable "employee_list" does not exist.', 133, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["emp_item"]) {
-                // line 183
+                // line 134
                 yield "                                    <option value=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "id", [], "any", false, false, false, 183), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "id", [], "any", false, false, false, 134), "html", null, true);
                 yield "\">";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "last_name", [], "any", false, false, false, 183), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "last_name", [], "any", false, false, false, 134), "html", null, true);
                 yield ", ";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "first_name", [], "any", false, false, false, 183), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["emp_item"], "first_name", [], "any", false, false, false, 134), "html", null, true);
                 yield "</option>
                                 ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['emp_item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 184
+            // line 135
             yield " 
                             ";
         }
-        // line 186
+        // line 137
         yield "                        </select>
                     </div>
                     <div class=\"xl:col-span-12\" id=\"date-container\">
@@ -325,7 +311,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
         return; yield '';
     }
 
-    // line 203
+    // line 154
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -335,67 +321,95 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 204
+        // line 155
         yield "
 <!-- App js -->
 <script src=\"";
-        // line 206
+        // line 157
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/app.js"), "html", null, true);
         yield "\"></script>
 ";
-        // line 207
-        yield ((array_key_exists("javascriptSnippet", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["javascriptSnippet"]) || array_key_exists("javascriptSnippet", $context) ? $context["javascriptSnippet"] : (function () { throw new RuntimeError('Variable "javascriptSnippet" does not exist.', 207, $this->source); })()), "")) : (""));
+        // line 158
+        yield ((array_key_exists("javascriptSnippet", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["javascriptSnippet"]) || array_key_exists("javascriptSnippet", $context) ? $context["javascriptSnippet"] : (function () { throw new RuntimeError('Variable "javascriptSnippet" does not exist.', 158, $this->source); })()), "")) : (""));
         yield "
-";
-        // line 209
-        yield "<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const tableBody = document.getElementById('tbody_worker_logs');
 
-        searchInput.addEventListener('input', function () {
-            const filter = searchInput.value.toLowerCase();
-            const rows = tableBody.getElementsByTagName('tr');
+<!-- Your List.js build (already includes pagination module) -->
+<script src=\"";
+        // line 161
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/libs/list.js/list.min.js"), "html", null, true);
+        yield "\"></script>
 
-            Array.from(rows).forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                let match = false;
+<script>
+  // === List.js setup (global) ===
+  // We initialize early so populateTable() can call reIndex()/update()
+  window.employeeTable = new List('manpowerTable', {
+    valueNames: [
+      'employee_code',
+      'employee_name',
+      'date',
+      'check_in',
+      'check_out',
+      'work_hours',
+    ],
+    // Provide a template so List.js can initialize even when tbody is empty
+    item: `
+      <tr>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 employee_code\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 employee_name\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 date\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 check_in\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 check_out\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 work_hours\"></td>
+      </tr>
+    `,
+    page: 10,
+    pagination: [{
+      paginationClass: 'listjs-pagination',
+      item: \"<li><a class='page' href='javascript:void(0)'></a></li>\"
+    }]
+  });
 
-                Array.from(cells).forEach(cell => {
-                    if (cell.textContent.toLowerCase().includes(filter)) {
-                        match = true;
-                    }
-                });
+  // Counters + no-result toggle each update
+  employeeTable.on('updated', function (list) {
+    var total = list.items.length;
+    var showing = list.visibleItems.length;
+    document.querySelector('.showing').textContent = showing;
+    document.querySelector('.total-records').textContent = total;
 
-                if (match) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+    var nores = document.getElementById('noresult');
+    nores.style.display = (showing === 0) ? 'block' : 'none';
 
-            // Show or hide the no result message
-            const noResult = document.getElementById('noresult');
-            const visibleRows = Array.from(rows).filter(row => row.style.display !== 'none');
-            if (visibleRows.length === 0) {
-                noResult.style.display = 'block';
-            } else {
-                noResult.style.display = 'none';
-            }
-        });
-    });
+    if (window.lucide && lucide.createIcons) lucide.createIcons();
+  });
+
+  // First / Last button handlers
+  function goFirst(){ employeeTable.show(1, employeeTable.page); }
+  function goLast(){
+    var perPage = employeeTable.page;
+    var count = employeeTable.matchingItems.length;
+    if (!count) return;
+    var start = (Math.floor((count - 1) / perPage) * perPage) + 1; // 1-based index
+    employeeTable.show(start, perPage);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var firstBtn = document.getElementById('pagination-first');
+    var lastBtn  = document.getElementById('pagination-last');
+    if (firstBtn) firstBtn.addEventListener('click', function(e){ e.preventDefault(); goFirst(); });
+    if (lastBtn)  lastBtn.addEventListener('click',  function(e){ e.preventDefault(); goLast();  });
+  });
+</script>
+
+<script>
+    // Removed: manual search/filter handler — List.js handles .search input automatically
 
     \$(document).ready(function() {
         const attendanceUrl = \"/manpower/attendance/\";
-        //console.log(attendanceUrl);
         var selectedWorker = \$('#select_worker');
-        
         var today = new Date();
         var fullname = '';
         var position = '';
-        // Get the year, month, and day
         var year = today.getFullYear();
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1
+        var month = String(today.getMonth() + 1).padStart(2, '0');
         var day = String(today.getDate()).padStart(2, '0');
         var formattedDate = year + '-' + month + '-' + day;
         var jsonObject = {
@@ -403,86 +417,66 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
             \"end_date\": formattedDate
         };
         var dateWorker = \$('#worker_log_date').val(formattedDate);
-        
-        //console.log(jsonObject)
+
         selectedWorker.on('change', async function() {
             dateWorker.val('');
-            //console.log('populate table')
             var selectedWorkerId = \$(this).val();
             if(!selectedWorkerId){
                 const tableBody = \$(\"#tbody_worker_logs\");
-                tableBody.empty(); // Clear existing rows
+                tableBody.empty();
                 \$('#emp_profile').hide();
                 \$('#default_card').show();
                 \$('#noresult').show();
+                employeeTable.reIndex();
+                employeeTable.update();
             }
             else{
                 \$('#emp_profile').show();
                 \$('#default_card').hide();
 
                 var worker_log_reposnse = await apiCall('POST', 'api/worker/' + selectedWorkerId, jsonObject);
-                //console.log('API Call Response:', worker_log_reposnse);
-
                 if (!worker_log_reposnse || Object.keys(worker_log_reposnse).length === 0) {
-                    // Check if response is falsy or an empty object
-                    \$('#noresult').show(); // Show your element indicating no data or error
+                    \$('#noresult').show();
+                    \$(\"#tbody_worker_logs\").empty();
+                    employeeTable.reIndex();
+                    employeeTable.update();
                 } else {
-                    \$('#noresult').hide(); // Show your element
-                    populateTable(worker_log_reposnse.worker_logs); // Populate table with received data
+                    \$('#noresult').hide();
+                    populateTable(worker_log_reposnse.worker_logs);
                 }
 
-                
                 var worker_profile = await apiCall('GET', 'api/worker_logs', '');
-                //console.log('API Call Response Worker Profile:', );
-
                 fullname = worker_profile.workers[0].emp_record.first_name + \" \" + worker_profile.workers[0].emp_record.last_name
                 position = worker_profile.workers[0].position;
-
                 updateWorkerDetails(worker_profile.workers[0].empcode, '5 years', '2020-01-01', '5', '218.4 Hrs', '172 Hrs', '24 Hrs', '22.40 Hrs', fullname, position);
             }
-            
         });
 
         dateWorker.on('change', async function() {
-            
             var selectDate = \$(this).val();
-            console.log(selectDate)
-            //console.log(selectDate);
             var dates = selectDate.split(' to ');
-        
             var startDate, endDate;
-            
             if (dates.length === 2) {
-                // If both start and end dates are provided
                 startDate = dates[0].trim();
                 endDate = dates[1].trim();
             } else {
-                // If only start date is provided or invalid format
                 startDate = dates[0].trim();
                 endDate = startDate;
             }
-            
-            // Log the start and end dates
-            //console.log('Start Date:', startDate);
-            //console.log('End Date:', endDate);
-
-            //var selectedWorkerId = \$('#select_worker').val();
             var jsonObject = {
                 \"start_date\": startDate,
                 \"end_date\": endDate
             };
-            //console.log(selectDate)
             var worker_log_reposnse = await apiCall('POST', 'api/worker_logs', jsonObject);
-            //console.log('API Call Response:', worker_log_reposnse);
-
             if (!worker_log_reposnse || Object.keys(worker_log_reposnse.worker_logs).length === 0) {
-                // Check if response is falsy or an empty object
-                \$('#noresult').show(); // Show your element indicating no data or error
+                \$('#noresult').show();
+                \$(\"#tbody_worker_logs\").empty();
+                employeeTable.reIndex();
+                employeeTable.update();
             } else {
-                \$('#noresult').hide(); // Show your element
-                populateTable(worker_log_reposnse.worker_logs); // Populate table with received data
+                \$('#noresult').hide();
+                populateTable(worker_log_reposnse.worker_logs);
             }
-            
         });
 
         /* Exporting of DTR CSV Handler */
@@ -498,18 +492,14 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                 case 'task_activity':
                     \$('#project-container').removeClass('hidden').addClass('active');
                     \$('#task-activity-container').removeClass('hidden').addClass('active');
-                    // Remove the first option
                     \$('#project option:first').remove();
                     break;
                 case 'employee':
                     \$('#employee-container').removeClass('hidden').addClass('active');
-                    // Add the stored option back as the first option
                     \$('#project').prepend(firstOption);
                     break;
-            
                 default:
                     \$('#project-container').removeClass('hidden').addClass('active');
-                    // Add the stored option back as the first option
                     \$('#project').prepend(firstOption);
                     break;
             }
@@ -533,9 +523,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     employee: employee,
                     date: date
                 },
-                xhrFields: {
-                    responseType: 'blob'
-                },
+                xhrFields: { responseType: 'blob' },
                 success: function(data) {
                     var a = document.createElement('a');
                     var url = window.URL.createObjectURL(data);
@@ -554,33 +542,23 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
         /* Exporting of DTR CSV Handler End */
 
         function updateWorkerDetails(employeeId, experience, joiningDate, totalHoursYears, totalHours, regularHours, overtime, holiday, fullname, position) {
-            // Update each <td> element with the provided values
             \$('#employeeId').text(employeeId);
             \$('#emp_name').text(fullname);
             \$('#emp_position').text(position);
-            /*\$('#experience').text(experience);
-            \$('#joiningDate').text(joiningDate);
-            \$('#totalHoursYears').text(totalHoursYears);
-            \$('#totalHours').text(totalHours);
-            \$('#regularHours').text(regularHours);
-            \$('#overtime').text(overtime);
-            \$('#holiday').text(holiday);*/
         }
 
         // Function to populate the table
         function populateTable(data) {
-            //console.log('populate tables')
-            const tableBody = \$(\"#tbody_worker_logs\");
-            tableBody.empty(); // Clear existing rows
+            // Map API rows to List.js values objects
+            var rows = [];
             var total_hours_month = 0;
-            var fullname = '';
+
             data.forEach(item => {
-                var loginDate = '';
-                var logoutDate = '';
+                var loginDate = null;
+                var logoutDate = null;
                 var empLink = attendanceUrl + item.user.id + \"/\" + item.user.emp_record.employee_code;
-                //console.log(data.user)
-                fullname = item.user.emp_record.last_name + ', ' + item.user.emp_record.first_name;
-                // Parse login and logout dates
+                var fullname = item.user.emp_record.last_name + ', ' + item.user.emp_record.first_name;
+
                 if(item.loginDate){
                     loginDate = new Date(item.loginDate.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
                     loginDate = new Date(loginDate.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
@@ -589,180 +567,80 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     logoutDate = new Date(item.logoutDate.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
                     logoutDate = new Date(logoutDate.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
                 }
-                
-                
 
-                // Function to format time in 12-hour format with AM/PM
                 function formatTime(date) {
+                    if (!date || isNaN(date)) return '';
                     const hours = date.getHours();
                     const minutes = date.getMinutes();
                     const ampm = hours >= 12 ? 'PM' : 'AM';
-                    const formattedHours = hours % 12 || 12; // Convert 24-hour to 12-hour format
+                    const formattedHours = hours % 12 || 12;
                     const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
                     return formattedHours + ':' + formattedMinutes + ' ' + ampm;
                 }
-                
                 function formatDate(dateString) {
-                    dateString = new Date(dateString.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
-                    dateString = new Date(dateString.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
-                    //const date = new Date(dateString);
+                    var d = new Date(dateString.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
+                    d = new Date(d.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
                     const options = { day: 'numeric', month: 'short', year: 'numeric', timeZone: \"Asia/Manila\" };
-                    return dateString.toLocaleDateString('en-US', options);
+                    return d.toLocaleDateString('en-US', options);
                 }
-                //console.log('start date sample ')
-                //console.log('start date sample '+ formatDate(item.loginDate))
-                //format day
-                const date = new Date(item.loginDate);
-                const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];
-                const day = days[date.getUTCDay()];
 
-                // Format login and logout times
-                var loginTime = '';
-                var logoutTime = '';
-                if(loginDate){
-                    loginTime = formatTime(loginDate);
-                }
-                if(logoutDate){
-                    logoutTime = formatTime(logoutDate);
-                }
-                
-                // Calculate difference in hours
-                var diffMilliseconds = Math.abs(logoutDate - loginDate);
+                const dForDay = new Date(item.loginDate);
+                const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];
+                const day = days[dForDay.getUTCDay()] || '';
+
+                var loginTime = loginDate ? formatTime(loginDate) : '';
+                var logoutTime = logoutDate ? formatTime(logoutDate) : '';
+
                 var diffHours = 0;
                 if(logoutDate && loginDate){
-                    diffMilliseconds = Math.abs(logoutDate - loginDate);
+                    var diffMilliseconds = Math.abs(logoutDate - loginDate);
                     diffHours = diffMilliseconds / (1000 * 60 * 60);
                 }
-                
-                // Example row construction (adjust as per your table structure)
-                const row = `
-                    <tr>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\"><a class=\"text-custom-500\" href=\"\${empLink}\">\${item.user.emp_record.employee_code}</a></td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${fullname}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">
-                            \${formatDate(item.loginDate)} <span class=\"px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle\">\${day}</span>
-                        </td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${loginTime}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${logoutTime}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${diffHours.toFixed(2)}</td>
-                        ";
-        // line 512
-        yield "                    </tr>
-                `;
                 total_hours_month += parseFloat(diffHours.toFixed(2));
-                tableBody.append(row);
+
+                rows.push({
+                    employee_code: `<a class=\"text-custom-500\" href=\"\${empLink}\">\${item.user.emp_record.employee_code}</a>`,
+                    employee_name: fullname,
+                    date: `\${formatDate(item.loginDate)} <span class=\\\"px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle\\\">\${day}</span>`,
+                    check_in: loginTime,
+                    check_out: logoutTime,
+                    work_hours: diffHours.toFixed(2)
+                });
             });
-            \$('#total_hours_per_month').text('');
-            \$('#total_hours_per_month').text(total_hours_month);
+
+            \$('#total_hours_per_month').text(total_hours_month.toFixed(2));
+
+            // Use List.js API instead of manual DOM to keep pagination state consistent
+            employeeTable.clear();
+            if (rows.length) {
+                employeeTable.add(rows);
+            }
+            employeeTable.show(1, employeeTable.page); // reset to first page after new data
+            employeeTable.update();
         }
 
-        // Event listener for project selection change
+        // Project → Task chaining
         \$('#project').on('change', async function () {
             var project_id = \$(this).val();
             var jsonObject = { \"project_id\": project_id };
-
-            // Call API to get tasks for selected project
             var response = await apiCall('POST', 'api/dtr-filter-by-task', jsonObject);
-
-            // Get the select element and clear existing options
             var \$taskSelect = \$('#task_activity');
-            \$taskSelect.empty(); // Clear existing options
-
-            // Add default option
+            \$taskSelect.empty();
             \$taskSelect.append('<option value=\"all\">All Tasks/Activities</option>');
-
-            // Check if response is not empty and contains tasks
             if (Array.isArray(response) && response.length) {
                 response.forEach(task => {
-                    // Assuming response contains an array of task objects with id and description
                     \$taskSelect.append(`<option value=\"\${task.description}\">\${task.description}</option>`);
                 });
             } else {
-                // Optionally, handle the case where no tasks are available
                 \$taskSelect.append('<option value=\"\">No tasks available</option>');
             }
         });
 
+        // Initial load
         dateWorker.trigger('change');
     });
 </script>
-<script>
-    var options = {
-        valueNames: [
-            'date',
-            'check_in',
-            'check_out',
-            'work_hours',
-        ],
-        page: 10,
-        pagination: true,
-        plugins: [
-            ListPagination({
-                left: 2,
-                right: 2,
-            }),
-        ],
-    };
 
-    var employeeTable = new List(\"manpowerTable\", options).on(\"updated\", function (list) {
-        // noresult show or hidden
-        if (document.getElementsByClassName(\"noresult\") && document.getElementsByClassName(\"noresult\")[0]) {
-            list.matchingItems.length == 0 ?
-                (document.getElementsByClassName(\"noresult\")[0].style.display = \"block\") :
-                (document.getElementsByClassName(\"noresult\")[0].style.display = \"none\");
-
-            if (list.matchingItems.length > 0) {
-                document.getElementsByClassName(\"noresult\")[0].style.display = \"none\";
-            } else {
-                document.getElementsByClassName(\"noresult\")[0].style.display = \"block\";
-            }
-        }
-
-        // length get of list
-        var isFirst = list.i == 1;
-        var isLast = list.i > list.matchingItems.length - list.page;
-
-        // make the Prev and Nex buttons disabled on first and last pages accordingly
-        document.querySelector(\".pagination-prev.disabled\") ?
-            document.querySelector(\".pagination-prev.disabled\").classList.remove(\"disabled\") : \"\";
-        document.querySelector(\".pagination-next.disabled\") ?
-            document.querySelector(\".pagination-next.disabled\").classList.remove(\"disabled\") : \"\";
-        // pagination code
-        if (isFirst) {
-            document.querySelector(\".pagination-prev\").classList.add(\"disabled\");
-        }
-        if (isLast) {
-            document.querySelector(\".pagination-next\").classList.add(\"disabled\");
-        }
-        // show total numbers of records
-        const totalEmploysElement = document.querySelector(\".total-Employs\");
-        const totalRecordsElement = employeeTable.listContainer.querySelector(\".total-records\");
-        const showingElement = employeeTable.listContainer.querySelector(\".showing\");
-
-        if (totalEmploysElement) totalEmploysElement.innerHTML = employeeTable.items.length;
-        if (totalRecordsElement) totalRecordsElement.innerHTML = employeeTable.items.length;
-
-        if (showingElement) showingElement.innerHTML = employeeTable.visibleItems.length;
-        document.querySelector(\".pagination-next\").addEventListener(\"click\", function () {
-            document.querySelector(\".pagination.listjs-pagination\") ?
-                document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\") && document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").nextElementSibling != null ?
-                    document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").nextElementSibling.children[0].click() : \"\" : \"\";
-        });
-
-        document.querySelector(\".pagination-prev\").addEventListener(\"click\", function () {
-            document.querySelector(\".pagination.listjs-pagination\") ?
-                document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\") && document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").previousSibling != null ?
-                    document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").previousSibling.children[0].click() : \"\" : \"\";
-        });
-        // end pagination code
-
-        //lode js in package
-        lucide.createIcons();
-        
-        //collapseComponent();
-        //refreshCallbacks();
-    });
-</script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -794,7 +672,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
      */
     public function getDebugInfo()
     {
-        return array (  650 => 512,  351 => 209,  347 => 207,  343 => 206,  339 => 204,  329 => 203,  303 => 186,  299 => 184,  286 => 183,  281 => 182,  279 => 181,  276 => 180,  268 => 174,  262 => 170,  258 => 168,  247 => 167,  242 => 166,  240 => 165,  236 => 163,  226 => 155,  223 => 154,  198 => 131,  157 => 92,  152 => 75,  120 => 44,  114 => 8,  111 => 7,  101 => 6,  82 => 3,  62 => 2,  39 => 1,);
+        return array (  339 => 161,  333 => 158,  329 => 157,  325 => 155,  315 => 154,  289 => 137,  285 => 135,  272 => 134,  267 => 133,  265 => 132,  252 => 121,  248 => 119,  237 => 118,  232 => 117,  230 => 116,  194 => 83,  155 => 46,  120 => 12,  114 => 8,  111 => 7,  101 => 6,  82 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -809,39 +687,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
             {{ component('breadcrumb', { pagetitle: 'Daily Time Records', title: 'Daily Time Records' }) }}
 
                 <div class=\"grid grid-cols-1 gap-x-5\">
-                    {# <div class=\"md:col-span-2 md:col-span-3\">
-                        <div class=\"card\">
-                            <div class=\"flex items-center gap-2 card-body\">
-                                <div class=\"flex items-center justify-center size-12 rounded-md text-sky-500 bg-sky-100 text-15 dark:bg-sky-500/20 shrink-0\"><i data-lucide=\"clock\"></i></div>
-                                <div class=\"grow\">
-                                    <h5 class=\"mb-1 text-16\"><span class=\"counter-value\" data-target=\"187\">0</span></h5>
-                                    <p class=\"text-slate-500 dark:text-zink-200\">Approved Hours</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class=\"md:col-span-2 md:col-span-3\">
-                        <div class=\"card\">
-                            <div class=\"flex items-center gap-4 card-body\">
-                                <div class=\"flex items-center justify-center size-12 rounded-md text-sky-500 bg-sky-100 text-15 dark:bg-sky-500/20 shrink-0\"><i data-lucide=\"clock\"></i></div>
-                                <div class=\"grow\">
-                                    <h5 class=\"mb-1 text-16\"><span class=\"counter-value\" id=\"total_hours_per_month\">0</span></h5>
-                                    <p class=\"text-slate-500 dark:text-zink-200\">Rendered Hours</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class=\"md:col-span-2 md:col-span-3\">
-                        <div class=\"card\">
-                            <div class=\"flex items-center gap-4 card-body\">
-                                <div class=\"flex items-center justify-center size-12 text-yellow-500 bg-yellow-100 rounded-md text-15 dark:bg-yellow-500/20 shrink-0\"><i data-lucide=\"refresh-cw\"></i></div>
-                                <div class=\"grow\">
-                                    <h5 class=\"mb-1 text-16\"><span class=\"counter-value\" data-target=\"32\">0</span></h5>
-                                    <p class=\"text-slate-500 dark:text-zink-200\">Pending Hours</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col--> #}
+                    {# Metrics cards omitted for brevity #}
                     <div class=\"xl:col-span-9 lg:col-span-12\">
                         <div class=\"card\" id=\"manpowerTable\">
                             <div class=\"card-body\">
@@ -872,51 +718,35 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Check In</th>
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Check Out</th>
                                                 <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Rendered Hours</th>
-                                                {# <th class=\"px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500\">Action</th> #}
                                             </tr>
                                         </thead>
-                                        <tbody id=\"tbody_worker_logs\">
-                                            {# <tr>
-                                                <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">
-                                                    13 Oct, 2023 <span class=\"px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle\">Fri</span>
-                                                </td>
-                                                <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">08:23 AM</td>
-                                                <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">07:00 PM</td>
-                                                <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">8.00 Hrs</td>
-                                                <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">
-                                                    <div class=\"flex gap-2\">
-                                                        <a href=\"#!\" class=\"flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500\"><i data-lucide=\"check\" class=\"size-4\"></i></a>
-                                                        <a href=\"#!\" class=\"flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500\"><i data-lucide=\"x\" class=\"size-4\"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr> #}
+                                        <tbody id=\"tbody_worker_logs\" class=\"list\">
+                                            {# Rows injected via JS #}
                                         </tbody>
                                     </table>
-                                    <div class=\"noresult\" id=\"noresult\">
+                                    <div class=\"noresult\" id=\"noresult\" style=\"display:none;\">
                                         <div class=\"py-6 text-center\">
                                             <i data-lucide=\"search\" class=\"size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20\"></i>
                                             <h5 class=\"mt-2\">Sorry! No Result Found</h5>
-                                            <p class=\"mb-0 text-slate-500 dark:text-zink-200\"</p>
+                                            <p class=\"mb-0 text-slate-500 dark:text-zink-200\">Try a different keyword or date.</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
-                                    <div class=\"grow\">
-                                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">10</b> of <b class=\"total-records\">0</b> Results</p>
-                                    </div>
-                                    <div id=\"currentPage\" class=\"hidden\" data-page=\"1\"></div>
-                                    <div id=\"pageLimit\" class=\"hidden\" data-limit=\"10\"></div>
-                                    <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container\">
-                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev disabled\" href=\"javascript:void(0)\">
-                                            <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev
-                                        </a>
-                                        <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\">
-                                        </ul>
-                                        <a class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next disabled\" href=\"javascript:void(0)\">
-                                            Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                        <div class=\"flex flex-col items-center gap-4 px-4 mt-4 md:flex-row\" id=\"pagination-element\">
+                            <div class=\"grow\">
+                                <p class=\"text-slate-500 dark:text-zink-200\">Showing <b class=\"showing\">0</b> of <b class=\"total-records\">0</b> Results</p>
+                            </div>
+                            <div class=\"col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container items-center\">
+                                <a id=\"pagination-first\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500\"> 
+                                    <i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevrons-left\"></i> First
+                                </a>
+                                <ul class=\"listjs-pagination flex flex-wrap items-center gap-2\"></ul>
+                                <a id=\"pagination-last\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500\">
+                                    Last <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevrons-right\"></i>
+                                </a>
+                            </div>
+                        </div>
+
                             </div>
                         </div>
                     </div><!--end col-->
@@ -951,9 +781,8 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
             <form id=\"export-form\" action=\"#\" method=\"post\">
                 <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\" id=\"export-form-container\">
                     <div class=\"xl:col-span-12\">
-                    {# {{ dump(tasks) }} #}
                         <label for=\"filter\" class=\"inline-block mb-2 text-base font-medium\">Filter By</label>
-                        <select name=\"filter\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" {# data-choices data-choices-sorting-false #} id=\"filter\">
+                        <select name=\"filter\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"filter\">
                             <option value=\"project\">Project</option>
                             <option value=\"task_activity\">Task/Activity</option>
                             <option value=\"employee\">Employee</option>
@@ -961,7 +790,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     </div>
                     <div class=\"xl:col-span-12 active\" id=\"project-container\">
                         <label for=\"project\" class=\"inline-block mb-2 text-base font-medium\">Projects</label>
-                        <select name=\"project\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" {# data-choices data-choices-sorting-false #} id=\"project\">
+                        <select name=\"project\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"project\">
                             <option value=\"all\">All Projects</option>
                             {% if projects is not empty and projects|length > 0 %}
                                {% for project in projects %}
@@ -972,13 +801,13 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     </div>
                     <div class=\"xl:col-span-12 hidden\" id=\"task-activity-container\">
                         <label for=\"task_activity\" class=\"inline-block mb-2 text-base font-medium\">Tasks/Activities</label>
-                        <select name=\"task_activity\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" {# data-choices data-choices-sorting-false #} id=\"task_activity\">
+                        <select name=\"task_activity\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"task_activity\">
                             <option value=\"all\">All Tasks/Activities</option>
                         </select>
                     </div>
                     <div class=\"xl:col-span-12 hidden\" id=\"employee-container\">
                         <label for=\"employee\" class=\"inline-block mb-2 text-base font-medium\">Employees</label>
-                        <select name=\"employee\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" {# data-choices data-choices-sorting-false #} id=\"employee\">
+                        <select name=\"employee\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"employee\">
                             {% if employee_list is not empty and employee_list|length > 0 %}
                                {% for emp_item in employee_list %}
                                     <option value=\"{{ emp_item.id }}\">{{ emp_item.last_name }}, {{ emp_item.first_name }}</option>
@@ -1006,55 +835,81 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
 <!-- App js -->
 <script src=\"{{ asset('assets/js/app.js') }}\"></script>
 {{ javascriptSnippet|default('')|raw }}
-{# <script src=\"assets/js/app.js\"></script> #}
+
+<!-- Your List.js build (already includes pagination module) -->
+<script src=\"{{ asset('assets/libs/list.js/list.min.js') }}\"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const tableBody = document.getElementById('tbody_worker_logs');
+  // === List.js setup (global) ===
+  // We initialize early so populateTable() can call reIndex()/update()
+  window.employeeTable = new List('manpowerTable', {
+    valueNames: [
+      'employee_code',
+      'employee_name',
+      'date',
+      'check_in',
+      'check_out',
+      'work_hours',
+    ],
+    // Provide a template so List.js can initialize even when tbody is empty
+    item: `
+      <tr>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 employee_code\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 employee_name\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 date\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 check_in\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 check_out\"></td>
+        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 work_hours\"></td>
+      </tr>
+    `,
+    page: 10,
+    pagination: [{
+      paginationClass: 'listjs-pagination',
+      item: \"<li><a class='page' href='javascript:void(0)'></a></li>\"
+    }]
+  });
 
-        searchInput.addEventListener('input', function () {
-            const filter = searchInput.value.toLowerCase();
-            const rows = tableBody.getElementsByTagName('tr');
+  // Counters + no-result toggle each update
+  employeeTable.on('updated', function (list) {
+    var total = list.items.length;
+    var showing = list.visibleItems.length;
+    document.querySelector('.showing').textContent = showing;
+    document.querySelector('.total-records').textContent = total;
 
-            Array.from(rows).forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                let match = false;
+    var nores = document.getElementById('noresult');
+    nores.style.display = (showing === 0) ? 'block' : 'none';
 
-                Array.from(cells).forEach(cell => {
-                    if (cell.textContent.toLowerCase().includes(filter)) {
-                        match = true;
-                    }
-                });
+    if (window.lucide && lucide.createIcons) lucide.createIcons();
+  });
 
-                if (match) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+  // First / Last button handlers
+  function goFirst(){ employeeTable.show(1, employeeTable.page); }
+  function goLast(){
+    var perPage = employeeTable.page;
+    var count = employeeTable.matchingItems.length;
+    if (!count) return;
+    var start = (Math.floor((count - 1) / perPage) * perPage) + 1; // 1-based index
+    employeeTable.show(start, perPage);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var firstBtn = document.getElementById('pagination-first');
+    var lastBtn  = document.getElementById('pagination-last');
+    if (firstBtn) firstBtn.addEventListener('click', function(e){ e.preventDefault(); goFirst(); });
+    if (lastBtn)  lastBtn.addEventListener('click',  function(e){ e.preventDefault(); goLast();  });
+  });
+</script>
 
-            // Show or hide the no result message
-            const noResult = document.getElementById('noresult');
-            const visibleRows = Array.from(rows).filter(row => row.style.display !== 'none');
-            if (visibleRows.length === 0) {
-                noResult.style.display = 'block';
-            } else {
-                noResult.style.display = 'none';
-            }
-        });
-    });
+<script>
+    // Removed: manual search/filter handler — List.js handles .search input automatically
 
     \$(document).ready(function() {
         const attendanceUrl = \"/manpower/attendance/\";
-        //console.log(attendanceUrl);
         var selectedWorker = \$('#select_worker');
-        
         var today = new Date();
         var fullname = '';
         var position = '';
-        // Get the year, month, and day
         var year = today.getFullYear();
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1
+        var month = String(today.getMonth() + 1).padStart(2, '0');
         var day = String(today.getDate()).padStart(2, '0');
         var formattedDate = year + '-' + month + '-' + day;
         var jsonObject = {
@@ -1062,86 +917,66 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
             \"end_date\": formattedDate
         };
         var dateWorker = \$('#worker_log_date').val(formattedDate);
-        
-        //console.log(jsonObject)
+
         selectedWorker.on('change', async function() {
             dateWorker.val('');
-            //console.log('populate table')
             var selectedWorkerId = \$(this).val();
             if(!selectedWorkerId){
                 const tableBody = \$(\"#tbody_worker_logs\");
-                tableBody.empty(); // Clear existing rows
+                tableBody.empty();
                 \$('#emp_profile').hide();
                 \$('#default_card').show();
                 \$('#noresult').show();
+                employeeTable.reIndex();
+                employeeTable.update();
             }
             else{
                 \$('#emp_profile').show();
                 \$('#default_card').hide();
 
                 var worker_log_reposnse = await apiCall('POST', 'api/worker/' + selectedWorkerId, jsonObject);
-                //console.log('API Call Response:', worker_log_reposnse);
-
                 if (!worker_log_reposnse || Object.keys(worker_log_reposnse).length === 0) {
-                    // Check if response is falsy or an empty object
-                    \$('#noresult').show(); // Show your element indicating no data or error
+                    \$('#noresult').show();
+                    \$(\"#tbody_worker_logs\").empty();
+                    employeeTable.reIndex();
+                    employeeTable.update();
                 } else {
-                    \$('#noresult').hide(); // Show your element
-                    populateTable(worker_log_reposnse.worker_logs); // Populate table with received data
+                    \$('#noresult').hide();
+                    populateTable(worker_log_reposnse.worker_logs);
                 }
 
-                
                 var worker_profile = await apiCall('GET', 'api/worker_logs', '');
-                //console.log('API Call Response Worker Profile:', );
-
                 fullname = worker_profile.workers[0].emp_record.first_name + \" \" + worker_profile.workers[0].emp_record.last_name
                 position = worker_profile.workers[0].position;
-
                 updateWorkerDetails(worker_profile.workers[0].empcode, '5 years', '2020-01-01', '5', '218.4 Hrs', '172 Hrs', '24 Hrs', '22.40 Hrs', fullname, position);
             }
-            
         });
 
         dateWorker.on('change', async function() {
-            
             var selectDate = \$(this).val();
-            console.log(selectDate)
-            //console.log(selectDate);
             var dates = selectDate.split(' to ');
-        
             var startDate, endDate;
-            
             if (dates.length === 2) {
-                // If both start and end dates are provided
                 startDate = dates[0].trim();
                 endDate = dates[1].trim();
             } else {
-                // If only start date is provided or invalid format
                 startDate = dates[0].trim();
                 endDate = startDate;
             }
-            
-            // Log the start and end dates
-            //console.log('Start Date:', startDate);
-            //console.log('End Date:', endDate);
-
-            //var selectedWorkerId = \$('#select_worker').val();
             var jsonObject = {
                 \"start_date\": startDate,
                 \"end_date\": endDate
             };
-            //console.log(selectDate)
             var worker_log_reposnse = await apiCall('POST', 'api/worker_logs', jsonObject);
-            //console.log('API Call Response:', worker_log_reposnse);
-
             if (!worker_log_reposnse || Object.keys(worker_log_reposnse.worker_logs).length === 0) {
-                // Check if response is falsy or an empty object
-                \$('#noresult').show(); // Show your element indicating no data or error
+                \$('#noresult').show();
+                \$(\"#tbody_worker_logs\").empty();
+                employeeTable.reIndex();
+                employeeTable.update();
             } else {
-                \$('#noresult').hide(); // Show your element
-                populateTable(worker_log_reposnse.worker_logs); // Populate table with received data
+                \$('#noresult').hide();
+                populateTable(worker_log_reposnse.worker_logs);
             }
-            
         });
 
         /* Exporting of DTR CSV Handler */
@@ -1157,18 +992,14 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                 case 'task_activity':
                     \$('#project-container').removeClass('hidden').addClass('active');
                     \$('#task-activity-container').removeClass('hidden').addClass('active');
-                    // Remove the first option
                     \$('#project option:first').remove();
                     break;
                 case 'employee':
                     \$('#employee-container').removeClass('hidden').addClass('active');
-                    // Add the stored option back as the first option
                     \$('#project').prepend(firstOption);
                     break;
-            
                 default:
                     \$('#project-container').removeClass('hidden').addClass('active');
-                    // Add the stored option back as the first option
                     \$('#project').prepend(firstOption);
                     break;
             }
@@ -1192,9 +1023,7 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     employee: employee,
                     date: date
                 },
-                xhrFields: {
-                    responseType: 'blob'
-                },
+                xhrFields: { responseType: 'blob' },
                 success: function(data) {
                     var a = document.createElement('a');
                     var url = window.URL.createObjectURL(data);
@@ -1213,33 +1042,23 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
         /* Exporting of DTR CSV Handler End */
 
         function updateWorkerDetails(employeeId, experience, joiningDate, totalHoursYears, totalHours, regularHours, overtime, holiday, fullname, position) {
-            // Update each <td> element with the provided values
             \$('#employeeId').text(employeeId);
             \$('#emp_name').text(fullname);
             \$('#emp_position').text(position);
-            /*\$('#experience').text(experience);
-            \$('#joiningDate').text(joiningDate);
-            \$('#totalHoursYears').text(totalHoursYears);
-            \$('#totalHours').text(totalHours);
-            \$('#regularHours').text(regularHours);
-            \$('#overtime').text(overtime);
-            \$('#holiday').text(holiday);*/
         }
 
         // Function to populate the table
         function populateTable(data) {
-            //console.log('populate tables')
-            const tableBody = \$(\"#tbody_worker_logs\");
-            tableBody.empty(); // Clear existing rows
+            // Map API rows to List.js values objects
+            var rows = [];
             var total_hours_month = 0;
-            var fullname = '';
+
             data.forEach(item => {
-                var loginDate = '';
-                var logoutDate = '';
+                var loginDate = null;
+                var logoutDate = null;
                 var empLink = attendanceUrl + item.user.id + \"/\" + item.user.emp_record.employee_code;
-                //console.log(data.user)
-                fullname = item.user.emp_record.last_name + ', ' + item.user.emp_record.first_name;
-                // Parse login and logout dates
+                var fullname = item.user.emp_record.last_name + ', ' + item.user.emp_record.first_name;
+
                 if(item.loginDate){
                     loginDate = new Date(item.loginDate.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
                     loginDate = new Date(loginDate.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
@@ -1248,184 +1067,81 @@ class __TwigTemplate_c14ae61cf9a7e6e918b9d29b34e1f7ac extends Template
                     logoutDate = new Date(item.logoutDate.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
                     logoutDate = new Date(logoutDate.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
                 }
-                
-                
 
-                // Function to format time in 12-hour format with AM/PM
                 function formatTime(date) {
+                    if (!date || isNaN(date)) return '';
                     const hours = date.getHours();
                     const minutes = date.getMinutes();
                     const ampm = hours >= 12 ? 'PM' : 'AM';
-                    const formattedHours = hours % 12 || 12; // Convert 24-hour to 12-hour format
+                    const formattedHours = hours % 12 || 12;
                     const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
                     return formattedHours + ':' + formattedMinutes + ' ' + ampm;
                 }
-                
                 function formatDate(dateString) {
-                    dateString = new Date(dateString.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
-                    dateString = new Date(dateString.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
-                    //const date = new Date(dateString);
+                    var d = new Date(dateString.replace(/-/g, '/').replace('T', ' ').replace(/\\+.*/, ''));
+                    d = new Date(d.toLocaleString(\"en-US\", {timeZone: \"Asia/Manila\"}));
                     const options = { day: 'numeric', month: 'short', year: 'numeric', timeZone: \"Asia/Manila\" };
-                    return dateString.toLocaleDateString('en-US', options);
+                    return d.toLocaleDateString('en-US', options);
                 }
-                //console.log('start date sample ')
-                //console.log('start date sample '+ formatDate(item.loginDate))
-                //format day
-                const date = new Date(item.loginDate);
-                const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];
-                const day = days[date.getUTCDay()];
 
-                // Format login and logout times
-                var loginTime = '';
-                var logoutTime = '';
-                if(loginDate){
-                    loginTime = formatTime(loginDate);
-                }
-                if(logoutDate){
-                    logoutTime = formatTime(logoutDate);
-                }
-                
-                // Calculate difference in hours
-                var diffMilliseconds = Math.abs(logoutDate - loginDate);
+                const dForDay = new Date(item.loginDate);
+                const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];
+                const day = days[dForDay.getUTCDay()] || '';
+
+                var loginTime = loginDate ? formatTime(loginDate) : '';
+                var logoutTime = logoutDate ? formatTime(logoutDate) : '';
+
                 var diffHours = 0;
                 if(logoutDate && loginDate){
-                    diffMilliseconds = Math.abs(logoutDate - loginDate);
+                    var diffMilliseconds = Math.abs(logoutDate - loginDate);
                     diffHours = diffMilliseconds / (1000 * 60 * 60);
                 }
-                
-                // Example row construction (adjust as per your table structure)
-                const row = `
-                    <tr>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\"><a class=\"text-custom-500\" href=\"\${empLink}\">\${item.user.emp_record.employee_code}</a></td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${fullname}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">
-                            \${formatDate(item.loginDate)} <span class=\"px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle\">\${day}</span>
-                        </td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${loginTime}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${logoutTime}</td>
-                        <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">\${diffHours.toFixed(2)}</td>
-                        {# <td class=\"px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500\">
-                            <div class=\"flex gap-2\">
-                                <a href=\"#!\" class=\"flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500\"><i data-lucide=\"check\" class=\"size-4\"></i></a>
-                                <a href=\"#!\" class=\"flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500\"><i data-lucide=\"x\" class=\"size-4\"></i></a>
-                            </div>
-                        </td> #}
-                    </tr>
-                `;
                 total_hours_month += parseFloat(diffHours.toFixed(2));
-                tableBody.append(row);
+
+                rows.push({
+                    employee_code: `<a class=\"text-custom-500\" href=\"\${empLink}\">\${item.user.emp_record.employee_code}</a>`,
+                    employee_name: fullname,
+                    date: `\${formatDate(item.loginDate)} <span class=\\\"px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle\\\">\${day}</span>`,
+                    check_in: loginTime,
+                    check_out: logoutTime,
+                    work_hours: diffHours.toFixed(2)
+                });
             });
-            \$('#total_hours_per_month').text('');
-            \$('#total_hours_per_month').text(total_hours_month);
+
+            \$('#total_hours_per_month').text(total_hours_month.toFixed(2));
+
+            // Use List.js API instead of manual DOM to keep pagination state consistent
+            employeeTable.clear();
+            if (rows.length) {
+                employeeTable.add(rows);
+            }
+            employeeTable.show(1, employeeTable.page); // reset to first page after new data
+            employeeTable.update();
         }
 
-        // Event listener for project selection change
+        // Project → Task chaining
         \$('#project').on('change', async function () {
             var project_id = \$(this).val();
             var jsonObject = { \"project_id\": project_id };
-
-            // Call API to get tasks for selected project
             var response = await apiCall('POST', 'api/dtr-filter-by-task', jsonObject);
-
-            // Get the select element and clear existing options
             var \$taskSelect = \$('#task_activity');
-            \$taskSelect.empty(); // Clear existing options
-
-            // Add default option
+            \$taskSelect.empty();
             \$taskSelect.append('<option value=\"all\">All Tasks/Activities</option>');
-
-            // Check if response is not empty and contains tasks
             if (Array.isArray(response) && response.length) {
                 response.forEach(task => {
-                    // Assuming response contains an array of task objects with id and description
                     \$taskSelect.append(`<option value=\"\${task.description}\">\${task.description}</option>`);
                 });
             } else {
-                // Optionally, handle the case where no tasks are available
                 \$taskSelect.append('<option value=\"\">No tasks available</option>');
             }
         });
 
+        // Initial load
         dateWorker.trigger('change');
     });
 </script>
-<script>
-    var options = {
-        valueNames: [
-            'date',
-            'check_in',
-            'check_out',
-            'work_hours',
-        ],
-        page: 10,
-        pagination: true,
-        plugins: [
-            ListPagination({
-                left: 2,
-                right: 2,
-            }),
-        ],
-    };
 
-    var employeeTable = new List(\"manpowerTable\", options).on(\"updated\", function (list) {
-        // noresult show or hidden
-        if (document.getElementsByClassName(\"noresult\") && document.getElementsByClassName(\"noresult\")[0]) {
-            list.matchingItems.length == 0 ?
-                (document.getElementsByClassName(\"noresult\")[0].style.display = \"block\") :
-                (document.getElementsByClassName(\"noresult\")[0].style.display = \"none\");
-
-            if (list.matchingItems.length > 0) {
-                document.getElementsByClassName(\"noresult\")[0].style.display = \"none\";
-            } else {
-                document.getElementsByClassName(\"noresult\")[0].style.display = \"block\";
-            }
-        }
-
-        // length get of list
-        var isFirst = list.i == 1;
-        var isLast = list.i > list.matchingItems.length - list.page;
-
-        // make the Prev and Nex buttons disabled on first and last pages accordingly
-        document.querySelector(\".pagination-prev.disabled\") ?
-            document.querySelector(\".pagination-prev.disabled\").classList.remove(\"disabled\") : \"\";
-        document.querySelector(\".pagination-next.disabled\") ?
-            document.querySelector(\".pagination-next.disabled\").classList.remove(\"disabled\") : \"\";
-        // pagination code
-        if (isFirst) {
-            document.querySelector(\".pagination-prev\").classList.add(\"disabled\");
-        }
-        if (isLast) {
-            document.querySelector(\".pagination-next\").classList.add(\"disabled\");
-        }
-        // show total numbers of records
-        const totalEmploysElement = document.querySelector(\".total-Employs\");
-        const totalRecordsElement = employeeTable.listContainer.querySelector(\".total-records\");
-        const showingElement = employeeTable.listContainer.querySelector(\".showing\");
-
-        if (totalEmploysElement) totalEmploysElement.innerHTML = employeeTable.items.length;
-        if (totalRecordsElement) totalRecordsElement.innerHTML = employeeTable.items.length;
-
-        if (showingElement) showingElement.innerHTML = employeeTable.visibleItems.length;
-        document.querySelector(\".pagination-next\").addEventListener(\"click\", function () {
-            document.querySelector(\".pagination.listjs-pagination\") ?
-                document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\") && document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").nextElementSibling != null ?
-                    document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").nextElementSibling.children[0].click() : \"\" : \"\";
-        });
-
-        document.querySelector(\".pagination-prev\").addEventListener(\"click\", function () {
-            document.querySelector(\".pagination.listjs-pagination\") ?
-                document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\") && document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").previousSibling != null ?
-                    document.querySelector(\".pagination.listjs-pagination\").querySelector(\".active\").previousSibling.children[0].click() : \"\" : \"\";
-        });
-        // end pagination code
-
-        //lode js in package
-        lucide.createIcons();
-        
-        //collapseComponent();
-        //refreshCallbacks();
-    });
-</script>
-{% endblock %}", "manpower/apps-attendance.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\manpower\\apps-attendance.html.twig");
+{% endblock %}
+", "manpower/apps-attendance.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\manpower\\apps-attendance.html.twig");
     }
 }

@@ -13,7 +13,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* components/breadcrumb.html.twig */
+/* components/Breadcrumb.html.twig */
 class __TwigTemplate_c0e38b9a071e08b167a47eb172b2d7e9 extends Template
 {
     private $source;
@@ -35,10 +35,10 @@ class __TwigTemplate_c0e38b9a071e08b167a47eb172b2d7e9 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "components/breadcrumb.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "components/Breadcrumb.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "components/breadcrumb.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "components/Breadcrumb.html.twig"));
 
         // line 1
         yield "<!-- start page title -->
@@ -81,7 +81,7 @@ class __TwigTemplate_c0e38b9a071e08b167a47eb172b2d7e9 extends Template
      */
     public function getTemplateName()
     {
-        return "components/breadcrumb.html.twig";
+        return "components/Breadcrumb.html.twig";
     }
 
     /**
@@ -116,6 +116,6 @@ class __TwigTemplate_c0e38b9a071e08b167a47eb172b2d7e9 extends Template
         </li>
     </ul>
 </div>
-<!-- end page title -->", "components/breadcrumb.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\components\\Breadcrumb.html.twig");
+<!-- end page title -->", "components/Breadcrumb.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\components\\Breadcrumb.html.twig");
     }
 }

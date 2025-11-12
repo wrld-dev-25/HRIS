@@ -88,444 +88,395 @@ class __TwigTemplate_7fb235df56b11b14c391ba620a0ea599 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 5
-        yield "
-            ";
-        // line 6
+        yield "  ";
         yield $this->extensions['Symfony\UX\TwigComponent\Twig\ComponentExtension']->render("breadcrumb", ["pagetitle" => "Payroll Administration", "title" => "Payroll Reports"]);
         yield "
 
-                <div class=\"grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-4\">
-                    ";
-        // line 25
-        yield "                    <div class=\"card\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Timesheet</a></h5>
-                            </div>
-                            <form action=\"";
-        // line 30
+  <div class=\"grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-4\">
+
+    ";
+        // line 10
+        yield "    <div class=\"card\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Timesheet</a></h5>
+        </div>
+        <form action=\"";
+        // line 15
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_mandatories_report");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"gen_timesheet\">
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"gen_timesheet\" placeholder=\"Select Date\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_timesheet\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 24
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 24, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
+            // line 25
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 25), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 25), "html", null, true);
+            yield "</option>
+              ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 27
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
         // line 37
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 37, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 38
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 38), "html", null, true);
-            yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 38), "html", null, true);
-            yield "</option>
-                                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    ";
-        // line 45
-        yield "                                    ";
-        // line 59
-        yield "                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Payroll Sheet</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 69
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Payroll Sheet</a></h5>
+        </div>
+        <form action=\"";
+        // line 42
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_payroll_sheet");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 76
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_sheet_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollsheet\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 51
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 76, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 51, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 77
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 77), "html", null, true);
+            // line 52
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 52), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 77), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 52), "html", null, true);
             yield "</option>
-                                        ";
+              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Payroll Register Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 93
+        // line 54
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 64
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Payroll Register Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 69
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_payroll_register");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 100
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_register_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollregister\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 78
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 100, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 78, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 101
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 101), "html", null, true);
+            // line 79
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 79), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 101), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 79), "html", null, true);
             yield "</option>
-                                        ";
+              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 103
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Payroll Summary</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 117
+        // line 81
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 91
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Payroll Summary</a></h5>
+        </div>
+        <form action=\"";
+        // line 96
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_payrollsummary");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 124
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_summary_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollsummary\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 105
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 124, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 105, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 125
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 125), "html", null, true);
+            // line 106
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 106), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 125), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 106), "html", null, true);
             yield "</option>
-                                        ";
+              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 127
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Tax Shield Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 141
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_taxshield_report");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Startdwadadaw</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 148
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 148, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 149
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 149), "html", null, true);
-            yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 149), "html", null, true);
-            yield "</option>
-                                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 151
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Cash Advance Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" action=\"";
-        // line 165
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_cashadvance_report");
-        yield "\" method=\"POST\" id=\"cash_advance\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 172
-        $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 172, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 173
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 173), "html", null, true);
-            yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 173), "html", null, true);
-            yield "</option>
-                                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 175
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Salary Adjustment Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 189
+        // line 108
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 118
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Salary Adjustment Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 123
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_salaryadjustment_report");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 196
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"salary_adjustment_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_salaryadjustment\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 132
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 196, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 132, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 197
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 197), "html", null, true);
+            // line 133
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 133), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 197), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 133), "html", null, true);
             yield "</option>
-                                        ";
+              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 135
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 145
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Tax Shield Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 150
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_taxshield_report");
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"taxshield_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_taxshield\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 159
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 159, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
+            // line 160
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 160), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 160), "html", null, true);
+            yield "</option>
+              ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 162
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 172
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Cash Advance Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 177
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_cashadvance_report");
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"cashadvance_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_cashadvance\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              ";
+        // line 186
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 186, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
+            // line 187
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 187), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 187), "html", null, true);
+            yield "</option>
+              ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 189
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
         // line 199
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Government Dues Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 213
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Government Dues Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 204
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_govdues");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Government Dues per Company Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"";
-        // line 229
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"govdues_total_range\" required>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ";
+        // line 218
+        yield "    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Government Dues per Company Report</a></h5>
+        </div>
+        <form action=\"";
+        // line 223
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_company_govdues");
-        yield "\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        ";
-        // line 236
+        yield "\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"govdues_company_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_govdues_company\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\" required>
+              ";
+        // line 231
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 236, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["companyList"]) || array_key_exists("companyList", $context) ? $context["companyList"] : (function () { throw new RuntimeError('Variable "companyList" does not exist.', 231, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["companyItem"]) {
-            // line 237
-            yield "                                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 237), "html", null, true);
+            // line 232
+            yield "                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "id", [], "any", false, false, false, 232), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 237), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["companyItem"], "name", [], "any", false, false, false, 232), "html", null, true);
             yield "</option>
-                                        ";
+              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['companyItem'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 239
-        yield "                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!--end col & card-->
-                </div><!--end grid-->
-
-
-                ";
-        // line 280
-        yield "
-
-<div id=\"addUserModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
-    <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
-        <div class=\"flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500\">
-            <h5 class=\"text-16\">Add User</h5>
-            <button data-modal-close=\"addUserModal\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
-        </div>
-        <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
-            <form action=\"#!\">
-                <div class=\"mb-3\">
-                    <label for=\"userId\" class=\"inline-block mb-2 text-base font-medium\">User ID</label>
-                    <input type=\"text\" id=\"userId\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" disabled value=\"#TW1500004\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"joiningDateInput\" class=\"inline-block mb-2 text-base font-medium\">Joining Date</label>
-                    <input type=\"text\" id=\"joiningDateInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Select date\" data-provider=\"flatpickr\" data-date-format=\"d M, Y\">
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"userNameInput\" class=\"inline-block mb-2 text-base font-medium\">Name</label>
-                    <input type=\"text\" id=\"userNameInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter name\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"emailInput\" class=\"inline-block mb-2 text-base font-medium\">Email</label>
-                    <input type=\"email\" id=\"emailInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter email\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"phoneNumberInput\" class=\"inline-block mb-2 text-base font-medium\">Phone Number</label>
-                    <input type=\"text\" id=\"phoneNumberInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"12345 67890\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"statusSelect\" class=\"inline-block mb-2 text-base font-medium\">Status</label>
-                    <select class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-choices data-choices-search-false name=\"statusSelect\" id=\"statusSelect\">
-                        <option value=\"\">Select Status</option>
-                        <option value=\"Verified\">Verified</option>
-                        <option value=\"Waiting\">Waiting</option>
-                        <option value=\"Rejected\">Rejected</option>
-                    </select>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"locationInput\" class=\"inline-block mb-2 text-base font-medium\">Location</label>
-                    <input type=\"text\" id=\"locationInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Location\" required>
-                </div>
-                <div class=\"flex justify-end gap-2 mt-4\">
-                    <button type=\"reset\" data-modal-close=\"addDocuments\" class=\"text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10\">Cancel</button>
-                    <button type=\"submit\" class=\"text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\">Add User</button>
-                </div>
-            </form>
-        </div>
+        // line 234
+        yield "            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-<!--end add user-->
 
-<div id=\"deleteModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
-    <div class=\"w-screen md:w-[25rem] bg-white shadow rounded-md dark:bg-zink-600\">
-        <div class=\"max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto px-6 py-8\">
-            <div class=\"float-right\">
-                <button data-modal-close=\"deleteModal\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
-            </div>
-            <img src=\"assets/images/delete.png\" alt=\"\" class=\"block h-12 mx-auto\">
-            <div class=\"mt-5 text-center\">
-                <h5 class=\"mb-1\">Are you sure?</h5>
-                <p class=\"text-slate-500 dark:text-zink-200\">Are you certain you want to delete this record?</p>
-                <div class=\"flex justify-center gap-2 mt-6\">
-                    <button type=\"reset\" data-modal-close=\"deleteModal\" class=\"bg-white text-slate-500 btn hover:text-slate-500 hover:bg-slate-100 focus:text-slate-500 focus:bg-slate-100 active:text-slate-500 active:bg-slate-100 dark:bg-zink-600 dark:hover:bg-slate-500/10 dark:focus:bg-slate-500/10 dark:active:bg-slate-500/10\">Cancel</button>
-                    <button type=\"submit\" class=\"text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20\">Yes, Delete It!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+  </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -536,7 +487,7 @@ class __TwigTemplate_7fb235df56b11b14c391ba620a0ea599 extends Template
         return; yield '';
     }
 
-    // line 354
+    // line 246
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -546,21 +497,10 @@ class __TwigTemplate_7fb235df56b11b14c391ba620a0ea599 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 355
-        yield "
-<!-- App js -->
-<script src=\"";
-        // line 357
+        // line 247
+        yield "  <script src=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/app.js"), "html", null, true);
         yield "\"></script>
-";
-        // line 359
-        yield "<script>
-
-\$('#datetimepicker').on('focus', ({ currentTarget }) => \$(currentTarget).blur())
-\$(\"#datetimepicker\").prop('readonly', false)
-
-</script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -592,7 +532,7 @@ class __TwigTemplate_7fb235df56b11b14c391ba620a0ea599 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  558 => 359,  554 => 357,  550 => 355,  540 => 354,  457 => 280,  442 => 239,  431 => 237,  427 => 236,  417 => 229,  398 => 213,  382 => 199,  371 => 197,  367 => 196,  357 => 189,  341 => 175,  330 => 173,  326 => 172,  316 => 165,  300 => 151,  289 => 149,  285 => 148,  275 => 141,  259 => 127,  248 => 125,  244 => 124,  234 => 117,  218 => 103,  207 => 101,  203 => 100,  193 => 93,  177 => 79,  166 => 77,  162 => 76,  152 => 69,  140 => 59,  138 => 45,  132 => 40,  121 => 38,  117 => 37,  107 => 30,  100 => 25,  94 => 6,  91 => 5,  81 => 4,  61 => 2,  38 => 1,);
+        return array (  501 => 247,  491 => 246,  470 => 234,  459 => 232,  455 => 231,  444 => 223,  437 => 218,  421 => 204,  414 => 199,  403 => 189,  392 => 187,  388 => 186,  376 => 177,  369 => 172,  358 => 162,  347 => 160,  343 => 159,  331 => 150,  324 => 145,  313 => 135,  302 => 133,  298 => 132,  286 => 123,  279 => 118,  268 => 108,  257 => 106,  253 => 105,  241 => 96,  234 => 91,  223 => 81,  212 => 79,  208 => 78,  196 => 69,  189 => 64,  178 => 54,  167 => 52,  163 => 51,  151 => 42,  144 => 37,  133 => 27,  122 => 25,  118 => 24,  106 => 15,  99 => 10,  91 => 5,  81 => 4,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -601,366 +541,250 @@ class __TwigTemplate_7fb235df56b11b14c391ba620a0ea599 extends Template
 {% block title %}Payroll Generation & Reports{% endblock %}
 
 {% block content %}
+  {{ component('breadcrumb', { pagetitle: 'Payroll Administration', title: 'Payroll Reports' }) }}
 
-            {{ component('breadcrumb', { pagetitle: 'Payroll Administration', title: 'Payroll Reports' }) }}
+  <div class=\"grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-4\">
 
-                <div class=\"grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-4\">
-                    {# <div class=\"card\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Payroll</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" target=\"_blank\" action=\"{{path('generate_all_employees_payroll')}}\" method=\"POST\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-allowInput=\"true\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> #}
-                    <div class=\"card\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Timesheet</a></h5>
-                            </div>
-                            <form action=\"{{path('generate_mandatories_report')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"gen_timesheet\">
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    {# <a href=\"{{path('generate_mandatories_report')}}\" target=\"_blank\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\"><i data-lucide=\"download\" class=\"inline-block size-4 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Generate Report</span></a> #}
-                                    {# <div class=\"relative dropdown\">
-                                        <button type=\"button\" id=\"userGridDropdown12\" data-bs-toggle=\"dropdown\" class=\"dropdown-toggle flex items-center justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"more-horizontal\" class=\"size-4\"></i></button>
-                                        <ul class=\"absolute z-50 hidden py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600\" aria-labelledby=\"userGridDropdown12\">
-                                            <li>
-                                                <a class=\"block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200\" href=\"pages-account\"><i data-lucide=\"eye\" class=\"inline-block size-3 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Overview</span></a>
-                                            </li>
-                                            <li>
-                                                <a data-modal-target=\"addUserModal\" class=\"block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200\" href=\"#!\"><i data-lucide=\"file-edit\" class=\"inline-block size-3 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Edit</span></a>
-                                            </li>
-                                            <li>
-                                                <a data-modal-target=\"deleteModal\" class=\"block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200\" href=\"#!\"><i data-lucide=\"trash-2\" class=\"inline-block size-3 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Delete</span></a>
-                                            </li>
-                                        </ul>
-                                    </div> #}
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Payroll Sheet</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_payroll_sheet')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Payroll Register Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_payroll_register')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Payroll Summary</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_payrollsummary')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Tax Shield Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_taxshield_report')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Startdwadadaw</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Cash Advance Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" action=\"{{path('generate_cashadvance_report')}}\" method=\"POST\" id=\"cash_advance\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Salary Adjustment Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_salaryadjustment_report')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Government Dues Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_govdues')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class=\"card view-payroll_reports\">
-                        <div class=\"card-body\">
-                            <div class=\"mt-4 text-center\">
-                                <h5 class=\"mb-1 text-16\"><a href=\"pages-account\">Generate Government Dues per Company Report</a></h5>
-                            </div>
-                            <form class=\"create-form\" id=\"\" action=\"{{path('generate_company_govdues')}}\" method=\"POST\"  target=\"_blank\">
-                                <div class=\"mt-4\">
-                                    <label for=\"payroll_date_range\" class=\"inline-block mb-2 text-base font-medium\">Date Start</label>
-                                    <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" readonly=\"readonly\" placeholder=\"Select Date\" data-range-date=\"true\" id=\"worker_log_date\" required>
-                                </div>
-                                <div class=\"mt-4\">
-                                    <select id=\"company_id\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                        {% for companyItem in companyList %}
-                                            <option value=\"{{companyItem.id}}\">{{companyItem.name}}</option>
-                                        {% endfor %}
-                                        <!-- Add more options as needed -->
-                                    </select>
-                                </div>
-                                <div class=\"flex gap-2 mt-5\">
-                                    <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!--end col & card-->
-                </div><!--end grid-->
-
-
-                {# <div class=\"flex flex-col items-center mb-5 md:flex-row\">
-                    <div class=\"mb-4 grow md:mb-0\">
-                        <p class=\"text-slate-500 dark:text-zink-200\">Showing <b>12</b> of <b>44</b> Results</p>
-                    </div>
-                    <ul class=\"flex flex-wrap items-center gap-2 shrink-0\">
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\"><i class=\"size-4 mr-1 rtl:rotate-180\" data-lucide=\"chevron-left\"></i> Prev</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\">1</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto active\">2</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\">3</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\">4</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\">5</a>
-                        </li>
-                        <li>
-                            <a href=\"#!\" class=\"inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto\">Next <i class=\"size-4 ml-1 rtl:rotate-180\" data-lucide=\"chevron-right\"></i></a>
-                        </li>
-                    </ul>
-                </div> #}
-
-
-<div id=\"addUserModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
-    <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
-        <div class=\"flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500\">
-            <h5 class=\"text-16\">Add User</h5>
-            <button data-modal-close=\"addUserModal\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
+    {# Generate Timesheet #}
+    <div class=\"card\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Timesheet</a></h5>
         </div>
-        <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
-            <form action=\"#!\">
-                <div class=\"mb-3\">
-                    <label for=\"userId\" class=\"inline-block mb-2 text-base font-medium\">User ID</label>
-                    <input type=\"text\" id=\"userId\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" disabled value=\"#TW1500004\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"joiningDateInput\" class=\"inline-block mb-2 text-base font-medium\">Joining Date</label>
-                    <input type=\"text\" id=\"joiningDateInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Select date\" data-provider=\"flatpickr\" data-date-format=\"d M, Y\">
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"userNameInput\" class=\"inline-block mb-2 text-base font-medium\">Name</label>
-                    <input type=\"text\" id=\"userNameInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter name\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"emailInput\" class=\"inline-block mb-2 text-base font-medium\">Email</label>
-                    <input type=\"email\" id=\"emailInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter email\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"phoneNumberInput\" class=\"inline-block mb-2 text-base font-medium\">Phone Number</label>
-                    <input type=\"text\" id=\"phoneNumberInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"12345 67890\" required>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"statusSelect\" class=\"inline-block mb-2 text-base font-medium\">Status</label>
-                    <select class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-choices data-choices-search-false name=\"statusSelect\" id=\"statusSelect\">
-                        <option value=\"\">Select Status</option>
-                        <option value=\"Verified\">Verified</option>
-                        <option value=\"Waiting\">Waiting</option>
-                        <option value=\"Rejected\">Rejected</option>
-                    </select>
-                </div>
-                <div class=\"mb-3\">
-                    <label for=\"locationInput\" class=\"inline-block mb-2 text-base font-medium\">Location</label>
-                    <input type=\"text\" id=\"locationInput\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Location\" required>
-                </div>
-                <div class=\"flex justify-end gap-2 mt-4\">
-                    <button type=\"reset\" data-modal-close=\"addDocuments\" class=\"text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10\">Cancel</button>
-                    <button type=\"submit\" class=\"text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\">Add User</button>
-                </div>
-            </form>
-        </div>
+        <form action=\"{{ path('generate_mandatories_report') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"gen_timesheet\" placeholder=\"Select Date\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_timesheet\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-<!--end add user-->
 
-<div id=\"deleteModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
-    <div class=\"w-screen md:w-[25rem] bg-white shadow rounded-md dark:bg-zink-600\">
-        <div class=\"max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto px-6 py-8\">
-            <div class=\"float-right\">
-                <button data-modal-close=\"deleteModal\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
-            </div>
-            <img src=\"assets/images/delete.png\" alt=\"\" class=\"block h-12 mx-auto\">
-            <div class=\"mt-5 text-center\">
-                <h5 class=\"mb-1\">Are you sure?</h5>
-                <p class=\"text-slate-500 dark:text-zink-200\">Are you certain you want to delete this record?</p>
-                <div class=\"flex justify-center gap-2 mt-6\">
-                    <button type=\"reset\" data-modal-close=\"deleteModal\" class=\"bg-white text-slate-500 btn hover:text-slate-500 hover:bg-slate-100 focus:text-slate-500 focus:bg-slate-100 active:text-slate-500 active:bg-slate-100 dark:bg-zink-600 dark:hover:bg-slate-500/10 dark:focus:bg-slate-500/10 dark:active:bg-slate-500/10\">Cancel</button>
-                    <button type=\"submit\" class=\"text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20\">Yes, Delete It!</button>
-                </div>
-            </div>
+    {# Generate Payroll Sheet #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Payroll Sheet</a></h5>
         </div>
+        <form action=\"{{ path('generate_payroll_sheet') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_sheet_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollsheet\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
 
+    {# Payroll Register Report #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Payroll Register Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_payroll_register') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_register_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollregister\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Payroll Summary #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Payroll Summary</a></h5>
+        </div>
+        <form action=\"{{ path('generate_payrollsummary') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"payroll_summary_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_payrollsummary\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Salary Adjustment Report #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Salary Adjustment Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_salaryadjustment_report') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"salary_adjustment_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_salaryadjustment\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Tax Shield Report #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Tax Shield Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_taxshield_report') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"taxshield_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_taxshield\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Cash Advance Report #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Cash Advance Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_cashadvance_report') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"cashadvance_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_cashadvance\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\">
+              <option value=\"\">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# ✅ Generate Government Dues (TOTAL) — no dropdown now #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Government Dues Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_govdues') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"govdues_total_range\" required>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Government Dues PER COMPANY #}
+    <div class=\"card view-payroll_reports\">
+      <div class=\"card-body\">
+        <div class=\"mt-4 text-center\">
+          <h5 class=\"mb-1 text-16\"><a href=\"#!\">Generate Government Dues per Company Report</a></h5>
+        </div>
+        <form action=\"{{ path('generate_company_govdues') }}\" method=\"POST\" target=\"_blank\">
+          <div class=\"mt-4\">
+            <label class=\"inline-block mb-2 text-base font-medium\">Date Range</label>
+            <input type=\"text\" name=\"payroll_date_range\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\"
+                   data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" data-range-date=\"true\" placeholder=\"Select Date\" id=\"govdues_company_range\" required>
+          </div>
+          <div class=\"mt-4\">
+            <select id=\"company_id_govdues_company\" name=\"company_id\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100\" required>
+              {% for companyItem in companyList %}
+                <option value=\"{{ companyItem.id }}\">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class=\"flex gap-2 mt-5\">
+            <button type=\"submit\" class=\"bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow\">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
 {% endblock %}
-    
+
 {% block javascripts %}
-
-<!-- App js -->
-<script src=\"{{ asset('assets/js/app.js') }}\"></script>
-{# <script src=\"assets/js/app.js\"></script> #}
-<script>
-
-\$('#datetimepicker').on('focus', ({ currentTarget }) => \$(currentTarget).blur())
-\$(\"#datetimepicker\").prop('readonly', false)
-
-</script>
-{% endblock %}", "payroll_reports/payroll_reports_generation.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\payroll_reports\\payroll_reports_generation.html.twig");
+  <script src=\"{{ asset('assets/js/app.js') }}\"></script>
+{% endblock %}
+", "payroll_reports/payroll_reports_generation.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\payroll_reports\\payroll_reports_generation.html.twig");
     }
 }
