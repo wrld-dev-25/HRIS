@@ -64,3 +64,5 @@ Thumbs.db
 /.web-server-pid
 /phpunit.xml
 /phpunit.xml.cache
+hris-live/hris.wrldcapitalholdings.com/var/cache/dev/url_matching_routes.php.meta
+hris-live/hris.wrldcapitalholdings.com/var/cache/dev/url_generating_routes.php.meta
