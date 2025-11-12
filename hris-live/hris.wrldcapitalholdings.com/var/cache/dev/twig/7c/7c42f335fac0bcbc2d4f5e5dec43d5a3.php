@@ -1,0 +1,556 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+use Twig\TemplateWrapper;
+
+/* navigation-navbars.html.twig */
+class __TwigTemplate_95765b3ddf6a2319c1c99437aaad4c45 extends Template
+{
+    private Source $source;
+    /**
+     * @var array<string, Template>
+     */
+    private array $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'content' => [$this, 'block_content'],
+            'javascripts' => [$this, 'block_javascripts'],
+        ];
+    }
+
+    protected function doGetParent(array $context): bool|string|Template|TemplateWrapper
+    {
+        // line 1
+        return "partials/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "navigation-navbars.html.twig"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "navigation-navbars.html.twig"));
+
+        $this->parent = $this->load("partials/base.html.twig", 1);
+        yield from $this->parent->unwrap()->yield($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 2
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_title(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        yield "Navbar";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 4
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_content(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
+        // line 5
+        yield "                ";
+        yield $this->env->getRuntime('Symfony\UX\TwigComponent\Twig\ComponentRuntime')->render("breadcrumb", ["pagetitle" => "Navigation", "title" => "Navbar"]);
+        yield "
+
+                <h6 class=\"mb-4 text-15\">Basic Navbar</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 relative flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  navbar dark:bg-zink-700\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar7\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full ltr:ml-auto rtl:mr-auto md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <div class=\"ltr:ml-auto rtl:mr-auto md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Hamburger menu</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 relative flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  navbar dark:bg-zink-700\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar8\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 bg-white shadow-lg dark:bg-zink-600 navbar-menu rounded-b-md top-full ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <div class=\"ltr:ml-auto rtl:mr-auto navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Navbar with button</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  dark:bg-zink-700 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar5\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Navbar with Search</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  dark:bg-zink-700 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <div class=\"mx-1 xl:mx-4\">
+                        <input type=\"text\" class=\"py-2 px-4 text-sm text-slate-700 bg-white border border-slate-200 rounded placeholder:text-gray-400 form-input focus-visible:outline-0 max-w-[300px] hidden lg:block focus:border-custom-400 dark:bg-zink-700 dark:border-zink-500 dark:placeholder:text-zink-200 dark:text-zink-50 dark:focus:border-custom-500\" placeholder=\"Search...\" autocomplete=\"off\">
+                    </div>
+                    <ul id=\"navbar1\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 grow navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul id=\"navbar2\" class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Dark Navbar</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 mb-4 rounded-md shadow-md  bg-slate-900 dark:bg-zink-600 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"h-5\"></a>
+                    </div>
+                    <ul id=\"navbar3\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul id=\"navbar4\" class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"search\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    // line 189
+    /**
+     * @return iterable<null|scalar|\Stringable>
+     */
+    public function block_javascripts(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 190
+        yield "
+<script src=\"assets/js/pages/navbar.init.js\"></script>
+<!-- App js -->
+<script src=\"";
+        // line 193
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/app.js"), "html", null, true);
+        yield "\"></script>
+";
+        // line 195
+        yield "
+
+
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+        yield from [];
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName(): string
+    {
+        return "navigation-navbars.html.twig";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo(): array
+    {
+        return array (  318 => 195,  314 => 193,  309 => 190,  296 => 189,  101 => 5,  88 => 4,  65 => 2,  42 => 1,);
+    }
+
+    public function getSourceContext(): Source
+    {
+        return new Source("{% extends 'partials/base.html.twig' %}
+{% block title %}Navbar{% endblock %}
+
+{% block content %}
+                {{ component('breadcrumb', { pagetitle: 'Navigation', title: 'Navbar' }) }}
+
+                <h6 class=\"mb-4 text-15\">Basic Navbar</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 relative flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  navbar dark:bg-zink-700\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar7\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full ltr:ml-auto rtl:mr-auto md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <div class=\"ltr:ml-auto rtl:mr-auto md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Hamburger menu</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 relative flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  navbar dark:bg-zink-700\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar8\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 bg-white shadow-lg dark:bg-zink-600 navbar-menu rounded-b-md top-full ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block px-4 py-2.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <div class=\"ltr:ml-auto rtl:mr-auto navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Navbar with button</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  dark:bg-zink-700 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <ul id=\"navbar5\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Navbar with Search</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 bg-white rounded-md shadow-md  dark:bg-zink-700 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-dark.png\" alt=\"\" class=\"block h-5 dark:hidden\"></a>
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"hidden h-5 dark:block\"></a>
+                    </div>
+                    <div class=\"mx-1 xl:mx-4\">
+                        <input type=\"text\" class=\"py-2 px-4 text-sm text-slate-700 bg-white border border-slate-200 rounded placeholder:text-gray-400 form-input focus-visible:outline-0 max-w-[300px] hidden lg:block focus:border-custom-400 dark:bg-zink-700 dark:border-zink-500 dark:placeholder:text-zink-200 dark:text-zink-50 dark:focus:border-custom-500\" placeholder=\"Search...\" autocomplete=\"off\">
+                    </div>
+                    <ul id=\"navbar1\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 grow navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-800 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-100 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul id=\"navbar2\" class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-500 hover:text-custom-500 active:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500 group/item\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50 dark:fill-zink-500 group-hover/item:fill-custom-50 dark:group-hover/item:fill-custom-500/20\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+                <h6 class=\"mb-4 mt-7 text-16\">Dark Navbar</h6>
+
+                <nav class=\"group-data-[skin=bordered]:shadow-sm group-data-[skin=bordered]:border group-data-[skin=bordered]:border-slate-200 group-data-[skin=bordered]:dark:border-zink-500 flex items-center h-16 px-4 py-2 mb-4 rounded-md shadow-md  bg-slate-900 dark:bg-zink-600 navbar\">
+                    <div class=\"shrink-0\">
+                        <a href=\"#!\"><img src=\"assets/images/logo-light.png\" alt=\"\" class=\"h-5\"></a>
+                    </div>
+                    <ul id=\"navbar3\" class=\"absolute inset-x-0 z-20 items-center hidden py-3 mx-auto bg-white shadow-lg dark:bg-zink-600 dark:md:bg-transparent md:z-0 navbar-menu rounded-b-md md:shadow-none md:flex top-full md:relative md:bg-transparent md:rounded-none md:top-auto md:py-0\">
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500 active\">Home</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">About Us</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Service</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Blog</a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"block md:inline-block px-4 md:px-3 py-2.5 md:py-0.5 text-15 font-medium text-slate-400 transition-all duration-300 ease-linear hover:text-custom-500 [&.active]:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:[&.active]:text-custom-500\">Contact</a>
+                        </li>
+                    </ul>
+                    <ul id=\"navbar4\" class=\"flex items-center ltr:ml-auto rtl:mr-auto\">
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"search\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"shopping-bag\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"bell\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                        <li>
+                            <a href=\"#!\" class=\"inline-flex items-center justify-center size-10 transition-all duration-300 ease-linear tems-center text-slate-400 hover:text-custom-500 active:text-custom-500 group/item dark:text-zink-200 dark:hover:text-custom-500 dark:active:text-custom-500\"><i data-lucide=\"user-circle\" class=\"size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500\"></i></a>
+                        </li>
+                    </ul>
+                    <div class=\"md:hidden navbar-toggale-button\">
+                        <button type=\"button\" class=\"flex items-center  justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20\"><i data-lucide=\"menu\"></i></button>
+                    </div>
+                </nav>
+
+{% endblock %}
+    
+{% block javascripts %}
+
+<script src=\"assets/js/pages/navbar.init.js\"></script>
+<!-- App js -->
+<script src=\"{{ asset('assets/js/app.js') }}\"></script>
+{# <script src=\"assets/js/app.js\"></script> #}
+
+
+
+{% endblock %}", "navigation-navbars.html.twig", "C:\\xampp\\htdocs\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\navigation-navbars.html.twig");
+    }
+}
