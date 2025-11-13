@@ -351,14 +351,14 @@ class __TwigTemplate_8a0fb8a620f798fb8e118f6a7b972f73 extends Template
                 <div class=\"xl:col-span-12\">
                     <label for=\"reason\" class=\"inline-block mb-2 text-base font-medium\">Reason</label>
                     <span class=\"text-red-500\">*</span>
-                    <textarea id=\"reason\" name=\"reason\" class=\"form-input\" placeholder=\"Enter Reason (optional)\" required></textarea>
+                    <textarea id=\"reason\" name=\"reason\" class=\"form-input\" placeholder=\"Enter Reason\" required></textarea>
                 </div>
 
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"empCode\" id=\"empCode\" value=\"\">
                     <input type=\"hidden\" name=\"fileSize\" value=\"25\">
                     <label for=\"attachment\" class=\"inline-block mb-2 text-base font-medium\">Attachment</label>
-                    <input type=\"file\" class=\"cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500\" placeholder=\"Choose file\" name=\"attachment\" id=\"attachment\">
+                    <input type=\"file\" onchange=\"attachmentChange(event)\" class=\"cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500\" placeholder=\"Choose file\" name=\"attachment\" id=\"attachment\">
                 </div>
             </div>
         </div>
@@ -589,6 +589,22 @@ class __TwigTemplate_8a0fb8a620f798fb8e118f6a7b972f73 extends Template
     //console.log(selectedOption.dataset.code); 
     }
 </script>
+
+<script>
+function attachmentChange(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        // Optional: Check file type (add allowed types as needed)
+        const allowedTypes = ['application/pdf'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Please upload a valid file type, it only accepts .pdf file!');
+            event.target.value = '';
+            return;
+        }
+    }
+}
+</script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -794,14 +810,14 @@ class __TwigTemplate_8a0fb8a620f798fb8e118f6a7b972f73 extends Template
                 <div class=\"xl:col-span-12\">
                     <label for=\"reason\" class=\"inline-block mb-2 text-base font-medium\">Reason</label>
                     <span class=\"text-red-500\">*</span>
-                    <textarea id=\"reason\" name=\"reason\" class=\"form-input\" placeholder=\"Enter Reason (optional)\" required></textarea>
+                    <textarea id=\"reason\" name=\"reason\" class=\"form-input\" placeholder=\"Enter Reason\" required></textarea>
                 </div>
 
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"empCode\" id=\"empCode\" value=\"\">
                     <input type=\"hidden\" name=\"fileSize\" value=\"25\">
                     <label for=\"attachment\" class=\"inline-block mb-2 text-base font-medium\">Attachment</label>
-                    <input type=\"file\" class=\"cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500\" placeholder=\"Choose file\" name=\"attachment\" id=\"attachment\">
+                    <input type=\"file\" onchange=\"attachmentChange(event)\" class=\"cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500\" placeholder=\"Choose file\" name=\"attachment\" id=\"attachment\">
                 </div>
             </div>
         </div>
@@ -1005,6 +1021,22 @@ class __TwigTemplate_8a0fb8a620f798fb8e118f6a7b972f73 extends Template
     //console.log(selectedOption.dataset.extra);
     //console.log(selectedOption.dataset.code); 
     }
+</script>
+
+<script>
+function attachmentChange(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        // Optional: Check file type (add allowed types as needed)
+        const allowedTypes = ['application/pdf'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Please upload a valid file type, it only accepts .pdf file!');
+            event.target.value = '';
+            return;
+        }
+    }
+}
 </script>
 {% endblock %}", "leave_request/apps-leave-request.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\leave_request\\apps-leave-request.html.twig");
     }

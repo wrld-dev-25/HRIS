@@ -2022,37 +2022,9 @@ class __TwigTemplate_a8ff0ee5e13563f395636b1d06cb9ab4 extends Template
         yield "\">
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th class=\"py-2 font-semibold ps-0\" scope=\"row\">Daily Rate (taxable)</th>
-                                                        <td class=\"py-2 text-right text-slate-500 dark:text-zink-200 capitalize toggle-payroll-hidden td-dailyRate\" data-value=\"";
-        // line 1544
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_rate", [], "any", true, true, false, 1544)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_rate", [], "any", false, false, false, 1544), "")) : ("")), "html", null, true);
-        yield "\">";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::default($this->extensions['Twig\Extension\CoreExtension']->formatNumber(CoreExtension::getAttribute($this->env, $this->source, (isset($context["payrollProfile"]) || array_key_exists("payrollProfile", $context) ? $context["payrollProfile"] : (function () { throw new RuntimeError('Variable "payrollProfile" does not exist.', 1544, $this->source); })()), "daily_rate", [], "any", false, false, false, 1544), 2, ".", ","), 0), "html", null, true);
-        yield "</td>
-                                                        <td class=\"w-full toggle-payroll-hidden hidden input-dailyRate\">
-                                                            <input type=\"text\" id=\"dailyRate\" name=\"dailyRate\" class=\"form-input input-float text-right border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"\" value=\"";
-        // line 1546
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_rate", [], "any", true, true, false, 1546)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_rate", [], "any", false, false, false, 1546), 0)) : (0)), "html", null, true);
-        yield "\">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class=\"py-2 font-semibold ps-0\" scope=\"row\">Daily Tax Shield</th>
-                                                        <td class=\"py-2 text-right text-slate-500 dark:text-zink-200 capitalize toggle-payroll-hidden td-daily_tax_shield\" data-value=\"";
-        // line 1551
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_tax_shield", [], "any", true, true, false, 1551)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_tax_shield", [], "any", false, false, false, 1551), "")) : ("")), "html", null, true);
-        yield "\">";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::default($this->extensions['Twig\Extension\CoreExtension']->formatNumber(CoreExtension::getAttribute($this->env, $this->source, (isset($context["payrollProfile"]) || array_key_exists("payrollProfile", $context) ? $context["payrollProfile"] : (function () { throw new RuntimeError('Variable "payrollProfile" does not exist.', 1551, $this->source); })()), "daily_tax_shield", [], "any", false, false, false, 1551), 2, ".", ","), 0), "html", null, true);
-        yield "</td>
-                                                        <td class=\"w-full toggle-payroll-hidden hidden input-dailyTaxShield\">
-                                                            <input type=\"text\" id=\"dailyTaxShield\" name=\"dailyTaxShield\" class=\"form-input input-float text-right border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"\" value=\"";
-        // line 1553
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_tax_shield", [], "any", true, true, false, 1553)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "daily_tax_shield", [], "any", false, false, false, 1553), 0)) : (0)), "html", null, true);
-        yield "\">
-                                                        </td>
-                                                    </tr>
                                                     ";
+        // line 1556
+        yield "                                                    ";
         // line 1563
         yield "                                                    <tr>
                                                         <th class=\"py-2 font-semibold ps-0\" scope=\"row\">Overtime Rate per Hour</th>
@@ -3326,13 +3298,29 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                             <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-12\">
                                                 <div class=\"relative col-span-4 gap-2\">
                                                     <div class=\"col-span-10 flex flex-row items-center gap-2\">
-                                                        <p class=\"text-slate-500 w-40 dark:text-zink-200\">From</p>
-                                                        <input type=\"text\" onchange=\"findDTR()\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" id=\"worker_log_from\">
-                                                        <p class=\"text-slate-500 w-35 dark:text-zink-200\">To</p>
-                                                        <input type=\"text\" onchange=\"findDTR()\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" id=\"worker_log_to\">
-                                                        ";
-        // line 2706
-        yield "                                                    </div>
+                                                        <p class=\"text-slate-500 w-40 dark:text-zink-200\">As of</p>
+                                                        <select id=\"year_selector\" class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
+                                                            ";
+        // line 2697
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(range(2024, $this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y")));
+        foreach ($context['_seq'] as $context["_key"] => $context["year"]) {
+            // line 2698
+            yield "                                                                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["year"], "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["year"], "html", null, true);
+            yield "</option>
+                                                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['year'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 2700
+        yield "                                                        </select>
+                                                        <select id=\"cut_off_dd\" onchange=\"findDTR()\" class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
+                                                        </select>
+                                                    </div>
                                                 </div><!--end col-->
                                             </div><!--end grid-->
                                         </form>
@@ -3340,9 +3328,9 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                     <div class=\"card-body\">
                                         <div class=\"-mx-5 -mb-5 overflow-x-auto\">
                                             ";
-        // line 2713
+        // line 2710
         $context["holiday_status"] = ["Pending", "Approved", "Rejected"];
-        // line 2718
+        // line 2715
         yield "                                            <table class=\"w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap\">
                                                 <thead class=\"text-left\">
                                                     <tr class=\"relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600\">
@@ -3358,7 +3346,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                 </thead>
                                                 <tbody class=\"list\" id=\"worker_logs\">
                                                     ";
-        // line 2751
+        // line 2748
         yield "                                                </tbody>
                                             </table>
                                             <div class=\"noresult\" style=\"display: none\">
@@ -3366,7 +3354,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                     <i data-lucide=\"search\" class=\"size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20\"></i>
                                                     <h5 class=\"mt-2\">Sorry! No Result Found</h5>
                                                     ";
-        // line 2758
+        // line 2755
         yield "                                                </div>
                                             </div>
                                         </div>
@@ -3374,7 +3362,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                 </div><!--end card-->
                             </div><!--end col-->
                             ";
-        // line 2797
+        // line 2794
         yield "                        </div>
                     </div><!--end tab pane-->
                     <div class=\"hidden tab-pane\" id=\"overtimeRequestTabs\">
@@ -3391,15 +3379,15 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                     <div class=\"!py-3.5 card-body border-y border-dashed border-slate-200 dark:border-zink-500\">
                                         <form action=\"#!\">
                                             ";
-        // line 2825
+        // line 2822
         yield "                                        </form>
                                     </div>
                                     <div class=\"card-body\">
                                         <div class=\"-mx-5 -mb-5 overflow-x-auto\">
                                             ";
-        // line 2829
+        // line 2826
         $context["holiday_status"] = ["Pending", "Approved", "Rejected"];
-        // line 2834
+        // line 2831
         yield "                                            <table class=\"w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap\">
                                                 <thead class=\"text-left\">
                                                     <tr class=\"relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600\">
@@ -3413,49 +3401,49 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                 </thead>
                                                 <tbody class=\"list\">
                                                     ";
-        // line 2847
+        // line 2844
         yield "                                                    ";
-        if ((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 2847, $this->source); })())) {
-            // line 2848
+        if ((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 2844, $this->source); })())) {
+            // line 2845
             yield "                                                        ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 2848, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 2845, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["ot_request"]) {
-                // line 2849
+                // line 2846
                 yield "                                                            <tr class=\"relative rounded-md after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600\">
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 worker_logs_date\">";
-                // line 2850
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "worker_logs_date", [], "any", false, false, false, 2850), "Y-m-d"), "html", null, true);
+                // line 2847
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "worker_logs_date", [], "any", false, false, false, 2847), "Y-m-d"), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 reason\">";
-                // line 2851
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "reason", [], "any", false, false, false, 2851), "html", null, true);
+                // line 2848
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "reason", [], "any", false, false, false, 2848), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 hours_requested\">
                                                                     ";
+                // line 2851
+                yield "                                                                    ";
+                $context["timeParts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "hours_requested", [], "any", false, false, false, 2851), ":");
+                // line 2852
+                yield "                                                                    ";
+                $context["hours"] = $this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 0, [], "array", true, true, false, 2852)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 0, [], "array", false, false, false, 2852), 0)) : (0)), 0, ".", "");
+                // line 2853
+                yield "                                                                    ";
+                $context["minutes"] = $this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 1, [], "array", true, true, false, 2853)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 1, [], "array", false, false, false, 2853), 0)) : (0)), 0, ".", "");
                 // line 2854
                 yield "                                                                    ";
-                $context["timeParts"] = Twig\Extension\CoreExtension::split($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "hours_requested", [], "any", false, false, false, 2854), ":");
-                // line 2855
-                yield "                                                                    ";
-                $context["hours"] = $this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 0, [], "array", true, true, false, 2855)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 0, [], "array", false, false, false, 2855), 0)) : (0)), 0, ".", "");
-                // line 2856
-                yield "                                                                    ";
-                $context["minutes"] = $this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 1, [], "array", true, true, false, 2856)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["timeParts"] ?? null), 1, [], "array", false, false, false, 2856), 0)) : (0)), 0, ".", "");
-                // line 2857
-                yield "                                                                    ";
-                ((((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2857, $this->source); })()) > 0)) ? (yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2857, $this->source); })()) . " hour/s"), "html", null, true)) : (yield ""));
-                yield (((((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2857, $this->source); })()) > 0) && ((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2857, $this->source); })()) > 0))) ? (" and ") : (""));
-                ((((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2857, $this->source); })()) > 0)) ? (yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2857, $this->source); })()) . " min/s"), "html", null, true)) : (yield ""));
+                ((((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2854, $this->source); })()) > 0)) ? (yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2854, $this->source); })()) . " hour/s"), "html", null, true)) : (yield ""));
+                yield (((((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 2854, $this->source); })()) > 0) && ((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2854, $this->source); })()) > 0))) ? (" and ") : (""));
+                ((((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2854, $this->source); })()) > 0)) ? (yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((isset($context["minutes"]) || array_key_exists("minutes", $context) ? $context["minutes"] : (function () { throw new RuntimeError('Variable "minutes" does not exist.', 2854, $this->source); })()) . " min/s"), "html", null, true)) : (yield ""));
                 yield "
                                                                 </td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 status\">";
-                // line 2859
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["holiday_status"]) || array_key_exists("holiday_status", $context) ? $context["holiday_status"] : (function () { throw new RuntimeError('Variable "holiday_status" does not exist.', 2859, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "status", [], "any", false, false, false, 2859), [], "array", false, false, false, 2859), "html", null, true);
+                // line 2856
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["holiday_status"]) || array_key_exists("holiday_status", $context) ? $context["holiday_status"] : (function () { throw new RuntimeError('Variable "holiday_status" does not exist.', 2856, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "status", [], "any", false, false, false, 2856), [], "array", false, false, false, 2856), "html", null, true);
                 yield "</td> 
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 employer_share\">";
-                // line 2860
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "approved_by", [], "any", false, false, false, 2860), "html", null, true);
+                // line 2857
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "approved_by", [], "any", false, false, false, 2857), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5\">
                                                                     <div class=\"action-model_types relative dropdown\">
@@ -3463,12 +3451,12 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                                         <ul class=\"absolute z-50 hidden py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600\" aria-labelledby=\"usersAction1\">
                                                                             <li>
                                                                                 <a data-modal-target=\"editOvertimeRequest";
-                // line 2866
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 2866), "html", null, true);
+                // line 2863
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 2863), "html", null, true);
                 yield "\" class=\"edit-model_types block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200\" href=\"#!\"><i data-lucide=\"file-edit\" class=\"inline-block size-3 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Edit</span></a>
                                                                             </li>
                                                                             ";
-                // line 2871
+                // line 2868
                 yield "                                                                        </ul>
                                                                     </div>
                                                                 </td>
@@ -3478,10 +3466,10 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ot_request'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 2876
+            // line 2873
             yield "                                                    ";
         }
-        // line 2877
+        // line 2874
         yield "                                                    
                                                 </tbody>
                                             </table>
@@ -3490,7 +3478,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                     <i data-lucide=\"search\" class=\"size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20\"></i>
                                                     <h5 class=\"mt-2\">Sorry! No Result Found</h5>
                                                     ";
-        // line 2885
+        // line 2882
         yield "                                                </div>
                                             </div>
                                         </div>
@@ -3498,7 +3486,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                 </div><!--end card-->
                             </div><!--end col-->
                             ";
-        // line 2924
+        // line 2921
         yield "                        </div>
                     </div><!--end tab pane-->
 
@@ -3517,9 +3505,9 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                     <div class=\"card-body\">
                                         <div class=\"-mx-5 -mb-5 overflow-x-auto\">
                                             ";
-        // line 2941
+        // line 2938
         $context["accountability_status"] = ["Assigned", "Returned", "Lost"];
-        // line 2946
+        // line 2943
         yield "                                            <table class=\"w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap\">
                                                 <thead class=\"text-left\">
                                                     <tr class=\"relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600\">
@@ -3531,26 +3519,26 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                 </thead>
                                                 <tbody class=\"list\">
                                                     ";
-        // line 2956
-        if (((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2956, $this->source); })()) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2956, $this->source); })())) > 0))) {
-            // line 2957
+        // line 2953
+        if (((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2953, $this->source); })()) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2953, $this->source); })())) > 0))) {
+            // line 2954
             yield "                                                        ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2957, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 2954, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["accountability_item"]) {
-                // line 2958
+                // line 2955
                 yield "                                                            <tr class=\"relative rounded-md after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600\">
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 reason\">";
-                // line 2959
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_name", [], "any", false, false, false, 2959), "html", null, true);
+                // line 2956
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_name", [], "any", false, false, false, 2956), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 employer_share\">";
-                // line 2960
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_count", [], "any", false, false, false, 2960), "html", null, true);
+                // line 2957
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_count", [], "any", false, false, false, 2957), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5 status\">";
-                // line 2961
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["accountability_status"]) || array_key_exists("accountability_status", $context) ? $context["accountability_status"] : (function () { throw new RuntimeError('Variable "accountability_status" does not exist.', 2961, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 2961), [], "array", false, false, false, 2961), "html", null, true);
+                // line 2958
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["accountability_status"]) || array_key_exists("accountability_status", $context) ? $context["accountability_status"] : (function () { throw new RuntimeError('Variable "accountability_status" does not exist.', 2958, $this->source); })()), CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 2958), [], "array", false, false, false, 2958), "html", null, true);
                 yield "</td>
                                                                 <td class=\"px-3.5 py-2.5 first:pl-5 last:pr-5\">
                                                                     <div class=\"action-model_types relative dropdown\">
@@ -3558,8 +3546,8 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                                         <ul class=\"absolute z-50 hidden py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600\" aria-labelledby=\"usersAction1\">
                                                                             <li>
                                                                                 <a data-modal-target=\"editAccountabilityRecords";
-                // line 2967
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 2967), "html", null, true);
+                // line 2964
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 2964), "html", null, true);
                 yield "\" class=\"edit-model_types block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200\" href=\"#!\"><i data-lucide=\"file-edit\" class=\"inline-block size-3 ltr:mr-1 rtl:ml-1\"></i> <span class=\"align-middle\">Edit</span></a>
                                                                             </li>
                                                                         </ul>
@@ -3571,10 +3559,10 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['accountability_item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 2974
+            // line 2971
             yield "                                                    ";
         }
-        // line 2975
+        // line 2972
         yield "                                                </tbody>
                                             </table>
                                             <div class=\"noresult\" style=\"display: none\">
@@ -3582,7 +3570,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                                     <i data-lucide=\"search\" class=\"size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20\"></i>
                                                     <h5 class=\"mt-2\">Sorry! No Result Found</h5>
                                                     ";
-        // line 2982
+        // line 2979
         yield "                                                </div>
                                             </div>
                                         </div>
@@ -3593,13 +3581,13 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                     </div><!--end tab pane-->
                 </div><!--end tab content-->
 ";
-        // line 2992
+        // line 2989
         yield "<span class=\"hidden\" id=\"employeeData\" data-value=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 2992, $this->source); })())), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 2989, $this->source); })())), "html", null, true);
         yield "\"></span>
 <span class=\"hidden\" id=\"employeeId\" data-value=\"";
-        // line 2993
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 2993, $this->source); })()), "id", [], "any", false, false, false, 2993), "html", null, true);
+        // line 2990
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 2990, $this->source); })()), "id", [], "any", false, false, false, 2990), "html", null, true);
         yield "\"></span>
 <!-- Edit Employee Modal -->
 <div id=\"editEmployeeModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
@@ -3611,13 +3599,13 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form class=\"create-form editEmployeeForm\" id=\"create-form\" action=\"";
-        // line 3003
+        // line 3000
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update_employee");
         yield "\" method=\"POST\">
                 ";
-        // line 3006
+        // line 3003
         yield "                <input type=\"hidden\" name=\"employeeId\" id=\"employeeId\" value=\"";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3006, $this->source); })()), "id", [], "any", false, false, false, 3006), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3003, $this->source); })()), "id", [], "any", false, false, false, 3003), "html", null, true);
         yield "\">
                 <input type=\"hidden\" name=\"action\" id=\"action\" value=\"update_employee\">
                 <div id=\"alert-error-msg\" class=\"hidden px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-500/20\"></div>
@@ -3690,13 +3678,13 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                         <label for=\"province\" class=\"inline-block mb-2 text-base font-medium\">Province </label>
                         <span class=\"text-red-500\">*</span>
                         <div class=\"hidden\" id=\"provinceList\" data-value=\"";
-        // line 3077
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["provinces"]) || array_key_exists("provinces", $context) ? $context["provinces"] : (function () { throw new RuntimeError('Variable "provinces" does not exist.', 3077, $this->source); })())), "html", null, true);
+        // line 3074
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["provinces"]) || array_key_exists("provinces", $context) ? $context["provinces"] : (function () { throw new RuntimeError('Variable "provinces" does not exist.', 3074, $this->source); })())), "html", null, true);
         yield "\"></div>
                         <select name=\"province\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"province\">
                             <option value=\"\">Select Province</option>
                         ";
-        // line 3083
+        // line 3080
         yield "                        </select>
                     </div>
                     <div class=\"xl:col-span-6\">
@@ -3719,8 +3707,8 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                         <label for=\"presentCity\" class=\"inline-block mb-2 text-base font-medium\">Town/City </label>
                         <span class=\"text-red-500\">*</span>
                         <div class=\"hidden\" id=\"cityList\" data-value=\"";
-        // line 3104
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["townCities"]) || array_key_exists("townCities", $context) ? $context["townCities"] : (function () { throw new RuntimeError('Variable "townCities" does not exist.', 3104, $this->source); })())), "html", null, true);
+        // line 3101
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["townCities"]) || array_key_exists("townCities", $context) ? $context["townCities"] : (function () { throw new RuntimeError('Variable "townCities" does not exist.', 3101, $this->source); })())), "html", null, true);
         yield "\"></div>
                         <select name=\"presentCity\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"presentCity\">
                             <option value=\"\">Select Town/City</option>
@@ -3750,25 +3738,25 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                     <div class=\"xl:col-span-3\">
                         <label for=\"division2\" class=\"inline-block mb-2 text-base font-medium\">Division </label>
                         <div class=\"hidden\" id=\"divisionList\" data-value=\"";
-        // line 3132
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["divisions"]) || array_key_exists("divisions", $context) ? $context["divisions"] : (function () { throw new RuntimeError('Variable "divisions" does not exist.', 3132, $this->source); })())), "html", null, true);
+        // line 3129
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode((isset($context["divisions"]) || array_key_exists("divisions", $context) ? $context["divisions"] : (function () { throw new RuntimeError('Variable "divisions" does not exist.', 3129, $this->source); })())), "html", null, true);
         yield "\"></div>
                         ";
-        // line 3134
+        // line 3131
         yield "                        <select name=\"division2\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" id=\"division2\">
                             <option value=\"\">Select Division</option>
                             ";
-        // line 3139
+        // line 3136
         yield "                        </select>
                     </div>
                     <div class=\"xl:col-span-3\">
                         <label for=\"department2\" class=\"inline-block mb-2 text-base font-medium\">Department </label>
                         ";
-        // line 3144
+        // line 3141
         yield "                        <select name=\"department2\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\"id=\"department2\">
                             <option value=\"\">Select Department</option>
                             ";
-        // line 3149
+        // line 3146
         yield "                        </select>
                     </div>
                     <div class=\"xl:col-span-3\">
@@ -3827,12 +3815,12 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3206
+        // line 3203
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_attachment");
         yield "\" method=\"POST\" enctype=\"multipart/form-data\" id=\"file-upload-form\">
                 <input type=\"hidden\" name=\"empCode\" value=\"";
-        // line 3207
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3207, $this->source); })()), "employee_code", [], "any", false, false, false, 3207), "html", null, true);
+        // line 3204
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3204, $this->source); })()), "employee_code", [], "any", false, false, false, 3204), "html", null, true);
         yield "\">
                 <input type=\"hidden\" name=\"fileSize\" value=\"25\">
                 <div class=\"mb-3\">
@@ -3848,7 +3836,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                         <option value=\"csv\">CSV</option>
                         <option value=\"jpg\">Image</option>
                         ";
-        // line 3225
+        // line 3222
         yield "                    </select>
                 </div>
                 <div class=\"mb-3\">
@@ -3864,7 +3852,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
     </div>
 </div>
 ";
-        // line 3240
+        // line 3237
         yield "<div id=\"updatePayrollProfile\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
     <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full\">
         <div class=\"flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500\">
@@ -3873,47 +3861,47 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3247
+        // line 3244
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_employee_payroll_profile_save");
         yield "\" method=\"POST\">
                 <input type=\"hidden\" name=\"employee_record_id\" value=\"";
-        // line 3248
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3248, $this->source); })()), "id", [], "any", false, false, false, 3248), "html", null, true);
+        // line 3245
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3245, $this->source); })()), "id", [], "any", false, false, false, 3245), "html", null, true);
         yield "\">
                 <input type=\"hidden\" name=\"employee_code\" value=\"";
-        // line 3249
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3249, $this->source); })()), "employee_code", [], "any", false, false, false, 3249), "html", null, true);
+        // line 3246
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3246, $this->source); })()), "employee_code", [], "any", false, false, false, 3246), "html", null, true);
         yield "\">
                 <div class=\"mb-3\">
                     <label for=\"monthly_salary\" class=\"inline-block mb-2 text-base font-medium\">Monthly Salary</label>
                     <input type=\"text\" name=\"monthly_salary\" id=\"monthly_salary\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter Monthly Salary\" value=\"";
-        // line 3252
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "monthly_salary", [], "any", true, true, false, 3252)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "monthly_salary", [], "any", false, false, false, 3252), "")) : ("")), "html", null, true);
+        // line 3249
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "monthly_salary", [], "any", true, true, false, 3249)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "monthly_salary", [], "any", false, false, false, 3249), "")) : ("")), "html", null, true);
         yield "\" required>
                 </div>
                 <div class=\"mb-3\">
                     <label for=\"allowance\" class=\"inline-block mb-2 text-base font-medium\">Allowance</label>
                     <input type=\"text\" name=\"allowance\" id=\"allowance\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter Allowance\" value=\"";
-        // line 3256
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "allowance", [], "any", true, true, false, 3256)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "allowance", [], "any", false, false, false, 3256), "")) : ("")), "html", null, true);
+        // line 3253
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "allowance", [], "any", true, true, false, 3253)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "allowance", [], "any", false, false, false, 3253), "")) : ("")), "html", null, true);
         yield "\" required>
                 </div>
                 <div class=\"mb-3\">
                     <label for=\"overtime_rate\" class=\"inline-block mb-2 text-base font-medium\">OT Rate</label>
                     <input type=\"text\" name=\"overtime_rate\" id=\"overtime_rate\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter OT Rate\" value=\"";
-        // line 3260
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "overtime_rate", [], "any", true, true, false, 3260)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "overtime_rate", [], "any", false, false, false, 3260), "")) : ("")), "html", null, true);
+        // line 3257
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "overtime_rate", [], "any", true, true, false, 3257)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "overtime_rate", [], "any", false, false, false, 3257), "")) : ("")), "html", null, true);
         yield "\" required>
                 </div>
                 <div class=\"mb-3\">
                     <label for=\"late_rate\" class=\"inline-block mb-2 text-base font-medium\">Late Rate</label>
                     <input type=\"text\" name=\"late_rate\" id=\"late_rate\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"Enter Late Rate\" value=\"";
-        // line 3264
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "late_rate", [], "any", true, true, false, 3264)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "late_rate", [], "any", false, false, false, 3264), "")) : ("")), "html", null, true);
+        // line 3261
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "late_rate", [], "any", true, true, false, 3261)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, ($context["payrollProfile"] ?? null), "late_rate", [], "any", false, false, false, 3261), "")) : ("")), "html", null, true);
         yield "\" required>
                 </div>
                 ";
-        // line 3282
+        // line 3279
         yield "        </div>
         <div class=\"flex justify-end gap-2 mt-4 p-4\">
             <button data-modal-close=\"addDocuments\" class=\"text-red-500 bg-red-100 btn hover:text-white hover:bg-red-600 focus:text-white focus:bg-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:ring active:ring-red-100 dark:bg-red-500/20 dark:text-red-500 dark:hover:bg-red-500 dark:hover:text-white dark:focus:bg-red-500 dark:focus:text-white dark:active:bg-red-500 dark:active:text-white dark:ring-red-400/20\">Cancel</button>
@@ -3923,7 +3911,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
     </div>
 </div>
 ";
-        // line 3335
+        // line 3332
         yield "<div id=\"generatePayroll\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
     <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full\">
         <div class=\"flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500\">
@@ -3932,16 +3920,16 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3342
+        // line 3339
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("generate_payroll");
         yield "\" method=\"POST\">
                 <input type=\"hidden\" name=\"employee_id\" value=\"";
-        // line 3343
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3343, $this->source); })()), "id", [], "any", false, false, false, 3343), "html", null, true);
+        // line 3340
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3340, $this->source); })()), "id", [], "any", false, false, false, 3340), "html", null, true);
         yield "\">
                 <input type=\"hidden\" name=\"employee_code\" value=\"";
-        // line 3344
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3344, $this->source); })()), "employee_code", [], "any", false, false, false, 3344), "html", null, true);
+        // line 3341
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3341, $this->source); })()), "employee_code", [], "any", false, false, false, 3341), "html", null, true);
         yield "\">
                 
                 <!-- Date input -->
@@ -4020,57 +4008,57 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
     </div>
 </div>
 ";
-        // line 3421
+        // line 3418
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["payrollProfile"]) || array_key_exists("payrollProfile", $context) ? $context["payrollProfile"] : (function () { throw new RuntimeError('Variable "payrollProfile" does not exist.', 3421, $this->source); })()), "employee_payrolls", [], "any", false, false, false, 3421));
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["payrollProfile"]) || array_key_exists("payrollProfile", $context) ? $context["payrollProfile"] : (function () { throw new RuntimeError('Variable "payrollProfile" does not exist.', 3418, $this->source); })()), "employee_payrolls", [], "any", false, false, false, 3418));
         foreach ($context['_seq'] as $context["_key"] => $context["payroll_item"]) {
-            // line 3422
+            // line 3419
             yield "<div id=\"updateSalaryAdjustment";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3422), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3419), "html", null, true);
             yield "\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
     <div class=\"w-screen lg:w-[75rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full\">
         <div class=\"flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500\">
             <h5 class=\"text-16\">Update Salary Adjustment</h5>
             <button data-modal-close=\"updateSalaryAdjustment";
-            // line 3426
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3426), "html", null, true);
+            // line 3423
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3423), "html", null, true);
             yield "\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-            // line 3429
+            // line 3426
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update_salary_adjustment");
             yield "\" method=\"POST\">
                 <input type=\"hidden\" id=\"payroll_employee_id";
-            // line 3430
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3430), "html", null, true);
+            // line 3427
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3427), "html", null, true);
             yield "\" name=\"payroll_employee_id";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3430), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3427), "html", null, true);
             yield "\" value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3430, $this->source); })()), "id", [], "any", false, false, false, 3430), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3427, $this->source); })()), "id", [], "any", false, false, false, 3427), "html", null, true);
             yield "\">
                 <input type=\"hidden\" id=\"employee_code";
-            // line 3431
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3431), "html", null, true);
+            // line 3428
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3428), "html", null, true);
             yield "\" name=\"employee_code\" value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3431, $this->source); })()), "employee_code", [], "any", false, false, false, 3431), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3428, $this->source); })()), "employee_code", [], "any", false, false, false, 3428), "html", null, true);
             yield "\">
                 <input type=\"hidden\" id=\"payroll_id";
-            // line 3432
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3432), "html", null, true);
+            // line 3429
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3429), "html", null, true);
             yield "\" name=\"payroll_id";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3432), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3429), "html", null, true);
             yield "\" value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3432), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3429), "html", null, true);
             yield "\">
                 
                 <!-- Date input -->
                 ";
-            // line 3439
+            // line 3436
             yield "                
                 <!-- Set Salary Adjustment toggle -->
                 ";
-            // line 3448
+            // line 3445
             yield "                <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-12\">
                             <div class=\"xl:col-span-6 h-[calc(100vh_-_320px)] max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto\">
                                 <div class=\"mb-3\">
@@ -4080,37 +4068,37 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_regular_ndot_hours\" class=\"inline-block mb-2 text-base font-medium\">Regular NDOT Hours</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3456
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3456), "html", null, true);
+            // line 3453
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3453), "html", null, true);
             yield ")\" name=\"sal_adj_regular_ndot_hours\" id=\"sal_adj_regular_ndot_hours";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3456), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3453), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_regular_ndot_pay\" class=\"inline-block mb-2 text-base font-medium\">Regular NDOT Pay</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3460
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3460), "html", null, true);
+            // line 3457
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3457), "html", null, true);
             yield ")\" name=\"sal_adj_regular_ndot_pay\" id=\"sal_adj_regular_ndot_pay";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3460), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3457), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_ot_meal_subsidy_days\" class=\"inline-block mb-2 text-base font-medium\">OT Meal Subsidy (Days/8pm Onwards)</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3464
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3464), "html", null, true);
+            // line 3461
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3461), "html", null, true);
             yield ")\" name=\"sal_adj_ot_meal_subsidy_days\" id=\"sal_adj_ot_meal_subsidy_days";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3464), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3461), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_ot_meal_subsidy_amount\" class=\"inline-block mb-2 text-base font-medium\">OT Meal Subsidy Amount</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3468
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3468), "html", null, true);
+            // line 3465
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3465), "html", null, true);
             yield ")\" name=\"sal_adj_ot_meal_subsidy_amount\" id=\"sal_adj_ot_meal_subsidy_amount";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3468), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3465), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
 
@@ -4118,73 +4106,73 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_4hrs_more_weekend_holiday\" class=\"inline-block mb-2 text-base font-medium\">4 HRS or MORE during SAT./SUN./LEG. HOL.</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3474
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3474), "html", null, true);
+            // line 3471
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3471), "html", null, true);
             yield ")\" name=\"sal_adj_4hrs_more_weekend_holiday\" id=\"sal_adj_4hrs_more_weekend_holiday";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3474), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3471), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_amount\" class=\"inline-block mb-2 text-base font-medium\">Amount</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3478
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3478), "html", null, true);
+            // line 3475
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3475), "html", null, true);
             yield ")\" name=\"sal_adj_amount\" id=\"sal_adj_amount";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3478), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3475), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_temp_allowance\" class=\"inline-block mb-2 text-base font-medium\">Temporary Allowance Amount</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3482
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3482), "html", null, true);
+            // line 3479
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3479), "html", null, true);
             yield ")\" name=\"sal_adj_temp_allowance\" id=\"sal_adj_temp_allowance";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3482), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3479), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_wellness\" class=\"inline-block mb-2 text-base font-medium\">Wellness</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3486
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3486), "html", null, true);
+            // line 3483
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3483), "html", null, true);
             yield ")\" name=\"sal_adj_wellness\" id=\"sal_adj_wellness";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3486), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3483), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_amount\" class=\"inline-block mb-2 text-base font-medium\">Salary Adjustment</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3490
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3490), "html", null, true);
+            // line 3487
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3487), "html", null, true);
             yield ")\" name=\"sal_adj_amount\" id=\"sal_adj_amount";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3490), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3487), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_total_nontax_salary\" class=\"inline-block mb-2 text-base font-medium\">Total Non-Taxable Salary Adjustment</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3494
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3494), "html", null, true);
+            // line 3491
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3491), "html", null, true);
             yield ")\" name=\"sal_adj_total_nontax_salary\" id=\"sal_adj_total_nontax_salary";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3494), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3491), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_total_tax_salary\" class=\"inline-block mb-2 text-base font-medium\">Total Taxable Salary Adjustment</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3498
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3498), "html", null, true);
+            // line 3495
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3495), "html", null, true);
             yield ")\" name=\"sal_adj_total_tax_salary\" id=\"sal_adj_total_tax_salary";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3498), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3495), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                                 <div class=\"mb-3\">
                                     <label for=\"sal_adj_total_salary\" class=\"inline-block mb-2 text-base font-medium\">Total Salary Adjustment</label>
                                     <input type=\"text\" oninput=\"updateSalaryAdjustmentUI(";
-            // line 3502
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3502), "html", null, true);
+            // line 3499
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3499), "html", null, true);
             yield ")\" name=\"sal_adj_total_salary\" id=\"sal_adj_total_salary";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3502), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3499), "html", null, true);
             yield "\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 placeholder:text-slate-400 dark:placeholder:text-zink-200\" required>
                                 </div>
                             </div>
@@ -4197,22 +4185,22 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"comp_sal_adj_regular_ndot_hours_prev\" class=\"inline-block mb-2 text-base font-bold\">Previous Total Salary</label>
                                         <span id=\"comp_sal_adj_regular_ndot_hours_prev\" class=\"inline-block mb-2 text-base font-medium\">₱ ";
-            // line 3513
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_salary", [], "any", true, true, false, 3513)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_salary", [], "any", false, false, false, 3513), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
+            // line 3510
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_salary", [], "any", true, true, false, 3510)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_salary", [], "any", false, false, false, 3510), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
             yield "</span>
                                     </div>
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"sal_adj_regular_ndot_pay_prev\" class=\"inline-block mb-2 text-base font-bold\">Previous Total Deductions</label>
                                         <span id=\"comp_sal_adj_regular_ndot_pay_prev\" class=\"inline-block mb-2 text-base font-medium\">₱ ";
-            // line 3517
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_deduction", [], "any", true, true, false, 3517)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_deduction", [], "any", false, false, false, 3517), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
+            // line 3514
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_deduction", [], "any", true, true, false, 3514)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "total_deduction", [], "any", false, false, false, 3514), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
             yield "</span>
                                     </div>
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"sal_adj_ot_meal_subsidy_days_prev\" class=\"inline-block mb-2 text-base font-bold\">Previous Net Salary</label>
                                         <span id=\"comp_sal_adj_ot_meal_subsidy_days_prev\" class=\"inline-block mb-2 text-base font-medium\">₱ ";
-            // line 3521
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "net_salary", [], "any", true, true, false, 3521)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "net_salary", [], "any", false, false, false, 3521), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
+            // line 3518
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatNumber(((CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "net_salary", [], "any", true, true, false, 3518)) ? (Twig\Extension\CoreExtension::default(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "net_salary", [], "any", false, false, false, 3518), "0.00")) : ("0.00")), 2, ".", ","), "html", null, true);
             yield "</span>
                                     </div>
                                 </div>
@@ -4223,32 +4211,32 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                                     <!-- New Inputs for Remaining Columns -->
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"comp_sal_adj_regular_ndot_hours_preview";
-            // line 3530
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3530), "html", null, true);
+            // line 3527
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3527), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-bold\">Updated Total Salary</label>
                                         <span id=\"comp_sal_adj_regular_ndot_hours_preview";
-            // line 3531
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3531), "html", null, true);
+            // line 3528
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3528), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-medium\">₱ 0</span>
                                     </div>
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"comp_sal_adj_regular_ndot_pay_preview";
-            // line 3534
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3534), "html", null, true);
+            // line 3531
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3531), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-bold\">Updated Total Deductions</label>
                                         <span id=\"comp_sal_adj_regular_ndot_pay_preview";
-            // line 3535
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3535), "html", null, true);
+            // line 3532
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3532), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-medium\">₱ 0</span>
                                     </div>
                                     <div class=\"mb-3 flex flex-row justify-between\">
                                         <label for=\"comp_sal_adj_ot_meal_subsidy_days_preview";
-            // line 3538
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3538), "html", null, true);
+            // line 3535
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3535), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-bold\">Updated Net Salary</label>
                                         <span id=\"comp_sal_adj_ot_meal_subsidy_days_preview";
-            // line 3539
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3539), "html", null, true);
+            // line 3536
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3536), "html", null, true);
             yield "\" class=\"inline-block mb-2 text-base font-medium\">₱ 0</span>
                                     </div>
                                 </div>
@@ -4256,16 +4244,16 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                         </div>
 
                 ";
-            // line 3596
+            // line 3593
             yield "
                 <!-- Submit Button -->
                 ";
-            // line 3601
+            // line 3598
             yield "                <!-- Submit Button -->
                 <div class=\"flex justify-end gap-2 mt-4\">
                     <button type=\"reset\" id=\"close-modal\" data-modal-close=\"updateSalaryAdjustment";
-            // line 3603
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3603), "html", null, true);
+            // line 3600
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["payroll_item"], "id", [], "any", false, false, false, 3600), "html", null, true);
             yield "\" class=\"text-red-500 bg-white btn\">Cancel</button>
                     <button type=\"submit\" class=\"text-white btn bg-custom-500\">Submit</button>
                 </div>
@@ -4278,7 +4266,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['payroll_item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 3611
+        // line 3608
         yield "
 <div id=\"deleteAttachmentModal\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show\">
     <div class=\"w-screen md:w-[25rem] bg-white shadow rounded-md dark:bg-zink-600\">
@@ -4287,7 +4275,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
             <button data-modal-close=\"deleteAttachmentModal\" id=\"deleteRecord-close\" class=\"transition-all duration-200 ease-linear text-slate-500 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
             </div>
             <img src=\"";
-        // line 3618
+        // line 3615
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/delete.png"), "html", null, true);
         yield "\" alt=\"\" class=\"block h-12 mx-auto\">
             <div class=\"mt-5 text-center\">
@@ -4310,18 +4298,18 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3638
+        // line 3635
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create_leave_request_profile");
         yield "\" method=\"post\">
             <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\">
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"emp_record_id\" value=\"";
-        // line 3641
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3641, $this->source); })()), "html", null, true);
+        // line 3638
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3638, $this->source); })()), "html", null, true);
         yield "\">
                     <input type=\"hidden\" name=\"empCode\" value=\"";
-        // line 3642
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3642, $this->source); })()), "employee_code", [], "any", false, false, false, 3642), "html", null, true);
+        // line 3639
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3639, $this->source); })()), "employee_code", [], "any", false, false, false, 3639), "html", null, true);
         yield "\">
                 </div>
 
@@ -4330,22 +4318,22 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                     <select id=\"leave_policy\" name=\"leave_policy\" class=\"form-input\">
                            
                         ";
-        // line 3649
+        // line 3646
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["leave_policies"]) || array_key_exists("leave_policies", $context) ? $context["leave_policies"] : (function () { throw new RuntimeError('Variable "leave_policies" does not exist.', 3649, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["leave_policies"]) || array_key_exists("leave_policies", $context) ? $context["leave_policies"] : (function () { throw new RuntimeError('Variable "leave_policies" does not exist.', 3646, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["leave_policy"]) {
-            // line 3650
+            // line 3647
             yield "                            <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["leave_policy"], "id", [], "any", false, false, false, 3650), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["leave_policy"], "id", [], "any", false, false, false, 3647), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["leave_policy"], "name", [], "any", false, false, false, 3650), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["leave_policy"], "name", [], "any", false, false, false, 3647), "html", null, true);
             yield "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['leave_policy'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 3652
+        // line 3649
         yield "                    </select>
                 </div>
 
@@ -4390,42 +4378,42 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
 </div><!--end add user-->
 
 ";
-        // line 3695
-        if ((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 3695, $this->source); })())) {
-            // line 3696
+        // line 3692
+        if ((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 3692, $this->source); })())) {
+            // line 3693
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 3696, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["emp_overtime_request"]) || array_key_exists("emp_overtime_request", $context) ? $context["emp_overtime_request"] : (function () { throw new RuntimeError('Variable "emp_overtime_request" does not exist.', 3693, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["ot_request"]) {
-                // line 3697
+                // line 3694
                 yield "<div id=\"editOvertimeRequest";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3697), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3694), "html", null, true);
                 yield "\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show \">
     <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
         <div class=\"flex items-center justify-between p-4 border-b dark:border-zink-300/20\">
             <h5 class=\"text-16\">Edit Overtime Request</h5>
             <button data-modal-close=\"editOvertimeRequest";
-                // line 3701
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3701), "html", null, true);
+                // line 3698
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3698), "html", null, true);
                 yield "\" class=\"transition-all duration-200 ease-linear text-slate-400 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-                // line 3704
+                // line 3701
                 yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update_overtime_request");
                 yield "\" method=\"post\">
             <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\">
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"emp_record_id\" value=\"";
-                // line 3707
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3707, $this->source); })()), "html", null, true);
+                // line 3704
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3704, $this->source); })()), "html", null, true);
                 yield "\">
                     <input type=\"hidden\" name=\"empCode\" value=\"";
-                // line 3708
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3708, $this->source); })()), "employee_code", [], "any", false, false, false, 3708), "html", null, true);
+                // line 3705
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3705, $this->source); })()), "employee_code", [], "any", false, false, false, 3705), "html", null, true);
                 yield "\">
                     <input type=\"hidden\" name=\"ot_request_id\" value=\"";
-                // line 3709
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3709), "html", null, true);
+                // line 3706
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3706), "html", null, true);
                 yield "\">
                 </div>
 
@@ -4433,24 +4421,24 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                     <label for=\"date_start\" class=\"inline-block mb-2 text-base font-medium\">Overtime hour/s</label>
                     <span class=\"text-red-500\">*</span>
                     <input type=\"text\" id=\"ot_hours\" name=\"ot_hours\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"timepickr\" data-time-hrs=\"true\"  data-default-time=\"";
-                // line 3715
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "hours_requested", [], "any", false, false, false, 3715), "html", null, true);
+                // line 3712
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "hours_requested", [], "any", false, false, false, 3712), "html", null, true);
                 yield "\" placeholder=\"Add Time\" value=\"\" required>
                 </div>
 
                 <div class=\"xl:col-span-12\">
                     <label for=\"reason\" class=\"inline-block mb-2 text-base font-medium\">Reason</label>
                     <textarea id=\"reason\" name=\"reason\" class=\"form-input\" placeholder=\"Enter Reason (optional)\">";
-                // line 3720
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "reason", [], "any", false, false, false, 3720), "html", null, true);
+                // line 3717
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "reason", [], "any", false, false, false, 3717), "html", null, true);
                 yield "</textarea>
                 </div>
             </div>
         </div>
         <div class=\"flex items-center justify-end p-4 mt-auto border-t border-slate-200 dark:border-zink-500\">
             <button type=\"reset\" data-modal-close=\"editOvertimeRequest";
-                // line 3725
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3725), "html", null, true);
+                // line 3722
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["ot_request"], "id", [], "any", false, false, false, 3722), "html", null, true);
                 yield "\" class=\"text-red-500 bg-white btn\">Cancel</button>
             <button type=\"submit\" class=\"text-white btn bg-custom-500\">Save</button>
         </div>
@@ -4463,10 +4451,10 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ot_request'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
         }
-        // line 3733
+        // line 3730
         yield "
 ";
-        // line 3735
+        // line 3732
         yield "<div id=\"addOvertimeRequest\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show \">
     <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
         <div class=\"flex items-center justify-between p-4 border-b dark:border-zink-300/20\">
@@ -4475,18 +4463,18 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3742
+        // line 3739
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create_overtime_request");
         yield "\" method=\"post\">
             <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\">
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"emp_record_id\" value=\"";
-        // line 3745
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3745, $this->source); })()), "html", null, true);
+        // line 3742
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3742, $this->source); })()), "html", null, true);
         yield "\">
                     <input type=\"hidden\" name=\"empCode\" value=\"";
-        // line 3746
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3746, $this->source); })()), "employee_code", [], "any", false, false, false, 3746), "html", null, true);
+        // line 3743
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3743, $this->source); })()), "employee_code", [], "any", false, false, false, 3743), "html", null, true);
         yield "\">
                     <input type=\"hidden\" name=\"worker_logs_id\" value=\"\">
                 </div>
@@ -4512,7 +4500,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
 </div><!--end add user-->
 
 ";
-        // line 3771
+        // line 3768
         yield "<div id=\"addAccountabilityRecords\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show \">
     <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
         <div class=\"flex items-center justify-between p-4 border-b dark:border-zink-300/20\">
@@ -4521,18 +4509,18 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         </div>
         <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
             <form action=\"";
-        // line 3778
+        // line 3775
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create_new_accountability_record");
         yield "\" method=\"post\">
             <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\">
                 <div class=\"xl:col-span-12\">
                     <input type=\"hidden\" name=\"emp_record_id\" value=\"";
-        // line 3781
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3781, $this->source); })()), "html", null, true);
+        // line 3778
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3778, $this->source); })()), "html", null, true);
         yield "\">
                     <input type=\"hidden\" name=\"empCode\" value=\"";
-        // line 3782
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3782, $this->source); })()), "employee_code", [], "any", false, false, false, 3782), "html", null, true);
+        // line 3779
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3779, $this->source); })()), "employee_code", [], "any", false, false, false, 3779), "html", null, true);
         yield "\">
                 </div>
 
@@ -4566,45 +4554,45 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
 </div><!--end add user-->
 
 ";
-        // line 3814
-        if (((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3814, $this->source); })()) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3814, $this->source); })())) > 0))) {
-            // line 3815
+        // line 3811
+        if (((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3811, $this->source); })()) && (Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3811, $this->source); })())) > 0))) {
+            // line 3812
             yield "    ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3815, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["accountability_records"]) || array_key_exists("accountability_records", $context) ? $context["accountability_records"] : (function () { throw new RuntimeError('Variable "accountability_records" does not exist.', 3812, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["accountability_item"]) {
-                // line 3816
+                // line 3813
                 yield "        ";
-                // line 3817
+                // line 3814
                 yield "        <div id=\"editAccountabilityRecords";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3817), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3814), "html", null, true);
                 yield "\" modal-center class=\"fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 show \">
             <div class=\"w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600\">
                 <div class=\"flex items-center justify-between p-4 border-b dark:border-zink-300/20\">
                     <h5 class=\"text-16\">Edit Accountability Records</h5>
                     <button data-modal-close=\"editAccountabilityRecords";
-                // line 3821
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3821), "html", null, true);
+                // line 3818
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3818), "html", null, true);
                 yield "\" class=\"transition-all duration-200 ease-linear text-slate-400 hover:text-red-500\"><i data-lucide=\"x\" class=\"size-5\"></i></button>
                 </div>
                 <div class=\"max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto\">
                     <form action=\"";
-                // line 3824
+                // line 3821
                 yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update_accountability_record");
                 yield "\" method=\"post\">
                     <div class=\"grid grid-cols-1 gap-4 xl:grid-cols-12\">
                         <div class=\"xl:col-span-12\">
                             <input type=\"hidden\" name=\"emp_record_id\" value=\"";
-                // line 3827
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3827, $this->source); })()), "html", null, true);
+                // line 3824
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["employee_id"]) || array_key_exists("employee_id", $context) ? $context["employee_id"] : (function () { throw new RuntimeError('Variable "employee_id" does not exist.', 3824, $this->source); })()), "html", null, true);
                 yield "\">
                             <input type=\"hidden\" name=\"empCode\" value=\"";
-                // line 3828
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3828, $this->source); })()), "employee_code", [], "any", false, false, false, 3828), "html", null, true);
+                // line 3825
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["employeeData"]) || array_key_exists("employeeData", $context) ? $context["employeeData"] : (function () { throw new RuntimeError('Variable "employeeData" does not exist.', 3825, $this->source); })()), "employee_code", [], "any", false, false, false, 3825), "html", null, true);
                 yield "\">
                             <input type=\"hidden\" name=\"acc_record_id\" value=\"";
-                // line 3829
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3829), "html", null, true);
+                // line 3826
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3826), "html", null, true);
                 yield "\">
                         </div>
 
@@ -4612,16 +4600,16 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                             <label for=\"date_start\" class=\"inline-block mb-2 text-base font-medium\">Item Name</label>
                             <span class=\"text-red-500\">*</span>
                             <input type=\"text\" name=\"item_name\" id=\"item_name\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" value=\"";
-                // line 3835
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_name", [], "any", false, false, false, 3835), "html", null, true);
+                // line 3832
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_name", [], "any", false, false, false, 3832), "html", null, true);
                 yield "\" required>
                         </div>
 
                         <div class=\"xl:col-span-12\">
                             <label for=\"reason\" class=\"inline-block mb-2 text-base font-medium\">Item Count</label>
                             <input type=\"number\" min=\"0\" name=\"item_count\" id=\"item_count\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" value=\"";
-                // line 3840
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_count", [], "any", false, false, false, 3840), "html", null, true);
+                // line 3837
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "item_count", [], "any", false, false, false, 3837), "html", null, true);
                 yield "\" required>
                         </div>
 
@@ -4629,20 +4617,20 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                             <label for=\"acc_records_status\" class=\"inline-block mb-2 text-base font-medium\">Status</label>
                             <select id=\"acc_records_status\" name=\"acc_records_status\" class=\"form-input\">
                                 <option value=\"0\" ";
-                // line 3846
-                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3846) == 0)) {
+                // line 3843
+                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3843) == 0)) {
                     yield "selected";
                 }
                 yield ">Assigned</option>
                                 <option value=\"1\" ";
-                // line 3847
-                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3847) == 1)) {
+                // line 3844
+                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3844) == 1)) {
                     yield "selected";
                 }
                 yield ">Returned</option>
                                 <option value=\"2\" ";
-                // line 3848
-                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3848) == 2)) {
+                // line 3845
+                if ((CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "status", [], "any", false, false, false, 3845) == 2)) {
                     yield "selected";
                 }
                 yield ">Lost</option>
@@ -4653,8 +4641,8 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
                 </div>
                 <div class=\"flex items-center justify-end p-4 mt-auto border-t border-slate-200 dark:border-zink-500\">
                     <button type=\"reset\" data-modal-close=\"editAccountabilityRecords";
-                // line 3855
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3855), "html", null, true);
+                // line 3852
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["accountability_item"], "id", [], "any", false, false, false, 3852), "html", null, true);
                 yield "\" class=\"text-red-500 bg-white btn\">Cancel</button>
                     <button type=\"submit\" class=\"text-white btn bg-custom-500\">Update Record</button>
                 </div>
@@ -4667,7 +4655,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['accountability_item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
         }
-        // line 3863
+        // line 3860
         yield "
 ";
         
@@ -4679,7 +4667,7 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         return; yield '';
     }
 
-    // line 3866
+    // line 3863
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -4689,31 +4677,31 @@ $context["loan_item"], "remark", [], "any", false, false, false, 2448) == "hdmf_
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 3867
+        // line 3864
         yield "
 <!-- apexcharts js -->
 <script src=\"";
-        // line 3869
+        // line 3866
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/libs/apexcharts/apexcharts.min.js"), "html", null, true);
         yield "\"></script>
 
 <script src=\"";
-        // line 3871
+        // line 3868
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/libs/dropzone/dropzone-min.js"), "html", null, true);
         yield "\"></script>
 ";
-        // line 3873
+        // line 3870
         yield "<script src=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/pages/pages-account-setting.init.js"), "html", null, true);
         yield "\"></script>
 <script src=\"";
-        // line 3874
+        // line 3871
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/pages/pages-employee-profile.js"), "html", null, true);
         yield "\"></script>
 
 <!-- App js -->
 <script src=\"";
-        // line 3877
+        // line 3874
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/app.js"), "html", null, true);
         yield "\"></script>
 
@@ -5204,8 +5192,8 @@ function clearWorkerLogsTable() {
 async function findDTR() {
     // Safe validation for worker_id
     const workerId = ";
-        // line 4365
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("worker_id", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["worker_id"]) || array_key_exists("worker_id", $context) ? $context["worker_id"] : (function () { throw new RuntimeError('Variable "worker_id" does not exist.', 4365, $this->source); })()), "null")) : ("null")), "html", null, true);
+        // line 4362
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(((array_key_exists("worker_id", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["worker_id"]) || array_key_exists("worker_id", $context) ? $context["worker_id"] : (function () { throw new RuntimeError('Variable "worker_id" does not exist.', 4362, $this->source); })()), "null")) : ("null")), "html", null, true);
         yield ";
     
     if (!workerId || workerId === 'null') {
@@ -5214,18 +5202,11 @@ async function findDTR() {
     }
 
     // Get the current cutoff range
-    //let currentHalf = getCurrentHalfRange();
-    const datefrom = document.getElementById(\"worker_log_from\").value;
-    const dateto = document.getElementById(\"worker_log_to\").value;
-   // let jsonObjectDate = {
-    //    \"start_date\": currentHalf.range.start,
-    //    \"end_date\": currentHalf.range.end
-   // };
-
-   let jsonObjectDate = {
-        \"start_date\": datefrom,
-        \"end_date\": dateto
-   };
+    let currentHalf = getCurrentHalfRange();
+    let jsonObjectDate = {
+        \"start_date\": currentHalf.range.start,
+        \"end_date\": currentHalf.range.end
+    };
 
     try {
         // Call the API and fetch worker logs
@@ -5359,29 +5340,13 @@ function refreshCallBack() {
     });
 }
 
-//Get today's date in Y-m-d format and set it to the input fields
-    function getDateToday() {
-    const today = new Date();
-
-    const formattedDate = today.getFullYear() + '-' +
-                            String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                            String(today.getDate()).padStart(2, '0');
-
-    document.getElementById('worker_log_from').value = formattedDate;
-    document.getElementById('worker_log_to').value = formattedDate;
-}
-
-";
-        // line 4531
-        yield "getDateToday();
+populateCutOffOptions()
 findDTR()
 </script>
 
-
-
 ";
-        // line 4537
-        yield ((array_key_exists("javascriptSnippet", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["javascriptSnippet"]) || array_key_exists("javascriptSnippet", $context) ? $context["javascriptSnippet"] : (function () { throw new RuntimeError('Variable "javascriptSnippet" does not exist.', 4537, $this->source); })()), "")) : (""));
+        // line 4512
+        yield ((array_key_exists("javascriptSnippet", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["javascriptSnippet"]) || array_key_exists("javascriptSnippet", $context) ? $context["javascriptSnippet"] : (function () { throw new RuntimeError('Variable "javascriptSnippet" does not exist.', 4512, $this->source); })()), "")) : (""));
         yield "
 ";
         
@@ -5414,7 +5379,7 @@ findDTR()
      */
     public function getDebugInfo()
     {
-        return array (  5384 => 4537,  5376 => 4531,  5208 => 4365,  4717 => 3877,  4711 => 3874,  4706 => 3873,  4702 => 3871,  4697 => 3869,  4693 => 3867,  4683 => 3866,  4671 => 3863,  4657 => 3855,  4645 => 3848,  4639 => 3847,  4633 => 3846,  4624 => 3840,  4616 => 3835,  4607 => 3829,  4603 => 3828,  4599 => 3827,  4593 => 3824,  4587 => 3821,  4579 => 3817,  4577 => 3816,  4572 => 3815,  4570 => 3814,  4535 => 3782,  4531 => 3781,  4525 => 3778,  4516 => 3771,  4489 => 3746,  4485 => 3745,  4479 => 3742,  4470 => 3735,  4467 => 3733,  4453 => 3725,  4445 => 3720,  4437 => 3715,  4428 => 3709,  4424 => 3708,  4420 => 3707,  4414 => 3704,  4408 => 3701,  4400 => 3697,  4396 => 3696,  4394 => 3695,  4349 => 3652,  4338 => 3650,  4334 => 3649,  4324 => 3642,  4320 => 3641,  4314 => 3638,  4291 => 3618,  4282 => 3611,  4268 => 3603,  4264 => 3601,  4260 => 3596,  4251 => 3539,  4247 => 3538,  4241 => 3535,  4237 => 3534,  4231 => 3531,  4227 => 3530,  4215 => 3521,  4208 => 3517,  4201 => 3513,  4185 => 3502,  4176 => 3498,  4167 => 3494,  4158 => 3490,  4149 => 3486,  4140 => 3482,  4131 => 3478,  4122 => 3474,  4111 => 3468,  4102 => 3464,  4093 => 3460,  4084 => 3456,  4074 => 3448,  4070 => 3439,  4060 => 3432,  4054 => 3431,  4046 => 3430,  4042 => 3429,  4036 => 3426,  4028 => 3422,  4024 => 3421,  3944 => 3344,  3940 => 3343,  3936 => 3342,  3927 => 3335,  3917 => 3282,  3912 => 3264,  3905 => 3260,  3898 => 3256,  3891 => 3252,  3885 => 3249,  3881 => 3248,  3877 => 3247,  3868 => 3240,  3852 => 3225,  3835 => 3207,  3831 => 3206,  3772 => 3149,  3768 => 3144,  3762 => 3139,  3758 => 3134,  3754 => 3132,  3723 => 3104,  3700 => 3083,  3694 => 3077,  3619 => 3006,  3615 => 3003,  3602 => 2993,  3597 => 2992,  3586 => 2982,  3578 => 2975,  3575 => 2974,  3562 => 2967,  3553 => 2961,  3549 => 2960,  3545 => 2959,  3542 => 2958,  3537 => 2957,  3535 => 2956,  3523 => 2946,  3521 => 2941,  3502 => 2924,  3494 => 2885,  3485 => 2877,  3482 => 2876,  3472 => 2871,  3467 => 2866,  3458 => 2860,  3454 => 2859,  3446 => 2857,  3443 => 2856,  3440 => 2855,  3437 => 2854,  3432 => 2851,  3428 => 2850,  3425 => 2849,  3420 => 2848,  3417 => 2847,  3403 => 2834,  3401 => 2829,  3395 => 2825,  3378 => 2797,  3370 => 2758,  3362 => 2751,  3346 => 2718,  3344 => 2713,  3335 => 2706,  3311 => 2677,  3303 => 2638,  3295 => 2631,  3288 => 2629,  3284 => 2615,  3280 => 2614,  3276 => 2613,  3272 => 2612,  3266 => 2611,  3262 => 2610,  3259 => 2609,  3254 => 2608,  3249 => 2604,  3238 => 2594,  3236 => 2589,  3230 => 2585,  3211 => 2555,  3209 => 2531,  3206 => 2530,  3197 => 2527,  3193 => 2526,  3190 => 2525,  3185 => 2524,  3182 => 2523,  3159 => 2496,  3150 => 2493,  3146 => 2492,  3142 => 2491,  3137 => 2490,  3133 => 2486,  3130 => 2485,  3126 => 2484,  3117 => 2477,  3102 => 2463,  3094 => 2456,  3086 => 2453,  3080 => 2451,  3076 => 2449,  3074 => 2448,  3071 => 2447,  3069 => 2446,  3066 => 2445,  3064 => 2444,  3059 => 2442,  3055 => 2441,  3051 => 2440,  3046 => 2438,  3041 => 2436,  3038 => 2435,  3034 => 2434,  3011 => 2413,  3003 => 2406,  2995 => 2403,  2989 => 2401,  2985 => 2399,  2983 => 2398,  2980 => 2397,  2978 => 2396,  2973 => 2394,  2969 => 2393,  2965 => 2392,  2960 => 2390,  2955 => 2388,  2952 => 2387,  2948 => 2386,  2925 => 2365,  2917 => 2358,  2898 => 2345,  2894 => 2344,  2888 => 2341,  2882 => 2338,  2876 => 2335,  2872 => 2334,  2868 => 2333,  2864 => 2332,  2860 => 2331,  2856 => 2330,  2852 => 2329,  2845 => 2327,  2840 => 2325,  2837 => 2324,  2832 => 2323,  2805 => 2297,  2788 => 2281,  2762 => 2252,  2758 => 2250,  2748 => 2246,  2738 => 2241,  2732 => 2240,  2725 => 2236,  2719 => 2233,  2715 => 2231,  2710 => 2228,  2704 => 2226,  2701 => 2220,  2697 => 2219,  2694 => 2218,  2692 => 2217,  2642 => 2169,  2625 => 2153,  2594 => 2119,  2590 => 2117,  2578 => 2111,  2574 => 2110,  2570 => 2109,  2559 => 2103,  2553 => 2102,  2546 => 2098,  2540 => 2095,  2536 => 2093,  2531 => 2090,  2525 => 2088,  2522 => 2082,  2518 => 2081,  2515 => 2080,  2513 => 2079,  2463 => 2031,  2446 => 2015,  2416 => 1981,  2412 => 1979,  2397 => 1972,  2391 => 1971,  2388 => 1970,  2378 => 1964,  2372 => 1963,  2365 => 1959,  2359 => 1956,  2355 => 1954,  2350 => 1951,  2344 => 1949,  2341 => 1943,  2337 => 1942,  2334 => 1941,  2332 => 1940,  2282 => 1892,  2278 => 1889,  2276 => 1853,  2264 => 1843,  2257 => 1839,  2250 => 1835,  2246 => 1833,  2224 => 1813,  2217 => 1809,  2210 => 1805,  2203 => 1801,  2189 => 1789,  2185 => 1786,  2183 => 1729,  2179 => 1726,  2177 => 1639,  2161 => 1625,  2154 => 1621,  2150 => 1620,  2140 => 1613,  2133 => 1609,  2129 => 1608,  2119 => 1601,  2112 => 1597,  2108 => 1596,  2083 => 1574,  2076 => 1572,  2068 => 1567,  2061 => 1565,  2057 => 1563,  2051 => 1553,  2044 => 1551,  2036 => 1546,  2029 => 1544,  2021 => 1539,  2014 => 1537,  2006 => 1532,  1999 => 1530,  1991 => 1525,  1984 => 1523,  1957 => 1498,  1954 => 1496,  1950 => 1493,  1948 => 1490,  1943 => 1484,  1940 => 1482,  1936 => 1443,  1928 => 1440,  1923 => 1425,  1919 => 1424,  1910 => 1417,  1901 => 1412,  1891 => 1409,  1888 => 1408,  1883 => 1403,  1877 => 1399,  1874 => 1398,  1871 => 1397,  1868 => 1396,  1865 => 1395,  1862 => 1394,  1859 => 1393,  1857 => 1392,  1853 => 1390,  1847 => 1388,  1841 => 1386,  1838 => 1385,  1832 => 1380,  1827 => 1379,  1823 => 1376,  1817 => 1369,  1812 => 1335,  1799 => 1329,  1793 => 1324,  1789 => 1323,  1785 => 1322,  1781 => 1321,  1776 => 1319,  1771 => 1317,  1767 => 1316,  1764 => 1315,  1760 => 1314,  1736 => 1292,  1721 => 1194,  1697 => 1172,  1693 => 1170,  1683 => 1166,  1677 => 1163,  1671 => 1160,  1665 => 1157,  1656 => 1150,  1652 => 1149,  1649 => 1148,  1647 => 1147,  1589 => 1091,  1565 => 1069,  1561 => 1067,  1551 => 1063,  1545 => 1060,  1539 => 1057,  1533 => 1054,  1524 => 1047,  1520 => 1046,  1517 => 1045,  1515 => 1044,  1456 => 987,  1435 => 968,  1431 => 966,  1421 => 962,  1415 => 959,  1409 => 956,  1400 => 949,  1396 => 948,  1393 => 947,  1391 => 946,  1369 => 926,  1348 => 907,  1344 => 905,  1334 => 901,  1328 => 898,  1322 => 895,  1313 => 888,  1309 => 887,  1306 => 886,  1304 => 885,  1282 => 865,  1261 => 846,  1257 => 844,  1247 => 840,  1241 => 837,  1235 => 834,  1226 => 827,  1222 => 826,  1219 => 825,  1217 => 824,  1159 => 768,  1138 => 749,  1134 => 747,  1124 => 743,  1118 => 740,  1112 => 737,  1103 => 730,  1099 => 729,  1096 => 728,  1094 => 727,  1072 => 707,  1054 => 691,  1050 => 689,  1040 => 685,  1034 => 682,  1025 => 675,  1021 => 674,  1018 => 673,  1016 => 672,  996 => 654,  972 => 632,  968 => 630,  958 => 626,  952 => 623,  946 => 620,  940 => 617,  931 => 610,  927 => 609,  924 => 608,  922 => 607,  864 => 551,  816 => 505,  812 => 503,  801 => 498,  794 => 494,  787 => 490,  780 => 486,  771 => 480,  764 => 476,  757 => 472,  750 => 468,  739 => 459,  735 => 458,  732 => 457,  730 => 456,  690 => 419,  683 => 415,  676 => 411,  663 => 401,  654 => 395,  647 => 391,  636 => 382,  618 => 366,  614 => 364,  604 => 360,  598 => 357,  589 => 350,  585 => 349,  582 => 348,  580 => 347,  563 => 333,  556 => 329,  549 => 325,  542 => 321,  533 => 315,  526 => 311,  519 => 307,  510 => 301,  503 => 297,  496 => 293,  470 => 272,  440 => 245,  430 => 238,  420 => 231,  410 => 224,  400 => 217,  386 => 206,  376 => 199,  366 => 192,  356 => 185,  346 => 178,  308 => 143,  303 => 140,  299 => 138,  293 => 136,  291 => 135,  284 => 131,  277 => 127,  270 => 123,  263 => 119,  256 => 115,  223 => 84,  217 => 80,  215 => 79,  201 => 67,  199 => 66,  193 => 62,  191 => 61,  183 => 55,  174 => 49,  163 => 41,  156 => 37,  149 => 33,  139 => 30,  129 => 25,  123 => 24,  117 => 23,  108 => 16,  104 => 14,  91 => 5,  81 => 4,  61 => 2,  38 => 1,);
+        return array (  5349 => 4512,  5196 => 4362,  4705 => 3874,  4699 => 3871,  4694 => 3870,  4690 => 3868,  4685 => 3866,  4681 => 3864,  4671 => 3863,  4659 => 3860,  4645 => 3852,  4633 => 3845,  4627 => 3844,  4621 => 3843,  4612 => 3837,  4604 => 3832,  4595 => 3826,  4591 => 3825,  4587 => 3824,  4581 => 3821,  4575 => 3818,  4567 => 3814,  4565 => 3813,  4560 => 3812,  4558 => 3811,  4523 => 3779,  4519 => 3778,  4513 => 3775,  4504 => 3768,  4477 => 3743,  4473 => 3742,  4467 => 3739,  4458 => 3732,  4455 => 3730,  4441 => 3722,  4433 => 3717,  4425 => 3712,  4416 => 3706,  4412 => 3705,  4408 => 3704,  4402 => 3701,  4396 => 3698,  4388 => 3694,  4384 => 3693,  4382 => 3692,  4337 => 3649,  4326 => 3647,  4322 => 3646,  4312 => 3639,  4308 => 3638,  4302 => 3635,  4279 => 3615,  4270 => 3608,  4256 => 3600,  4252 => 3598,  4248 => 3593,  4239 => 3536,  4235 => 3535,  4229 => 3532,  4225 => 3531,  4219 => 3528,  4215 => 3527,  4203 => 3518,  4196 => 3514,  4189 => 3510,  4173 => 3499,  4164 => 3495,  4155 => 3491,  4146 => 3487,  4137 => 3483,  4128 => 3479,  4119 => 3475,  4110 => 3471,  4099 => 3465,  4090 => 3461,  4081 => 3457,  4072 => 3453,  4062 => 3445,  4058 => 3436,  4048 => 3429,  4042 => 3428,  4034 => 3427,  4030 => 3426,  4024 => 3423,  4016 => 3419,  4012 => 3418,  3932 => 3341,  3928 => 3340,  3924 => 3339,  3915 => 3332,  3905 => 3279,  3900 => 3261,  3893 => 3257,  3886 => 3253,  3879 => 3249,  3873 => 3246,  3869 => 3245,  3865 => 3244,  3856 => 3237,  3840 => 3222,  3823 => 3204,  3819 => 3203,  3760 => 3146,  3756 => 3141,  3750 => 3136,  3746 => 3131,  3742 => 3129,  3711 => 3101,  3688 => 3080,  3682 => 3074,  3607 => 3003,  3603 => 3000,  3590 => 2990,  3585 => 2989,  3574 => 2979,  3566 => 2972,  3563 => 2971,  3550 => 2964,  3541 => 2958,  3537 => 2957,  3533 => 2956,  3530 => 2955,  3525 => 2954,  3523 => 2953,  3511 => 2943,  3509 => 2938,  3490 => 2921,  3482 => 2882,  3473 => 2874,  3470 => 2873,  3460 => 2868,  3455 => 2863,  3446 => 2857,  3442 => 2856,  3434 => 2854,  3431 => 2853,  3428 => 2852,  3425 => 2851,  3420 => 2848,  3416 => 2847,  3413 => 2846,  3408 => 2845,  3405 => 2844,  3391 => 2831,  3389 => 2826,  3383 => 2822,  3366 => 2794,  3358 => 2755,  3350 => 2748,  3334 => 2715,  3332 => 2710,  3320 => 2700,  3309 => 2698,  3305 => 2697,  3283 => 2677,  3275 => 2638,  3267 => 2631,  3260 => 2629,  3256 => 2615,  3252 => 2614,  3248 => 2613,  3244 => 2612,  3238 => 2611,  3234 => 2610,  3231 => 2609,  3226 => 2608,  3221 => 2604,  3210 => 2594,  3208 => 2589,  3202 => 2585,  3183 => 2555,  3181 => 2531,  3178 => 2530,  3169 => 2527,  3165 => 2526,  3162 => 2525,  3157 => 2524,  3154 => 2523,  3131 => 2496,  3122 => 2493,  3118 => 2492,  3114 => 2491,  3109 => 2490,  3105 => 2486,  3102 => 2485,  3098 => 2484,  3089 => 2477,  3074 => 2463,  3066 => 2456,  3058 => 2453,  3052 => 2451,  3048 => 2449,  3046 => 2448,  3043 => 2447,  3041 => 2446,  3038 => 2445,  3036 => 2444,  3031 => 2442,  3027 => 2441,  3023 => 2440,  3018 => 2438,  3013 => 2436,  3010 => 2435,  3006 => 2434,  2983 => 2413,  2975 => 2406,  2967 => 2403,  2961 => 2401,  2957 => 2399,  2955 => 2398,  2952 => 2397,  2950 => 2396,  2945 => 2394,  2941 => 2393,  2937 => 2392,  2932 => 2390,  2927 => 2388,  2924 => 2387,  2920 => 2386,  2897 => 2365,  2889 => 2358,  2870 => 2345,  2866 => 2344,  2860 => 2341,  2854 => 2338,  2848 => 2335,  2844 => 2334,  2840 => 2333,  2836 => 2332,  2832 => 2331,  2828 => 2330,  2824 => 2329,  2817 => 2327,  2812 => 2325,  2809 => 2324,  2804 => 2323,  2777 => 2297,  2760 => 2281,  2734 => 2252,  2730 => 2250,  2720 => 2246,  2710 => 2241,  2704 => 2240,  2697 => 2236,  2691 => 2233,  2687 => 2231,  2682 => 2228,  2676 => 2226,  2673 => 2220,  2669 => 2219,  2666 => 2218,  2664 => 2217,  2614 => 2169,  2597 => 2153,  2566 => 2119,  2562 => 2117,  2550 => 2111,  2546 => 2110,  2542 => 2109,  2531 => 2103,  2525 => 2102,  2518 => 2098,  2512 => 2095,  2508 => 2093,  2503 => 2090,  2497 => 2088,  2494 => 2082,  2490 => 2081,  2487 => 2080,  2485 => 2079,  2435 => 2031,  2418 => 2015,  2388 => 1981,  2384 => 1979,  2369 => 1972,  2363 => 1971,  2360 => 1970,  2350 => 1964,  2344 => 1963,  2337 => 1959,  2331 => 1956,  2327 => 1954,  2322 => 1951,  2316 => 1949,  2313 => 1943,  2309 => 1942,  2306 => 1941,  2304 => 1940,  2254 => 1892,  2250 => 1889,  2248 => 1853,  2236 => 1843,  2229 => 1839,  2222 => 1835,  2218 => 1833,  2196 => 1813,  2189 => 1809,  2182 => 1805,  2175 => 1801,  2161 => 1789,  2157 => 1786,  2155 => 1729,  2151 => 1726,  2149 => 1639,  2133 => 1625,  2126 => 1621,  2122 => 1620,  2112 => 1613,  2105 => 1609,  2101 => 1608,  2091 => 1601,  2084 => 1597,  2080 => 1596,  2055 => 1574,  2048 => 1572,  2040 => 1567,  2033 => 1565,  2029 => 1563,  2027 => 1556,  2021 => 1539,  2014 => 1537,  2006 => 1532,  1999 => 1530,  1991 => 1525,  1984 => 1523,  1957 => 1498,  1954 => 1496,  1950 => 1493,  1948 => 1490,  1943 => 1484,  1940 => 1482,  1936 => 1443,  1928 => 1440,  1923 => 1425,  1919 => 1424,  1910 => 1417,  1901 => 1412,  1891 => 1409,  1888 => 1408,  1883 => 1403,  1877 => 1399,  1874 => 1398,  1871 => 1397,  1868 => 1396,  1865 => 1395,  1862 => 1394,  1859 => 1393,  1857 => 1392,  1853 => 1390,  1847 => 1388,  1841 => 1386,  1838 => 1385,  1832 => 1380,  1827 => 1379,  1823 => 1376,  1817 => 1369,  1812 => 1335,  1799 => 1329,  1793 => 1324,  1789 => 1323,  1785 => 1322,  1781 => 1321,  1776 => 1319,  1771 => 1317,  1767 => 1316,  1764 => 1315,  1760 => 1314,  1736 => 1292,  1721 => 1194,  1697 => 1172,  1693 => 1170,  1683 => 1166,  1677 => 1163,  1671 => 1160,  1665 => 1157,  1656 => 1150,  1652 => 1149,  1649 => 1148,  1647 => 1147,  1589 => 1091,  1565 => 1069,  1561 => 1067,  1551 => 1063,  1545 => 1060,  1539 => 1057,  1533 => 1054,  1524 => 1047,  1520 => 1046,  1517 => 1045,  1515 => 1044,  1456 => 987,  1435 => 968,  1431 => 966,  1421 => 962,  1415 => 959,  1409 => 956,  1400 => 949,  1396 => 948,  1393 => 947,  1391 => 946,  1369 => 926,  1348 => 907,  1344 => 905,  1334 => 901,  1328 => 898,  1322 => 895,  1313 => 888,  1309 => 887,  1306 => 886,  1304 => 885,  1282 => 865,  1261 => 846,  1257 => 844,  1247 => 840,  1241 => 837,  1235 => 834,  1226 => 827,  1222 => 826,  1219 => 825,  1217 => 824,  1159 => 768,  1138 => 749,  1134 => 747,  1124 => 743,  1118 => 740,  1112 => 737,  1103 => 730,  1099 => 729,  1096 => 728,  1094 => 727,  1072 => 707,  1054 => 691,  1050 => 689,  1040 => 685,  1034 => 682,  1025 => 675,  1021 => 674,  1018 => 673,  1016 => 672,  996 => 654,  972 => 632,  968 => 630,  958 => 626,  952 => 623,  946 => 620,  940 => 617,  931 => 610,  927 => 609,  924 => 608,  922 => 607,  864 => 551,  816 => 505,  812 => 503,  801 => 498,  794 => 494,  787 => 490,  780 => 486,  771 => 480,  764 => 476,  757 => 472,  750 => 468,  739 => 459,  735 => 458,  732 => 457,  730 => 456,  690 => 419,  683 => 415,  676 => 411,  663 => 401,  654 => 395,  647 => 391,  636 => 382,  618 => 366,  614 => 364,  604 => 360,  598 => 357,  589 => 350,  585 => 349,  582 => 348,  580 => 347,  563 => 333,  556 => 329,  549 => 325,  542 => 321,  533 => 315,  526 => 311,  519 => 307,  510 => 301,  503 => 297,  496 => 293,  470 => 272,  440 => 245,  430 => 238,  420 => 231,  410 => 224,  400 => 217,  386 => 206,  376 => 199,  366 => 192,  356 => 185,  346 => 178,  308 => 143,  303 => 140,  299 => 138,  293 => 136,  291 => 135,  284 => 131,  277 => 127,  270 => 123,  263 => 119,  256 => 115,  223 => 84,  217 => 80,  215 => 79,  201 => 67,  199 => 66,  193 => 62,  191 => 61,  183 => 55,  174 => 49,  163 => 41,  156 => 37,  149 => 33,  139 => 30,  129 => 25,  123 => 24,  117 => 23,  108 => 16,  104 => 14,  91 => 5,  81 => 4,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -6960,7 +6925,7 @@ findDTR()
                                                             <input type=\"text\" id=\"taxShield\" name=\"taxShield\" class=\"form-input input-float text-right border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"\" value=\"{{ payrollProfile.tax_shield | default(0) }}\">
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    {# <tr>
                                                         <th class=\"py-2 font-semibold ps-0\" scope=\"row\">Daily Rate (taxable)</th>
                                                         <td class=\"py-2 text-right text-slate-500 dark:text-zink-200 capitalize toggle-payroll-hidden td-dailyRate\" data-value=\"{{ payrollProfile.daily_rate | default('') }}\">{{ payrollProfile.daily_rate|number_format(2, '.', ',') | default(0) }}</td>
                                                         <td class=\"w-full toggle-payroll-hidden hidden input-dailyRate\">
@@ -6973,7 +6938,7 @@ findDTR()
                                                         <td class=\"w-full toggle-payroll-hidden hidden input-dailyTaxShield\">
                                                             <input type=\"text\" id=\"dailyTaxShield\" name=\"dailyTaxShield\" class=\"form-input input-float text-right border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" placeholder=\"\" value=\"{{ payrollProfile.daily_tax_shield | default(0) }}\">
                                                         </td>
-                                                    </tr>
+                                                    </tr> #}
                                                     {# <tr>
                                                         <th class=\"py-2 font-semibold ps-0\" scope=\"row\">Hourly Rate</th>
                                                         <td class=\"py-2 text-right text-slate-500 dark:text-zink-200 capitalize  td-hourlyRate\" data-value=\"{{ payrollProfile.hourly_rate | default('') }}\">{{  payrollProfile.hourly_rate|number_format(2, '.', ',') | default(0) }}</td>
@@ -8113,17 +8078,14 @@ findDTR()
                                             <div class=\"grid grid-cols-1 gap-5 xl:grid-cols-12\">
                                                 <div class=\"relative col-span-4 gap-2\">
                                                     <div class=\"col-span-10 flex flex-row items-center gap-2\">
-                                                        <p class=\"text-slate-500 w-40 dark:text-zink-200\">From</p>
-                                                        <input type=\"text\" onchange=\"findDTR()\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" id=\"worker_log_from\">
-                                                        <p class=\"text-slate-500 w-35 dark:text-zink-200\">To</p>
-                                                        <input type=\"text\" onchange=\"findDTR()\" class=\"form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\" data-provider=\"flatpickr\" data-date-format=\"Y-m-d\" placeholder=\"Select Date\" id=\"worker_log_to\">
-                                                        {# <select id=\"year_selector\" class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
+                                                        <p class=\"text-slate-500 w-40 dark:text-zink-200\">As of</p>
+                                                        <select id=\"year_selector\" class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
                                                             {% for year in range(2024, \"now\"|date(\"Y\")) %}
                                                                 <option value=\"{{ year }}\">{{ year }}</option>
                                                             {% endfor %}
                                                         </select>
                                                         <select id=\"cut_off_dd\" onchange=\"findDTR()\" class=\"form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200\">
-                                                        </select> #}
+                                                        </select>
                                                     </div>
                                                 </div><!--end col-->
                                             </div><!--end grid-->
@@ -9791,18 +9753,11 @@ async function findDTR() {
     }
 
     // Get the current cutoff range
-    //let currentHalf = getCurrentHalfRange();
-    const datefrom = document.getElementById(\"worker_log_from\").value;
-    const dateto = document.getElementById(\"worker_log_to\").value;
-   // let jsonObjectDate = {
-    //    \"start_date\": currentHalf.range.start,
-    //    \"end_date\": currentHalf.range.end
-   // };
-
-   let jsonObjectDate = {
-        \"start_date\": datefrom,
-        \"end_date\": dateto
-   };
+    let currentHalf = getCurrentHalfRange();
+    let jsonObjectDate = {
+        \"start_date\": currentHalf.range.start,
+        \"end_date\": currentHalf.range.end
+    };
 
     try {
         // Call the API and fetch worker logs
@@ -9936,24 +9891,9 @@ function refreshCallBack() {
     });
 }
 
-//Get today's date in Y-m-d format and set it to the input fields
-    function getDateToday() {
-    const today = new Date();
-
-    const formattedDate = today.getFullYear() + '-' +
-                            String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                            String(today.getDate()).padStart(2, '0');
-
-    document.getElementById('worker_log_from').value = formattedDate;
-    document.getElementById('worker_log_to').value = formattedDate;
-}
-
-{# populateCutOffOptions() #}
-getDateToday();
+populateCutOffOptions()
 findDTR()
 </script>
-
-
 
 {{ javascriptSnippet|default('')|raw }}
 {% endblock %}", "employee_profile/apps-employee-profile.html.twig", "C:\\Users\\SUNIT226\\Desktop\\Repos\\HRIS\\hris-live\\hris.wrldcapitalholdings.com\\templates\\employee_profile\\apps-employee-profile.html.twig");

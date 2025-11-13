@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/leave-request')]
 class LeaveRequestController extends AbstractController
@@ -66,6 +67,21 @@ class LeaveRequestController extends AbstractController
         $session = $request->getSession();
         $token = $session->get('token');
         $user_id = $session->get('user_id');
+
+        $empCode = $request->request->get('empCode') ?? null;
+        $uploadSize = intval($request->request->get('fileSize')) ?? 25;
+        $type = 'pdf';
+        $file = $request->files->get('attachment');
+
+        // Define allowed file extensions for each type
+        $allowedExtensions = [
+            // 'doc' => ['doc', 'docx'],
+            //'csv' => ['csv'],
+            'pdf' => ['pdf'],
+            //'jpg' => ['jpg', 'jpeg', 'png']
+        ];
+
+        
         // Collect form data from the request, handling optional fields
         $formData = [
             'emp_record_id'         => $request->request->get('emp_record_id'),
@@ -82,51 +98,16 @@ class LeaveRequestController extends AbstractController
         // dd(json_encode($formData));
         // Send POST request to create the LeavePolicy via ApiService
         $response = $this->apiService->apiRequest('POST', 'api/leave/request/create', json_encode($formData), $token);
-        // dd($response);
-        // Handle potential error response from API
-        if (is_array($response) && isset($response['error']) && $response['error'] === true) {
-            $errorMessage = 'Error: Status code ' . $response['status'];
-            $responseMessage = json_decode($response['message'], true)['message'] ?? $errorMessage;
+        $statusCode = $response->getStatusCode();
 
-            return $this->redirectToRoute('app_leave_request', [
-                'status'    => $response['status'],
-                'error'     => $errorMessage,
-                'message'   => $responseMessage,
-            ]);
-        }
-
-
-        $empCode = $request->request->get('empCode') ?? null;
-        $uploadSize = intval($request->request->get('fileSize')) ?? 25;
-        $type = 'pdf';
-        
-
-        $file = $request->files->get('attachment');
-        if (!$file) {
-            return new JsonResponse(['status' => 'error', 'message' => 'No file provided!']);
-        }
-
-        $fileSize = $file->getSize();
-        $originalFileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-
-
-
-        // handles cache items
-        $empAttachmentKey = 'attachment_' . $empCode;
-
-        // Define allowed file extensions for each type
-        $allowedExtensions = [
-            'doc' => ['doc', 'docx'],
-            'csv' => ['csv'],
-            'pdf' => ['pdf'],
-            'jpg' => ['jpg', 'jpeg', 'png']
-        ];
-
-        // if ($request->isMethod('POST')) {
+        if ($statusCode  == 200 && $file || $statusCode  == 201 && $file)
+        {
+            $fileSize = $file->getSize();
+            $originalFileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             if ($file instanceof UploadedFile) {
                 // Check if the file extension is allowed for the given type
                 $fileExtension = $file->getClientOriginalExtension();
-                if (isset($allowedExtensions[$type]) && in_array($fileExtension, $allowedExtensions[$type])) {
+                // if (isset($allowedExtensions[$type]) && in_array($fileExtension, $allowedExtensions[$type])) {
                     if ($fileSize <= $uploadSize * 1024 * 1024) { // 25MB in bytes by default
 
                         // Create directory for employee if not exists
@@ -151,7 +132,6 @@ class LeaveRequestController extends AbstractController
                                 "type" => $type,
                                 "attachment_name" => $fileName,
                                 "attachment_size" => $fileSize,
-                                //"date_uploaded" => $dateUploaded,
                                 "file" => $filePath,
                                 "original_file_name" => $originalFileName
                             ];
@@ -162,7 +142,6 @@ class LeaveRequestController extends AbstractController
                             //dd($response->getContent(true));
 
                             if ($status_code  == 200 || $status_code  == 201) {
-                                //$this->cache->deleteItem($empAttachmentKey); // delete cache for attachments
                                 return $this->redirectToRoute('app_leave_request', ['employee_code' => $empCode, 'status' => $status_code, 'a' => 'fus']); // "action" => "file upload success"
                             } else {
                                 return $this->redirectToRoute('app_leave_request', ['employee_code' => $empCode, 'status' => $status_code, 'a' => 'fuf']); // "action" => file upload fail
@@ -179,33 +158,27 @@ class LeaveRequestController extends AbstractController
                             'message' => 'File size exceeds 25MB limit!',
                         ]);
                     }
-                } else {
-                    return $this->redirectToRoute('app_leave_request', [
-                        'employee_code' => $empCode,
-                        'status' => '404',
-                        'error' => 'Invalid file type for the selected document type!',
-                        'message' => 'Invalid file type for the selected document type!',
-                    ]);
-                }
             }
+        }
+        // dd($response);
+        // Handle potential error response from API
+        if (is_array($response) && isset($response['error']) && $response['error'] === true) {
+            $errorMessage = 'Error: Status code ' . $response['status'];
+            $responseMessage = json_decode($response['message'], true)['message'] ?? $errorMessage;
+            
             return $this->redirectToRoute('app_leave_request', [
-                'employee_code' => $empCode,
-                'status' => '404',
-                'error' => 'Invalid file!',
-                'message' => 'Invalid file!',
+                'status'    => $response['status'],
+                'error'     => $errorMessage,
+                'message'   => $responseMessage,
             ]);
-        // }
-
-
-
-
+        }
 
         // Redirect to success route if creation is successful
-        // return $this->redirectToRoute('app_leave_request', [
-        //     'status' => $response->getStatusCode(),
-        //     'error' => '',
-        //     'message' => '',
-        // ]);
+        return $this->redirectToRoute('app_leave_request', [
+            'status' => $response->getStatusCode(),
+            'error' => '',
+            'message' => '',
+        ]);
     }
 
     #[Route('/approve', name: 'approve_leave_request', methods: ['POST'])]

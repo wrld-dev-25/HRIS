@@ -492,7 +492,9 @@
     <service id="App\Service\APIFunctions" class="App\Service\APIFunctions" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Service\APIRequest"/>
     </service>
-    <service id="App\Service\APIRequest" class="App\Service\APIRequest" autowire="true" autoconfigure="true"/>
+    <service id="App\Service\APIRequest" class="App\Service\APIRequest" autowire="true" autoconfigure="true">
+      <argument type="service" id="logger"/>
+    </service>
     <service id="App\Service\EmailService" class="App\Service\EmailService" autowire="true" autoconfigure="true">
       <argument type="service" id="request_stack"/>
       <argument type="service" id="mailer.mailer"/>
