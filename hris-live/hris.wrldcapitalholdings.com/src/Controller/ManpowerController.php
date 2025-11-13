@@ -19,6 +19,8 @@ use App\Service\APIFunctions;
 use App\Service\ExportXLSService;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class ManpowerController extends AbstractController
 {
@@ -207,58 +209,105 @@ public function viewAttendance(Request $request)
     //     }
     // }
 
-    #[Route('manpower/employee-project/{id}', name: 'app_emp_project_id')]
-    public function viewEmpProjectsId(Request $request, string $id): Response
-    {
-        $getEmpProjectsId = $this->apiFunctions->getEmpProjectsId($request, $id)->toArray();
-
-        if ($id) {
-            $getEmployees = $this->apiFunctions->getFilteredEmployees($request, $id)->toArray();
-        }
-
-        if (empty($getEmployees)) {
-            $getEmployees = $this->apiFunctions->getEmployees($request)->toArray();
-        }
-
-        return $this->render('manpower/apps-emp-project.html.twig', [
-            'employee_project_id' => $getEmpProjectsId['employee_projects'] ?? [],
-            'employees_list' => $getEmployees['employees'] ?? [],
-        ]);
+    #[Route('/manpower/employee-project/{id}', name: 'app_emp_project_id')]
+public function viewEmpProjectsId(Request $request, string $id): Response
+{
+    // --- Project details (this one apparently returns an object, so ok pa ang toArray) ---
+    $rawEmpProjectsId = $this->apiFunctions->getEmpProjectsId($request, $id);
+    if (is_array($rawEmpProjectsId)) {
+        $getEmpProjectsId = $rawEmpProjectsId;
+    } elseif (is_object($rawEmpProjectsId) && method_exists($rawEmpProjectsId, 'toArray')) {
+        $getEmpProjectsId = $rawEmpProjectsId->toArray();
+    } else {
+        $getEmpProjectsId = [];
     }
 
-    #[Route('manpower/employee-project-json/{id}', name: 'app_emp_project_json', methods: ['GET'])]
-    public function viewEmpProjectsJson(Request $request, string $id): Response
-    {
-        try {
-            // Fetch project data
-            $getEmpProjectsId = $this->apiFunctions->getEmpProjectsId($request, $id)->toArray();
+    // --- Filtered employees (this is where it was breaking) ---
+    $rawFilteredEmployees = $this->apiFunctions->getFilteredEmployees($request, $id);
 
-            // Fetch employees filtered by project ID
-            $getEmployees = $this->apiFunctions->getFilteredEmployees($request, $id)->toArray();
+    if (is_array($rawFilteredEmployees)) {
+        $getEmployees = $rawFilteredEmployees;
+    } elseif (is_object($rawFilteredEmployees) && method_exists($rawFilteredEmployees, 'toArray')) {
+        $getEmployees = $rawFilteredEmployees->toArray();
+    } else {
+        $getEmployees = [];
+    }
 
-            // If no filtered employees, fetch all employees
-            if (empty($getEmployees)) {
-                $getEmployees = $this->apiFunctions->getEmployees($request)->toArray();
+    // If walang laman yung employees list, fallback to all employees
+    if (empty($getEmployees['employees'] ?? [])) {
+        $rawAllEmployees = $this->apiFunctions->getEmployees($request);
+
+        if (is_array($rawAllEmployees)) {
+            $getEmployees = $rawAllEmployees;
+        } elseif (is_object($rawAllEmployees) && method_exists($rawAllEmployees, 'toArray')) {
+            $getEmployees = $rawAllEmployees->toArray();
+        } else {
+            $getEmployees = ['employees' => []];
+        }
+    }
+
+    return $this->render('manpower/apps-emp-project.html.twig', [
+        'employee_project_id' => $getEmpProjectsId['employee_projects'] ?? [],
+        'employees_list'      => $getEmployees['employees'] ?? [],
+    ]);
+}
+
+#[Route('/manpower/employee-project-json/{id}', name: 'app_emp_project_json', methods: ['GET'])]
+public function viewEmpProjectsJson(Request $request, string $id): JsonResponse
+{
+    try {
+        // --- Project details ---
+        $rawEmpProjectsId = $this->apiFunctions->getEmpProjectsId($request, $id);
+
+        if (is_array($rawEmpProjectsId)) {
+            $getEmpProjectsId = $rawEmpProjectsId;
+        } elseif (is_object($rawEmpProjectsId) && method_exists($rawEmpProjectsId, 'toArray')) {
+            $getEmpProjectsId = $rawEmpProjectsId->toArray();
+        } else {
+            $getEmpProjectsId = [];
+        }
+
+        // --- Filtered employees ---
+        $rawFilteredEmployees = $this->apiFunctions->getFilteredEmployees($request, $id);
+
+        if (is_array($rawFilteredEmployees)) {
+            $getEmployees = $rawFilteredEmployees;
+        } elseif (is_object($rawFilteredEmployees) && method_exists($rawFilteredEmployees, 'toArray')) {
+            $getEmployees = $rawFilteredEmployees->toArray();
+        } else {
+            $getEmployees = [];
+        }
+
+        // If walang laman, fallback to all employees
+        if (empty($getEmployees['employees'] ?? [])) {
+            $rawAllEmployees = $this->apiFunctions->getEmployees($request);
+
+            if (is_array($rawAllEmployees)) {
+                $getEmployees = $rawAllEmployees;
+            } elseif (is_object($rawAllEmployees) && method_exists($rawAllEmployees, 'toArray')) {
+                $getEmployees = $rawAllEmployees->toArray();
+            } else {
+                $getEmployees = ['employees' => []];
             }
-
-            // Prepare the response data
-            $responseData = [
-                'status' => 'success',
-                'message' => 'Data retrieved successfully.',
-                'employee_project_id' => $getEmpProjectsId['employee_projects'] ?? [],
-                'employees_list' => $getEmployees['employees'] ?? [],
-            ];
-
-            return $this->json($responseData, Response::HTTP_OK);
-        } catch (\Exception $e) {
-            // Handle errors and return a JSON response
-            return $this->json([
-                'status' => 'error',
-                'message' => 'An error occurred while fetching data.',
-                'error' => $e->getMessage(),
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
+        $responseData = [
+            'status'             => 'success',
+            'message'            => 'Data retrieved successfully.',
+            'employee_project_id'=> $getEmpProjectsId['employee_projects'] ?? [],
+            'employees_list'     => $getEmployees['employees'] ?? [],
+        ];
+
+        return $this->json($responseData, Response::HTTP_OK);
+
+    } catch (\Exception $e) {
+        return $this->json([
+            'status'  => 'error',
+            'message' => 'An error occurred while fetching data.',
+            'error'   => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
+}
 
     #[Route('form/submit_employee', name: 'submit_employee')]
     public function submitEmployeeForm(Request $request)/* : JsonResponse */

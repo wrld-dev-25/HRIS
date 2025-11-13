@@ -51,11 +51,12 @@ class ProjectManagementController extends AbstractController
         }
     }
 
-    #[Route('project/project', name: 'project')]
+    #[Route('/project/project', name: 'project')]
     public function viewProject(Request $request)
     {
-        // Retrieve project response safely (apiFunctions may return an array or an object with toArray())
+        // Retrieve project response safely
         $rawProjectResponse = $this->apiFunctions->getProject($request);
+
         if (is_array($rawProjectResponse)) {
             $projectResponse = $rawProjectResponse;
         } elseif (is_object($rawProjectResponse) && method_exists($rawProjectResponse, 'toArray')) {
@@ -64,8 +65,21 @@ class ProjectManagementController extends AbstractController
             $projectResponse = [];
         }
 
+        // ✅ Normalize projects without using array_is_list (PHP 8.1+ only)
+        if (isset($projectResponse['project']) && is_array($projectResponse['project'])) {
+            $projects = $projectResponse['project'];
+        } elseif (isset($projectResponse['projects']) && is_array($projectResponse['projects'])) {
+            $projects = $projectResponse['projects'];
+        } else {
+            // If your API actually returns a flat list (no keys),
+            // uncomment this and adjust as needed:
+            // $projects = $projectResponse;
+            $projects = [];
+        }
+
         // Retrieve subdivision response safely
         $rawSubdivisionResponse = $this->apiFunctions->getSubdivision($request);
+
         if (is_array($rawSubdivisionResponse)) {
             $responseData = $rawSubdivisionResponse;
         } elseif (is_object($rawSubdivisionResponse) && method_exists($rawSubdivisionResponse, 'toArray')) {
@@ -74,41 +88,28 @@ class ProjectManagementController extends AbstractController
             $responseData = [];
         }
 
-        // Build a safe subdivision profile (handle missing indices/keys)
-        $subs = $responseData['subdivisions'] ?? [];
+        // Build a safe subdivision profile
+        $subs     = $responseData['subdivisions'] ?? [];
         $firstSub = $subs[0] ?? null;
-        $subdivisionProfile = [
-            [
-                'id'            => $firstSub['id'] ?? '',
-                'code'          => $firstSub['subdivisionCode'] ?? '',
-                'name'          => $firstSub['name'] ?? '',
-                'location'      => $firstSub['location'] ?? '',
-                'total_phases'  => $firstSub['total_phases'] ?? 0,
-                'total_lots'    => $firstSub['total_lots'] ?? 0,
-                'phases'        => $firstSub['phases'] ?? [],
-            ]
-        ];
-        // Initialize the cache keys
-        $projectsKey = 'projectList';
 
-        // Try to get the cache item
-        // $projectsCache = $this->cache->getItem($projectsKey);
-        // if($projectsCache->isHit()){
-        //     $projectResponse = $projectsCache->get();
-        // }
-        // else{
-        //     $projectResponse = $this->apiFunctions->getProject($request)->toArray();
-        //     $projectsCache->set($projectResponse);
-        //     $this->cache->save($projectsCache);
-        //     $projectsCache->expiresAfter(86400); // Cache for 24 hour
-        // }
-        
-        return $this->render('project_management/apps-project.html.twig',[
+        $subdivisionProfile = [[
+            'id'           => $firstSub['id']             ?? '',
+            'code'         => $firstSub['subdivisionCode'] ?? '',
+            'name'         => $firstSub['name']           ?? '',
+            'location'     => $firstSub['location']       ?? '',
+            'total_phases' => $firstSub['total_phases']   ?? 0,
+            'total_lots'   => $firstSub['total_lots']     ?? 0,
+            'phases'       => $firstSub['phases']         ?? [],
+        ]];
+
+        return $this->render('project_management/apps-project.html.twig', [
             'subdivisions' => $responseData['subdivisions'] ?? [],
-            'projects' => $projectResponse['project'] ?? [],
-            'subProfile' => $subdivisionProfile,
+            'projects'     => $projects,
+            'subProfile'   => $subdivisionProfile,
         ]);
     }
+
+
 
     #[Route('project/category', name: 'category')]
     public function viewCategory(Request $request)
