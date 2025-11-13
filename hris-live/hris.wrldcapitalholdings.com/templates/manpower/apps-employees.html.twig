@@ -114,7 +114,7 @@
                                             <td class="edit-emp_list  px-5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 position"><input type="checkbox" name="rowCheckbox" id="rowCheckbox" class="rowCheckbox"></td>
                                             <td class="hidden" id="employeeData" data-value="{{ employee|json_encode }}"></td>
                                             <td class="hidden" id="employeeId" data-value="{{ employee.id }}"></td>
-                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 company">{{ employee.affiliated_company.code }}</td>
+                                            <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 company">{{ employee.affiliated_company.code ?? 'N/A' }}</td>
                                             {# <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employeeCode"><a href="{{ path('employee_profile', parameters = {'employee_code': employee.employee_code}) }}" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600">{{ employee.employee_code }}</a></td> #}
                                             <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employeeCode"><h6 class="grow">{{ employee.employee_code }}</h6></td>
                                             <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 name">
