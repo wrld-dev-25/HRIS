@@ -75,3 +75,4 @@ hris-services-live/hris-services.wrldcapitalholdings.com/vendor/composer/install
 /hris-live/hris.wrldcapitalholdings.com/var/cache
 /hris-live/hris.wrldcapitalholdings.com/var/cache/dev
 /hris-live/hris.wrldcapitalholdings.com/vendor
+hris-services-live/hris-services.wrldcapitalholdings.com/.env
