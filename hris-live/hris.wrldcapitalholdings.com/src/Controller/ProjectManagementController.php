@@ -35,15 +35,15 @@ class ProjectManagementController extends AbstractController
     #[Route('project/subdivisions', name: 'subdivision')]
     public function viewSubdivision(Request $request)
     {
-        if($this->apiFunctions->getSubdivision($request)->getStatusCode() === 200){
-            $responseData = $this->apiFunctions->getSubdivision($request)->toArray();
+        $subdivisionResponse = $this->apiFunctions->getSubdivision($request);
+        if (is_array($subdivisionResponse) && isset($subdivisionResponse['status']) && $subdivisionResponse['status'] === 200) {
+            $responseData = $subdivisionResponse;
             $responseData2 = $this->apiFunctions->getPhase($request)->toArray();
             return $this->render('project_management/apps-subdivision.html.twig',[
                 'subdivisions' => $responseData['subdivisions'],
                 'phase' => $responseData2['phase'],
             ]);
-        }
-        else{
+        } else {
             return $this->render('project_management/apps-subdivision.html.twig',[
                 'subdivisions' => [],
                 'phase' => [],
@@ -54,6 +54,40 @@ class ProjectManagementController extends AbstractController
     #[Route('project/project', name: 'project')]
     public function viewProject(Request $request)
     {
+        // Retrieve project response safely (apiFunctions may return an array or an object with toArray())
+        $rawProjectResponse = $this->apiFunctions->getProject($request);
+        if (is_array($rawProjectResponse)) {
+            $projectResponse = $rawProjectResponse;
+        } elseif (is_object($rawProjectResponse) && method_exists($rawProjectResponse, 'toArray')) {
+            $projectResponse = $rawProjectResponse->toArray();
+        } else {
+            $projectResponse = [];
+        }
+
+        // Retrieve subdivision response safely
+        $rawSubdivisionResponse = $this->apiFunctions->getSubdivision($request);
+        if (is_array($rawSubdivisionResponse)) {
+            $responseData = $rawSubdivisionResponse;
+        } elseif (is_object($rawSubdivisionResponse) && method_exists($rawSubdivisionResponse, 'toArray')) {
+            $responseData = $rawSubdivisionResponse->toArray();
+        } else {
+            $responseData = [];
+        }
+
+        // Build a safe subdivision profile (handle missing indices/keys)
+        $subs = $responseData['subdivisions'] ?? [];
+        $firstSub = $subs[0] ?? null;
+        $subdivisionProfile = [
+            [
+                'id'            => $firstSub['id'] ?? '',
+                'code'          => $firstSub['subdivisionCode'] ?? '',
+                'name'          => $firstSub['name'] ?? '',
+                'location'      => $firstSub['location'] ?? '',
+                'total_phases'  => $firstSub['total_phases'] ?? 0,
+                'total_lots'    => $firstSub['total_lots'] ?? 0,
+                'phases'        => $firstSub['phases'] ?? [],
+            ]
+        ];
         // Initialize the cache keys
         $projectsKey = 'projectList';
 
@@ -69,24 +103,9 @@ class ProjectManagementController extends AbstractController
         //     $projectsCache->expiresAfter(86400); // Cache for 24 hour
         // }
         
-        $projectResponse = $this->apiFunctions->getProject($request)->toArray();
-        $responseData = $this->apiFunctions->getSubdivision($request)->toArray();
-        $subdivisionProfile = [];
-        $subs = $responseData ? $responseData['subdivisions'] : [];
-        $subdivisionProfile[] = [
-            'id'            => $subs ? $subs[0]['id'] : '', 
-            'code'          => $subs ? $subs[0]['subdivisionCode'] : '', 
-            'name'          => $subs ? $subs[0]['name'] : '', 
-            'location'      => $subs ? $subs[0]['location'] : '',
-            'total_phases'  => $subs ? $subs[0]['total_phases'] : 0,
-            'total_lots'    => $subs ? $subs[0]['total_lots'] : 0,
-            'phases'        => $subs ? $subs[0]['phases'] : [],
-            
-        ];
-
         return $this->render('project_management/apps-project.html.twig',[
-            'subdivisions' => $responseData ? $responseData['subdivisions'] : [],
-            'projects' => $projectResponse['project'],
+            'subdivisions' => $responseData['subdivisions'] ?? [],
+            'projects' => $projectResponse['project'] ?? [],
             'subProfile' => $subdivisionProfile,
         ]);
     }
