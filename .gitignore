@@ -8,11 +8,11 @@
 /app/spool/*
 
 # Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/cache/dev/*
-/var/cache/prod/*
-/var/logs/*
-/var/sessions/*
+!/var/cache/*
+!/var/cache/dev/*
+!/var/cache/prod/*
+!/var/logs/*
+!/var/sessions/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
@@ -64,5 +64,3 @@ Thumbs.db
 /.web-server-pid
 /phpunit.xml
 /phpunit.xml.cache
-hris-live/hris.wrldcapitalholdings.com/var/cache/dev/url_matching_routes.php.meta
-hris-live/hris.wrldcapitalholdings.com/var/cache/dev/url_generating_routes.php.meta
