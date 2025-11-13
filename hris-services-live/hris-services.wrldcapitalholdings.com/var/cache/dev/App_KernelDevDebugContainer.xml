@@ -9,9 +9,15 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
+<<<<<<< HEAD
     <parameter key="kernel.build_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev</parameter>
     <parameter key="kernel.cache_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\log</parameter>
+=======
+    <parameter key="kernel.build_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">C:\xampp\htdocs\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\log</parameter>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
@@ -93,16 +99,28 @@
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
+<<<<<<< HEAD
     <parameter key="debug.container.dump">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+=======
+    <parameter key="debug.container.dump">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
+<<<<<<< HEAD
     <parameter key="router.cache_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
     <parameter key="serializer.mapping.cache.file">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/serialization.php</parameter>
     <parameter key="cache.prefix.seed">_C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com.App_KernelDevDebugContainer</parameter>
+=======
+    <parameter key="router.cache_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev</parameter>
+    <parameter key="request_listener.http_port">80</parameter>
+    <parameter key="request_listener.https_port">443</parameter>
+    <parameter key="serializer.mapping.cache.file">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/serialization.php</parameter>
+    <parameter key="cache.prefix.seed">_C:\xampp\htdocs\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com.App_KernelDevDebugContainer</parameter>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -113,7 +131,11 @@
     </parameter>
     <parameter key="session.save_path">null</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
+<<<<<<< HEAD
     <parameter key="validator.mapping.cache.file">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/validation.php</parameter>
+=======
+    <parameter key="validator.mapping.cache.file">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/validation.php</parameter>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="data_collector.templates" type="collection"/>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
@@ -180,7 +202,11 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
+<<<<<<< HEAD
     <parameter key="doctrine.orm.proxy_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/doctrine/orm/Proxies</parameter>
+=======
+    <parameter key="doctrine.orm.proxy_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/doctrine/orm/Proxies</parameter>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -1107,7 +1133,11 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/http_cache</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/http_cache</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -1117,7 +1147,11 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -1783,7 +1817,11 @@
       <tag name="kernel.reset" method="reset"/>
       <argument>4JhnnJ2N19</argument>
       <argument>0</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/app</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/app</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1799,7 +1837,11 @@
       <argument>cVTiFEEqnu</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1809,7 +1851,11 @@
       <argument>8kysv91gcf</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1819,7 +1865,11 @@
       <argument>t38B3Q0vwo</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1829,7 +1879,11 @@
       <argument>CRTHdk6gug</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1839,7 +1893,11 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1858,7 +1916,11 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/app</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/app</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -2141,7 +2203,11 @@
         </argument>
       </argument>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="cache_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/translations</argument>
+=======
+        <argument key="cache_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/translations</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
@@ -3390,7 +3456,11 @@
       <argument type="service" id=".service_locator.PvoQzFT.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="cache_dir">C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev</argument>
+=======
+        <argument key="cache_dir">C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -3583,10 +3653,17 @@
           <service class="Symfony\Component\Serializer\Mapping\Loader\AttributeLoader"/>
         </argument>
       </argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/serialization.php</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/serialization.php</argument>
+    </service>
+    <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/serialization.php</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3705,7 +3782,11 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/sessions</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/sessions</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3790,10 +3871,17 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/validation.php</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/validation.php</argument>
+    </service>
+    <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/validation.php</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
@@ -4053,7 +4141,11 @@
       <argument>bgfpdDWtpU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -4654,7 +4746,11 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
+<<<<<<< HEAD
         <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/doctrine/orm/Proxies</argument>
+=======
+        <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/doctrine/orm/Proxies</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -5061,7 +5157,11 @@
       <argument>p1EcAXq3xy</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -5077,7 +5177,11 @@
       <argument>91Q1qo2MaU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Users\SUNIT226\Desktop\Repos\HRIS\hris-services-live\hris-services.wrldcapitalholdings.com\var\cache\dev/pools/system</argument>
+=======
+      <argument>C:/xampp/htdocs/HRIS/hris-services-live/hris-services.wrldcapitalholdings.com/var/cache/dev/pools/system</argument>
+>>>>>>> 91a4faa2a9b9826fc4cd3c47508fa8b0738221cb
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
