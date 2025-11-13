@@ -468,8 +468,3 @@ $classes[] = 'Symfony\WebpackEncoreBundle\EventListener\ExceptionListener';
 $classes[] = 'Symfony\WebpackEncoreBundle\Asset\TagRenderer';
 
 $preloaded = Preloader::preload($classes);
-
-$classes = [];
-$classes[] = 'Symfony\\Component\\Routing\\Generator\\CompiledUrlGenerator';
-$classes[] = 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableCompiledUrlMatcher';
-$preloaded = Preloader::preload($classes, $preloaded);
