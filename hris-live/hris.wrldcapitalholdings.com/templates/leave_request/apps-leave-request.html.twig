@@ -380,5 +380,19 @@ $(document).ready(function () {
     }
 </script>
 
-
+<script>
+function attachmentChange(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        // Optional: Check file type (add allowed types as needed)
+        const allowedTypes = ['application/pdf'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Please upload a valid file type, it only accepts .pdf file!');
+            event.target.value = '';
+            return;
+        }
+    }
+}
+</script>
 {% endblock %}
