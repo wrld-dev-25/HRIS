@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 #[Route('/employee-leaves')]
 class EmployeeLeavesController extends AbstractController
@@ -31,15 +32,46 @@ class EmployeeLeavesController extends AbstractController
         $this->logger = $logger;
         $this->exportxls = $exportxls;
     }
+
+    private function normalizeApiResponse(ResponseInterface|array|null $response, string $context): array
+    {
+        if ($response instanceof ResponseInterface) {
+            try {
+                return $response->toArray();
+            } catch (\Throwable $e) {
+                $this->logger->error(sprintf('Failed decoding %s response.', $context), [
+                    'exception' => $e->getMessage(),
+                ]);
+                return [];
+            }
+        }
+        if (is_array($response)) {
+            if (($response['error'] ?? false) === true) {
+                $this->logger->error(sprintf('API returned error for %s.', $context), [
+                    'details' => $response,
+                ]);
+                return [];
+            }
+            return $response;
+        }
+
+        $this->logger->error(sprintf('Unexpected %s response type.', $context), [
+            'type' => get_debug_type($response),
+        ]);
+        return [];
+    }
     
     #[Route('/', name: 'app_employee_leaves')]
     public function view_employee_leaves(Request $request): Response
     {
-        $employeeLeaves = $this->apiFunctions->getEmployeeLeaves($request)->toArray();
-        $leavePolicies = $this->apiFunctions->getLeavePolicy($request)->toArray();
+        $employeeLeavesResponse = $this->apiFunctions->getEmployeeLeaves($request);
+        $leavePoliciesResponse = $this->apiFunctions->getLeavePolicy($request);
+
+        $employeeLeaves = $this->normalizeApiResponse($employeeLeavesResponse, 'employee leaves');
+        $leavePolicies = $this->normalizeApiResponse($leavePoliciesResponse, 'leave policy list');
         // dd($leavePolicies);
         return $this->render('leave_policy/employee_leave.html.twig', [
-            'emp_leaves'        => $employeeLeaves['emp_with_leave_list'],
+            'emp_leaves'        => $employeeLeaves['emp_with_leave_list'] ?? [],
             'leave_policies'    => $leavePolicies,
         ]);
     }
