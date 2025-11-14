@@ -49,12 +49,7 @@ class SessionListener
             $this->logger->info('session id: ' . $sessionId);
             $this->logger->info('token: ' . ($token ?: 'No token in session'));
 
-            // Render login template instead of redirecting
-            $javascriptSnippet = ''; // Add any JavaScript snippet if needed
-            $content = $this->twig->render('auth-login-boxed.html.twig', [
-                'javascriptSnippet' => $javascriptSnippet,
-            ]);
-            $event->setResponse(new Response($content));
+            $this->renderLogin($event);
             return; // Ensure no further processing
         }
 
@@ -64,7 +59,16 @@ class SessionListener
 
             $response = $this->apiService->apiRequest('POST', 'api/revalidate-session', json_encode(['user_id' => $userId]), $token);
             if(!is_array($response)){
-                $responseData = $response->toArray();
+                try {
+                    $responseData = $response->toArray(false);
+                } catch (\Throwable $e) {
+                    $this->logger->error('Failed decoding session revalidation response', [
+                        'exception' => $e->getMessage(),
+                        'route' => $currentRoute,
+                    ]);
+                    $this->renderLogin($event);
+                    return;
+                }
                 $this->setSessionVariables($request, $responseData);
             }
             else{
@@ -72,14 +76,19 @@ class SessionListener
                 $this->logger->info('Invalid session revalidation response');
 
                 // Render login template instead of redirecting
-                $javascriptSnippet = ''; // Add any JavaScript snippet if needed
-                $content = $this->twig->render('auth-login-boxed.html.twig', [
-                    'javascriptSnippet' => $javascriptSnippet,
-                ]);
-                $event->setResponse(new Response($content));
+                $this->renderLogin($event);
                 return; // Ensure no further processing
             }
         }
+    }
+
+    private function renderLogin(RequestEvent $event): void
+    {
+        $javascriptSnippet = '';
+        $content = $this->twig->render('auth-login-boxed.html.twig', [
+            'javascriptSnippet' => $javascriptSnippet,
+        ]);
+        $event->setResponse(new Response($content));
     }
 
     private function setSessionVariables($request, $data)

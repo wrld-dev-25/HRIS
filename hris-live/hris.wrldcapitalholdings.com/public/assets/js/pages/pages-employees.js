@@ -6,6 +6,41 @@ $(document).ready(function () {
     const companyList = $('#companyList').data('value');
     const companySelector = $('#company, #company2');
     let paginated = false;
+    const employeeListBody = $('#employeeList');
+    const tableColumnCount = $('#employeeTable table thead tr th').length || 1;
+    const noResultContainer = $('.noresult');
+
+    function getCurrentLimit() {
+        var selectedLimit = $('#selectLimit').val();
+        if (selectedLimit && !isNaN(selectedLimit)) {
+            return parseInt(selectedLimit, 10);
+        }
+
+        var dataLimit = $('#pageLimit').data('limit');
+        if (dataLimit && !isNaN(dataLimit)) {
+            return parseInt(dataLimit, 10);
+        }
+
+        return 50;
+    }
+
+    function getSearchTerm() {
+        return $('#employeeSearch').val().trim();
+    }
+
+    function showTableLoader() {
+        var tableCells = employeeListBody.find('tr td');
+
+        if (!tableCells.length) {
+            employeeListBody.html(`<tr><td colspan="${tableColumnCount}"><div class="loader"></div></td></tr>`);
+            return;
+        }
+
+        tableCells.each(function() {
+            $(this).empty();
+            $(this).html('<div class="loader"></div>');
+        });
+    }
 
     // Add employee division select initialization
     var division = $('#division')[0]; 
@@ -488,14 +523,9 @@ $(document).ready(function () {
             employeeUserIdArray.push(employeeUserId);
         });
 
-        var search = $('#employeeSearch').val();
-        var page = $('#currentPage').data('page'); // Get data-page attribute value
-        var limit = $('#pageLimit').data('limit');
-
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+        var search = getSearchTerm();
+        var page = $('#currentPage').data('page') || 1; // Get data-page attribute value
+        var limit = getCurrentLimit();
 
         if (selectedAction !== null) {
             if (employeeUserIdArray.length > 0) {
@@ -508,6 +538,7 @@ $(document).ready(function () {
                     action: selectedAction,
                     employeeUserIds: employeeUserIdArray
                 }
+                showTableLoader();
                 var bulkUpdateRes = await apiCall('POST', 'api/employee/bulk_update', jsonObject);
                 var status = bulkUpdateRes.status;
                 
@@ -520,103 +551,107 @@ $(document).ready(function () {
                 }
 
             } else {
-                showToast('No rows selected.', 'bg-red-500')
+                showToast('Please select at least one employee before running a bulk action.', 'bg-red-500')
             }
         } else {
-            showToast('Choose action to perform.', 'bg-red-500')
+            showToast('Choose an action to perform.', 'bg-red-500')
         }
     });
 
     /* Asynchronous Pagination start */
     $('.pagination-prev').on('click', async function(event) {
         event.preventDefault(); // Prevent default link behavior
-        console.log(paginated);
 
         var page = $(this).data('page'); // Get data-page attribute value
         var limit = $(this).data('limit');
-        var search = $('#employeeSearch').val().trim();
+        var search = getSearchTerm();
 
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+        showTableLoader();
         await loadEmployees(search, page, limit);
     });
 
     $('.pagination-next').on('click', async function(event) {
         event.preventDefault(); // Prevent default link behavior
-        console.log(paginated);
 
         var page = $(this).data('page'); // Get data-page attribute value
         var limit = $(this).data('limit');
-        var search = $('#employeeSearch').val().trim();
+        var search = getSearchTerm();
 
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+        showTableLoader();
         await loadEmployees(search, page, limit);
     });
 
     $('.page').on('click', async function(event) {
         event.preventDefault(); // Prevent default link behavior
-        console.log(paginated);
 
         var page = $(this).data('page'); // Get data-page attribute value
         var limit = $(this).data('limit');
-        var search = $('#employeeSearch').val().trim();
+        var search = getSearchTerm();
 
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+        showTableLoader();
         await loadEmployees(search, page, limit);
     });
 
     $('#selectLimit').on('change', async function () {
-        console.log(paginated);
+        var limit = parseInt($(this).val(), 10);
+        if (isNaN(limit) || limit < 1) {
+            limit = getCurrentLimit();
+        }
 
-        var page = $('#currentPage').data('page'); // Get data-page attribute value
-        var limit = $(this).val();
-        var search = $('#employeeSearch').val().trim();
+        var page = 1;
+        var search = getSearchTerm();
 
-        console.log(page, limit);
-
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+        showTableLoader();
         await loadEmployees(search, page, limit);
     });
 
     /* Search Employees */
     $('#searchButton').on('click', async function() {
-        var search = $('#employeeSearch').val();
-        var page = $('#currentPage').data('page'); // Get data-page attribute value
-        var limit = $('#pageLimit').data('limit');
+        var search = getSearchTerm();
+        var page = 1; // Always start a new search from the first page
+        var limit = getCurrentLimit();
 
-        console.log(search);
+        showTableLoader();
+        await loadEmployees(search, page, limit);
+    });
 
-        $('#employeeList tr td').each(function() {
-            $(this).empty(); // Empty the content of each <td> element
-            $(this).html('<div class="loader"></div>');
-        });
+    $('#employeeSearch').on('keyup', function(event) {
+        if (event.key === 'Enter') {
+            $('#searchButton').trigger('click');
+        }
+    });
 
+    $('#filter_status').on('change', async function() {
+        var search = getSearchTerm();
+        var page = 1;
+        var limit = getCurrentLimit();
+
+        showTableLoader();
         await loadEmployees(search, page, limit);
     });
     /* Search Employees End */
 
     async function loadEmployees(search = null, page, limit){
-        const empTable = $('#employeeList');
+        const empTable = employeeListBody;
         var newTr = '';
-        var currentPage = page;
+        var currentPage = parseInt(page, 10);
+        if (isNaN(currentPage) || currentPage < 1) {
+            currentPage = 1;
+        }
 
-        const filterStatus = $('#filter_status').val();
+        var pageLimit = parseInt(limit, 10);
+        if (isNaN(pageLimit) || pageLimit < 1) {
+            pageLimit = getCurrentLimit();
+        }
+
+        const filterStatus = $('#filter_status').val() || [];
+        var sanitizedSearch = typeof search === 'string' ? search.trim() : '';
+        sanitizedSearch = sanitizedSearch === '' ? null : sanitizedSearch;
 
         var jsonObject = {
-            "page": page,
-            "limit": limit,
-            "search": search,
+            "page": currentPage,
+            "limit": pageLimit,
+            "search": sanitizedSearch,
             "filter_status": filterStatus,
         };
         //console.log(jsonObject);
@@ -625,34 +660,45 @@ $(document).ready(function () {
         var empListPaginated = await apiCall('POST', 'api/emp_paginated', jsonObject);
         //console.log('Employee List: '+empListPaginated)
 
-        var empList = empListPaginated.employees;
-        var totalPages = Math.ceil(empListPaginated.totalEmployees / limit); //set total pages
-        var totalEmployees = empListPaginated.totalEmployees; //set total employees
+        var empList = Array.isArray(empListPaginated.employees) ? empListPaginated.employees : [];
+        var totalEmployees = 0;
+        if (typeof empListPaginated.totalEmployees !== 'undefined') {
+            totalEmployees = parseInt(empListPaginated.totalEmployees, 10);
+            if (isNaN(totalEmployees) || totalEmployees < 0) {
+                totalEmployees = 0;
+            }
+        }
+        var totalPages = pageLimit > 0 ? Math.ceil(totalEmployees / pageLimit) : 0; //set total pages
 
         $.each(empList, async function name(key, employee) {
             //console.log(employee);
             var employeeData = encodeURIComponent(JSON.stringify(employee));
+            var middleName = employee.middle_name ? ' ' + employee.middle_name : '';
+            var companyCode = employee.affiliated_company && employee.affiliated_company.code ? employee.affiliated_company.code : '';
+            var employmentType = employee.employment_type || '';
+            var position = employee.position || '';
+            var dateHired = employee.date_hired ? formatDate(employee.date_hired) : '';
             //console.log(employeeData);
             newTr += `
                 <tr>
                     <td class="edit-emp_list px-5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 position"><input type="checkbox" name="rowCheckbox" id="rowCheckbox" class="rowCheckbox"></td>
                     <td class="hidden" id="employeeData" data-value="${employeeData}"></td>
                     <td class="hidden" id="employeeId" data-value="${employee.id}"></td>
-                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 company">${ employee.affiliated_company.code }</td>
+                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 company">${ companyCode }</td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employeeCode"><h6 class="grow">${employee.employee_code}</h6></td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 name">
                         <div class="flex items-center gap-3">
                             <div class="size-6 rounded-full shrink-0 bg-slate-100">
                                 <img src="../../assets/images/users/user-dummy-img.jpg" alt="" class="h-6 rounded-full">
                             </div>
-                            <h6 class="grow">${ employee.last_name }, ${ employee.first_name } ${ employee.middle_name}</h6>
+                            <h6 class="grow">${ employee.last_name }, ${ employee.first_name }${ middleName }</h6>
                         </div>
                     </td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 division" data-tooltip="default" data-tooltip-content="${ employee.division ? employee.division.name : '' }" data-tooltip-placement="top-start" data-tooltip-arrow="false">${ employee.division ? employee.division.code : '' }</td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 department" data-tooltip="default" data-tooltip-content="${ employee.department ? employee.department.name : '' }" data-tooltip-placement="top-start" data-tooltip-arrow="false">${ employee.department ? employee.department.code : '' }</td>
-                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 position">${ employee.position }</td>
-                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employmentType">${ employee.employment_type }</td>
-                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 dateHired">${ formatDate(employee.date_hired) }</td>
+                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 position">${ position }</td>
+                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 employmentType">${ employmentType }</td>
+                    <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 dateHired">${ dateHired }</td>
                     <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 Action">
                         <div class="edit-emp_list relative dropdown">
                             <button class="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="usersAction1" data-bs-toggle="dropdown"><i data-lucide="more-horizontal" class="size-3"></i></button>
@@ -676,17 +722,21 @@ $(document).ready(function () {
         empTable.empty(); //remove loader and previous table data
         empTable.html(newTr); //create new table data
 
-        console.log(paginated);
+        if (empList.length === 0) {
+            noResultContainer.show();
+        } else {
+            noResultContainer.hide();
+        }
 
         lucide.createIcons(); //load icons
         refreshCallBack(); //reload tailwick.bundle.js dropdown and modal
-        refreshPagination(page, limit, totalPages, totalEmployees); // reloads the pagination
+        refreshPagination(currentPage, pageLimit, totalPages, totalEmployees); // reloads the pagination
         applyPermissionsToDOM();
         $('#currentPage').data('page', currentPage); // set current page 
-        $('#pageLimit').data('limit', limit); // set current limit
-        $('#selectLimit').val(limit);
+        $('#pageLimit').data('limit', pageLimit); // set current limit
+        $('#selectLimit').val(pageLimit);
         $('.showing').text(empList.length); // set updated showing text
-        $('.total-records').text(empList.totalEmployees); // set updated total records text
+        $('.total-records').text(totalEmployees); // set updated total records text
     }
 
     function refreshPagination(currentPage, limit, totalPages, totalEmployees) {
@@ -723,46 +773,34 @@ $(document).ready(function () {
         
         $('.pagination-prev').on('click', async function(event) {
             event.preventDefault(); // Prevent default link behavior
-            console.log(paginated);
 
             var page = $(this).data('page'); // Get data-page attribute value
             var limit = $(this).data('limit');
-            var search = $('#employeeSearch').val().trim();
+            var search = getSearchTerm();
 
-            $('#employeeList tr td').each(function() {
-                $(this).empty(); // Empty the content of each <td> element
-                $(this).html('<div class="loader"></div>');
-            });
+            showTableLoader();
             await loadEmployees(search, page, limit);
         });
 
         $('.pagination-next').on('click', async function(event) {
             event.preventDefault(); // Prevent default link behavior
-            console.log(paginated);
 
             var page = $(this).data('page'); // Get data-page attribute value
             var limit = $(this).data('limit');
-            var search = $('#employeeSearch').val().trim();
+            var search = getSearchTerm();
 
-            $('#employeeList tr td').each(function() {
-                $(this).empty(); // Empty the content of each <td> element
-                $(this).html('<div class="loader"></div>');
-            });
+            showTableLoader();
             await loadEmployees(search, page, limit);
         });
         
         $('.page').on('click', async function(event) {
             event.preventDefault(); // Prevent default link behavior
-            console.log(paginated);
 
             var page = $(this).data('page'); // Get data-page attribute value
             var limit = $(this).data('limit');
-            var search = $('#employeeSearch').val().trim();
+            var search = getSearchTerm();
 
-            $('#employeeList tr td').each(function() {
-                $(this).empty(); // Empty the content of each <td> element
-                $(this).html('<div class="loader"></div>');
-            });
+            showTableLoader();
             await loadEmployees(search, page, limit);
         });
     }

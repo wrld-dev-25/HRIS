@@ -674,13 +674,12 @@ class ExportXLSService
                 $sheet->mergeCells($colLetter . $taskRow . ':' . $colLetterOffset . $taskRow);
 
                 $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($dateHeader) + 2);
-                $taskTotalsHeaderRow = $taskRow + 1;
-                $sheet->setCellValue($colLetter . $taskTotalsHeaderRow, 'Total Mandays'); // this sets the Table Header Total Mandays
-                $sheet->getStyle($colLetter . $taskTotalsHeaderRow)->applyFromArray($taskHeaderStyle);
+                $sheet->setCellValue($colLetter . $taskRow + 1, 'Total Mandays'); // this sets the Table Header Total Mandays
+                $sheet->getStyle($colLetter . $taskRow + 1)->applyFromArray($taskHeaderStyle);
 
                 $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex((count($dateHeader) * 2) + 3);
-                $sheet->setCellValue($colLetter . $taskTotalsHeaderRow, 'Total OT (Mandays)'); // this sets the Table Header Total OT
-                $sheet->getStyle($colLetter . $taskTotalsHeaderRow)->applyFromArray($taskHeaderStyle);
+                $sheet->setCellValue($colLetter . $taskRow + 1, 'Total OT (Mandays)'); // this sets the Table Header Total OT
+                $sheet->getStyle($colLetter . $taskRow + 1)->applyFromArray($taskHeaderStyle);
 
                 $taskRow += 1; // move 1 row below for employee header
                 $sheet->setCellValue('A' . $taskRow, 'Employee Name'); // this sets the Employee Name Title
@@ -699,8 +698,7 @@ class ExportXLSService
 
                 foreach ($employees as $employee => $employeeDateTime) { // this sets the Employee Names on Column A
                     
-                    $taskRow += 1;
-                    $sheet->setCellValue('A' . $taskRow, $employee);
+                    $sheet->setCellValue('A' . $taskRow += 1, $employee);
                     //dd($employeeDateTime);
     
                     $name = $employee;
@@ -803,7 +801,7 @@ class ExportXLSService
                                 $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt);
                                 $sheet->setCellValue([$colOt, $rowOt + 1], 0);
                                 $sheet->getStyle([$colOt, $rowOt + 1])->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-                                $rowOvertimeTotalAlternativeCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt + 1) . ($rowOt + 1);
+                                $rowOvertimeTotalAlternativeCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt + 1) . $rowOt + 1;
                             }
                         }
 
@@ -2671,7 +2669,4 @@ class ExportXLSService
             ]
         );
     }
-
-    
-    
 }
