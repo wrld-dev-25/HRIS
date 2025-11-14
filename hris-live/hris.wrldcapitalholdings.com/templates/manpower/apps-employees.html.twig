@@ -160,7 +160,7 @@
                         </div>
                         <div class="flex flex-col items-center gap-4 px-4 mt-4 md:flex-row" id="pagination-element">
                             <div class="grow">
-                                <p class="text-slate-500 dark:text-zink-200">Showing <b class="showing">{{ limit }}</b> of <b class="total-records">{{ totalEmployees }}</b> Results</p>
+                                <p class="text-slate-500 dark:text-zink-200">Showing <b class="showing">{{ employees|length }}</b> of <b class="total-records">{{ totalEmployees }}</b> Results</p>
                             </div>
                             <div id="currentPage" class="hidden" data-page="{{ currentPage }}"></div>
                             <div id="pageLimit" class="hidden" data-limit="{{ limit }}"></div>
