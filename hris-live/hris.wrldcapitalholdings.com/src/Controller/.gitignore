@@ -1,0 +1,82 @@
+# ==============================================
+# 🧱 SYMFONY FRAMEWORK DEFAULT
+# ==============================================
+/var/
+/vendor/
+###> symfony/dotenv ###
+/.env.local
+/.env.local.php
+/.env.*.local
+###< symfony/dotenv ###
+
+# ==============================================
+# ⚙️ COMPOSER & PHP CACHE
+# ==============================================
+/composer.lock
+/.phpunit.result.cache
+/coverage/
+/phpunit.xml
+/phpunit.xml.dist
+/symfony.lock
+
+# ==============================================
+# 🧪 TESTS & TEMPORARY FILES
+# ==============================================
+/tests/.phpunit.result.cache
+/.php_cs.cache
+/.php-cs-fixer.cache
+
+# ==============================================
+# 🎨 FRONTEND ASSETS (Node / Webpack / Encore)
+/node_modules/
+/public/build/
+/public/bundles/
+/assets/build/
+/dist/
+/yarn-error.log
+/npm-debug.log*
+/package-lock.json
+
+# ==============================================
+# 💻 IDE / EDITOR FILES
+/.idea/
+/.vscode/
+/nbproject/
+/*.iml
+
+# ==============================================
+# 🧰 SYSTEM / OS FILES
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# ==============================================
+# ⚙️ XAMPP / LOCAL DEV / CUSTOM ENV
+# ==============================================
+/.env
+/.env.backup
+/.env.local
+/.env.local.php
+/.env.*.local
+/.user.ini
+/logs/
+/tmp/
+/cache/
+/sessions/
+
+# ==============================================
+# 🧩 OTHER OPTIONAL FILES
+/public/uploads/
+/public/temp/
+/public/logs/
+/storage/
+/build/
+/coverage/
+/reports/
+/*.log
+*.swp
+*.swo
+*.bak
+*.tmp
