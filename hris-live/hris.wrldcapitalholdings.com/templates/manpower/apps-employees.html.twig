@@ -51,11 +51,9 @@
                             <div class="flex flex-row gap-x-2 justify-between">
                                 <div class="flex gap-x-2">
                                     <div class="relative">
-                                        <select id="selectLimit" class="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
-                                            {# <option value="5">5</option>
-                                            <option value="25">25</option> #}
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
+                                        <select id="selectLimit" name="l" class="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
+                                            <option value="50" {{ limit == 50 ? 'selected' : '' }}>50</option>
+                                            <option value="100" {{ limit == 100 ? 'selected' : '' }}>100</option>
                                         </select>
                                     </div><!--end col-->
                                     <div style="min-width: 100px;">
@@ -65,7 +63,7 @@
                                         </select>
                                     </div><!--end col-->
                                     <div class="relative">
-                                        <input type="text" id="employeeSearch" class="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for code, name, description etc..." autocomplete="off" name="search">
+                                        <input type="text" id="employeeSearch" class="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for code, name, description etc..." autocomplete="off" name="search" value="{{ searchTerm|default('') }}">
                                         <i data-lucide="search" class="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600"></i>
                                     </div><!--end col-->
                                     <div class="relative">
@@ -158,34 +156,39 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col items-center gap-4 px-4 mt-4 md:flex-row" id="pagination-element">
-                            <div class="grow">
-                                <p class="text-slate-500 dark:text-zink-200">Showing <b class="showing">{{ employees|length }}</b> of <b class="total-records">{{ totalEmployees }}</b> Results</p>
+                        {% set currentQuery = app.request.query.all|default({}) %}
+                        {% set paginationQuery = currentQuery|merge({'l': limit}) %}
+                        {% set prevPage = currentPage > 1 ? currentPage - 1 : 1 %}
+                        {% set nextPage = currentPage < totalPages ? currentPage + 1 : totalPages %}
+                        <div class="flex flex-col gap-4 px-4 mt-4 md:flex-row md:items-center" id="pagination-element">
+                            <div class="text-slate-500 dark:text-zink-200">
+                                Showing <b class="showing">{{ employees|length }}</b> of <b class="total-records">{{ totalEmployees }}</b> Results
                             </div>
-                            <div id="currentPage" class="hidden" data-page="{{ currentPage }}"></div>
-                            <div id="pageLimit" class="hidden" data-limit="{{ limit }}"></div>
-                            <div class="col-sm-auto mt-sm-0 flex flex-cols flex-wrap gap-2 pagination-container">
-                                {% if currentPage > 1 %}
-                                    <a id="pagination-first" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-prev " {# href="{{ path('app_employee', { p: 1, l: limit }) }}" #}href="javascript:void(0)" data-page="1" data-limit="{{ limit }}">
+                            {% if totalPages > 0 %}
+                                <div class="flex flex-wrap gap-2 pagination-container justify-end grow">
+                                    <a class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 {{ currentPage <= 1 ? 'pointer-events-none opacity-50' : '' }}" href="{{ currentPage > 1 ? path('app_employee', paginationQuery|merge({'p': 1})) : '#' }}">
                                         <i class="size-4 mr-1 rtl:rotate-180" data-lucide="chevrons-left"></i> First
                                     </a>
-                                {% endif %}
-
-                                <ul class="listjs-pagination flex flex-wrap items-center gap-2">
-                                    {% if totalPages > 0 %}
+                                    <a class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 {{ currentPage <= 1 ? 'pointer-events-none opacity-50' : '' }}" href="{{ currentPage > 1 ? path('app_employee', paginationQuery|merge({'p': prevPage})) : '#' }}">
+                                        Prev
+                                    </a>
+                                    <ul class="flex flex-wrap items-center gap-2">
                                         {% for i in 1..totalPages %}
-                                            <li id="pagination-nav-wrapper" class="{{ currentPage == i ? 'active' : '' }}">
-                                                <a id="pagination-nav" {# href="{{ path('app_employee', { p: i, l: limit }) }}" #} href="javascript:void(0)" class="page" data-page="{{ i }}" data-limit="{{ limit }}">{{ i }}</a>
+                                            <li>
+                                                <a href="{{ path('app_employee', paginationQuery|merge({'p': i})) }}" class="inline-flex items-center justify-center h-8 px-3 border rounded transition-all duration-150 ease-linear {{ currentPage == i ? 'bg-custom-50 border-custom-500 text-custom-600 dark:bg-custom-500/10 dark:border-custom-500 dark:text-custom-300' : 'bg-white dark:bg-zink-700 border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:bg-custom-50 dark:hover:bg-custom-500/10 hover:text-custom-500 dark:hover:text-custom-500' }}">
+                                                    {{ i }}
+                                                </a>
                                             </li>
                                         {% endfor %}
-                                    {% endif %}
-                                </ul>
-                                {% if currentPage < totalPages %}
-                                    <a id="pagination-last" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto page-item pagination-next" {# href="{{ path('app_employee', { p: totalPages, l: limit }) }}" #}href="javascript:void(0)" data-page="{{ totalPages }}" data-limit="{{ limit }}">
+                                    </ul>
+                                    <a class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 {{ currentPage >= totalPages ? 'pointer-events-none opacity-50' : '' }}" href="{{ currentPage < totalPages ? path('app_employee', paginationQuery|merge({'p': nextPage})) : '#' }}">
+                                        Next
+                                    </a>
+                                    <a class="inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 {{ currentPage >= totalPages ? 'pointer-events-none opacity-50' : '' }}" href="{{ currentPage < totalPages ? path('app_employee', paginationQuery|merge({'p': totalPages})) : '#' }}">
                                         Last <i class="size-4 ml-1 rtl:rotate-180" data-lucide="chevrons-right"></i>
                                     </a>
-                                {% endif %}
-                            </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -732,8 +735,9 @@
     const bulkActionBtn = document.getElementById('bulkActionBtn');
     const actionSelect = document.getElementById('bulkActionSelect');
     const employeeList = document.getElementById('employeeList');
-
-    if (!bulkActionBtn || !actionSelect || !employeeList) return;
+    const searchInput = document.getElementById('employeeSearch');
+    const searchButton = document.getElementById('searchButton');
+    const limitSelect = document.getElementById('selectLimit');
 
     const notify = (message, color = 'bg-red-500') => {
       if (typeof showToast === 'function') {
@@ -743,41 +747,78 @@
       }
     };
 
-    bulkActionBtn.addEventListener('click', () => {
-      const selectedAction = actionSelect.value;
-      if (!selectedAction || actionSelect.selectedIndex === 0) {
-        notify('Choose action to perform.', 'bg-red-500');
-        actionSelect.focus();
-        return;
+    const navigateWithParams = () => {
+      const params = new URLSearchParams(window.location.search);
+      const term = (searchInput?.value || '').trim();
+      if (term) {
+        params.set('search', term);
+      } else {
+        params.delete('search');
       }
-
-      const selectedCheckboxes = employeeList.querySelectorAll('.rowCheckbox:checked');
-      if (!selectedCheckboxes.length) {
-        notify('No employees selected.', 'bg-red-500');
-        return;
+      if (limitSelect?.value) {
+        params.set('l', limitSelect.value);
       }
+      params.set('p', '1');
+      const query = params.toString();
+      window.location.href = `${window.location.pathname}${query ? `?${query}` : ''}`;
+    };
 
-      const payload = Array.from(selectedCheckboxes).map((checkbox) => {
-        const row = checkbox.closest('tr');
-        if (!row) return null;
-        const employeeCell = row.querySelector('#employeeData');
-        if (!employeeCell) return null;
-        try {
-          return JSON.parse(employeeCell.dataset.value || '{}');
-        } catch (error) {
-          return null;
+    if (bulkActionBtn && actionSelect && employeeList) {
+      bulkActionBtn.addEventListener('click', () => {
+        const selectedAction = actionSelect.value;
+        if (!selectedAction || actionSelect.selectedIndex === 0) {
+          notify('Choose action to perform.', 'bg-red-500');
+          actionSelect.focus();
+          return;
         }
-      }).filter(Boolean);
 
-      const bulkEvent = new CustomEvent('manpower:bulk-action', {
-        detail: {
-          action: selectedAction,
-          employees: payload,
-        },
+        const selectedCheckboxes = employeeList.querySelectorAll('.rowCheckbox:checked');
+        if (!selectedCheckboxes.length) {
+          notify('No employees selected.', 'bg-red-500');
+          return;
+        }
+
+        const payload = Array.from(selectedCheckboxes).map((checkbox) => {
+          const row = checkbox.closest('tr');
+          if (!row) return null;
+          const employeeCell = row.querySelector('#employeeData');
+          if (!employeeCell) return null;
+          try {
+            return JSON.parse(employeeCell.dataset.value || '{}');
+          } catch (error) {
+            return null;
+          }
+        }).filter(Boolean);
+
+        const bulkEvent = new CustomEvent('manpower:bulk-action', {
+          detail: {
+            action: selectedAction,
+            employees: payload,
+          },
+        });
+        document.dispatchEvent(bulkEvent);
+        notify('Bulk action ready. Please proceed with the next step.', 'bg-green-500');
       });
-      document.dispatchEvent(bulkEvent);
-      notify('Bulk action ready. Please proceed with the next step.', 'bg-green-500');
-    });
+    }
+
+    if (searchButton && searchInput) {
+      searchButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        navigateWithParams();
+      });
+      searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          navigateWithParams();
+        }
+      });
+    }
+
+    if (limitSelect) {
+      limitSelect.addEventListener('change', () => {
+        navigateWithParams();
+      });
+    }
   });
 </script>
 
