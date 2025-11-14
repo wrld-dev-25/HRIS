@@ -346,7 +346,7 @@
                                                     </div>
                                                     {% if employeeAdditionalRecord is not null and employeeAdditionalRecord is not empty %}
                                                         <div class="grid gap-4 grid-cols-12 col-span-12 mb-2 dependents-wrapper">
-                                                            {% for dependent in employeeAdditionalRecord.dependents.dependents %}
+                                                            {% for dependent in employeeAdditionalRecord.dependents %}
                                                                 <div class="grid gap-4 grid-cols-12 col-span-12 dependents-container">
                                                                     <div class="col-span-12 flex justify-end toggle-hidden-dependent hidden">
                                                                         <button type="button" class="flex items-center justify-center transition-all duration-200 ease-linear rounded size-8 text-red-500 bg-red-100 hover:bg-red-200 dark:bg-red-500/20 dark:hover:bg-red-500/30 delDependent">
