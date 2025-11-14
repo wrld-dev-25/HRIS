@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 use App\Service\APIRequest;
 use App\Service\PSGCService;
 use PhpParser\Node\Expr\Cast\String_;
@@ -42,36 +43,66 @@ class ManpowerController extends AbstractController
         $this->cache = $cache;
     }
 
+    private function decodeApiResponse(ResponseInterface|array|null $response, string $context): array
+    {
+        if ($response instanceof ResponseInterface) {
+            $status = $response->getStatusCode();
+            if ($status >= 200 && $status < 300) {
+                try {
+                    return $response->toArray();
+                } catch (\Throwable $e) {
+                    $this->logger->error(sprintf('Failed to decode %s response.', $context), [
+                        'exception' => $e->getMessage(),
+                    ]);
+                }
+            } else {
+                $this->logger->error(sprintf('%s API returned HTTP %d.', $context, $status));
+            }
+            return [];
+        }
+
+        if (is_array($response)) {
+            if (($response['error'] ?? false) === true) {
+                $this->logger->error(sprintf('%s API responded with error payload.', $context), [
+                    'details' => $response,
+                ]);
+                return [];
+            }
+            return $response;
+        }
+
+        if ($response === null) {
+            $this->logger->error(sprintf('%s API returned null response.', $context));
+            return [];
+        }
+
+        $this->logger->error(sprintf('Unexpected %s response type.', $context), [
+            'type' => get_debug_type($response),
+        ]);
+        return [];
+    }
+
     #[Route('manpower/employee', name: 'app_employee')]
     public function viewEmployees(Request $request)
     {
+        $divisionResponse = $this->apiFunctions->getDivisionList($request);
+        $divisionPayload = $this->decodeApiResponse($divisionResponse, 'division list');
+        $divisions = $divisionPayload['division'] ?? [];
 
-        if($this->apiFunctions->getDivisionList($request)->getStatusCode() === 200){ // Get Divisions list
-            $response = $this->apiFunctions->getDivisionList($request)->toArray();
-            $divisions = $response['division'];
-        } else {
-            $divisions = [];
-        }
-
-        if($this->apiFunctions->getAffiliatedCompany($request)->getStatusCode() === 200){ // Get Company list
-            $response = $this->apiFunctions->getAffiliatedCompany($request)->toArray();
-            $affiliated_companies = $response;
-        } else {
-            $affiliated_companies = [];
-        }
+        $companyResponse = $this->apiFunctions->getAffiliatedCompany($request);
+        $affiliatedPayload = $this->decodeApiResponse($companyResponse, 'affiliated company list');
+        $affiliated_companies = $affiliatedPayload ?: [];
 
         $page = $request->query->getInt('p', 1);
         $limit = $request->query->getInt('l', 50);
 
         $employeeAPI = $this->apiFunctions->getEmployeesPaginated($request, $page, $limit);
-
-        if($employeeAPI->getStatusCode() === 200){
-            $response = $employeeAPI->toArray();
-            $employees = $response['employees'] ?? [];
-            $totalEmployees = isset($response['totalEmployees']) ? (int) $response['totalEmployees'] : 0;
+        $employeePayload = $this->decodeApiResponse($employeeAPI, 'paginated employee list');
+        $employees = $employeePayload['employees'] ?? [];
+        if (isset($employeePayload['totalEmployees'])) {
+            $totalEmployees = (int) $employeePayload['totalEmployees'];
         } else {
-            $employees = [];
-            $totalEmployees = 0;
+            $totalEmployees = count($employees);
         }
 
         $provinces = $this->getProvinces->getProvinces();
@@ -112,17 +143,19 @@ class ManpowerController extends AbstractController
     {
         //$workerData = $this->getWorker($request)->toArray();
         $token = $request->getSession()->get('token');
-        $projects = $this->apiFunctions->getProject($request)->toArray();
+        $projectsPayload = $this->decodeApiResponse($this->apiFunctions->getProject($request), 'project list');
+        $projects = $projectsPayload['project'] ?? [];
 
         $formData = [
             "employee_code" => $emp_code,
         ];
 
-        $employee = $this->apiService->apiRequest('GET', 'api/employee/profile', json_encode($formData), $token)->toArray();
+        $employeeResponse = $this->apiService->apiRequest('GET', 'api/employee/profile', json_encode($formData), $token);
+        $employeePayload = $this->decodeApiResponse($employeeResponse, 'employee profile');
         return $this->render('manpower/apps-manpower.html.twig', [
             //'workers' => $workerData['workers'],
-            'employee' => $employee['employeeData'],
-            'projects' => $projects['project']
+            'employee' => $employeePayload['employeeData'] ?? [],
+            'projects' => $projects
         ]);
     }
 
@@ -169,14 +202,14 @@ public function viewAttendance(Request $request)
     #[Route('manpower/employee-projects', name: 'app_emp_projects')]
     public function viewEmpProjects(Request $request)
     {
-        $phaseData = $this->apiFunctions->getPhase($request)->toArray();
-        $subdivisionData = $this->apiFunctions->getSubdivision($request)->toArray();
+        $phasePayload = $this->decodeApiResponse($this->apiFunctions->getPhase($request), 'phase list');
+        $subdivisionPayload = $this->decodeApiResponse($this->apiFunctions->getSubdivision($request), 'subdivision list');
         // $project = $this->apiFunctions->getProject($request)->toArray();
-        $empProjects = $this->apiFunctions->getEmpProjects($request)->toArray();
+        $empProjectsPayload = $this->decodeApiResponse($this->apiFunctions->getEmpProjects($request), 'employee projects');
         return $this->render('manpower/apps-emp-project.html.twig',[
-            'phase' => $phaseData['phase'],
-            'subdivisions' => $subdivisionData['subdivisions'],
-            'employee_projects' => $empProjects['employee_projects'],
+            'phase' => $phasePayload['phase'] ?? [],
+            'subdivisions' => $subdivisionPayload['subdivisions'] ?? [],
+            'employee_projects' => $empProjectsPayload['employee_projects'] ?? [],
         ]);
     }
 

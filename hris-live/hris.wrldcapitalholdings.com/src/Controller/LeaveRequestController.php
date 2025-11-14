@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 #[Route('/leave-request')]
 class LeaveRequestController extends AbstractController
@@ -34,12 +35,51 @@ class LeaveRequestController extends AbstractController
         $this->exportxls = $exportxls;
     }
 
+    private function decodeApiResponse(ResponseInterface|array|null $response, string $context): array
+    {
+        if ($response instanceof ResponseInterface) {
+            $status = $response->getStatusCode();
+            if ($status >= 200 && $status < 300) {
+                try {
+                    return $response->toArray();
+                } catch (\Throwable $e) {
+                    $this->logger->error(sprintf('Failed decoding %s response.', $context), [
+                        'exception' => $e->getMessage(),
+                    ]);
+                }
+            } else {
+                $this->logger->error(sprintf('%s API returned HTTP %d.', $context, $status));
+            }
+            return [];
+        }
+
+        if (is_array($response)) {
+            if (($response['error'] ?? false) === true) {
+                $this->logger->error(sprintf('%s API responded with error payload.', $context), [
+                    'details' => $response,
+                ]);
+                return [];
+            }
+            return $response;
+        }
+
+        if ($response === null) {
+            $this->logger->error(sprintf('%s API response is null.', $context));
+            return [];
+        }
+
+        $this->logger->error(sprintf('Unexpected %s response type.', $context), [
+            'type' => get_debug_type($response),
+        ]);
+        return [];
+    }
+
     #[Route('/', name: 'app_leave_request')]
     public function viewLeaveRequests(Request $request): Response
     {
-        $allLeaveRequest = $this->apiFunctions->getAllLeaveRequest($request)->toArray();
-        $leavePolicies = $this->apiFunctions->getLeavePolicy($request)->toArray();
-        $employeeLeaves = $this->apiFunctions->getEmployeeLeaves($request)->toArray();
+        $allLeaveRequest = $this->decodeApiResponse($this->apiFunctions->getAllLeaveRequest($request), 'leave request list');
+        $leavePolicies = $this->decodeApiResponse($this->apiFunctions->getLeavePolicy($request), 'leave policy list');
+        $employeeLeaves = $this->decodeApiResponse($this->apiFunctions->getEmployeeLeaves($request), 'employee leaves list');
         // dd($employeeLeaves);
         return $this->render('leave_request/apps-leave-request.html.twig', [
             'leaveRequests'     => $allLeaveRequest ?? [],
@@ -51,8 +91,8 @@ class LeaveRequestController extends AbstractController
     #[Route('/calendar', name: 'app_leave_calendar')]
     public function viewLeaveCalendar(Request $request): Response
     {
-        $yearlyHolidays = $this->apiFunctions->getYearlyHoliday($request)->toArray();
-        $allLeaveRequest = $this->apiFunctions->getAllLeaveRequest($request)->toArray();
+        $yearlyHolidays = $this->decodeApiResponse($this->apiFunctions->getYearlyHoliday($request), 'yearly holidays');
+        $allLeaveRequest = $this->decodeApiResponse($this->apiFunctions->getAllLeaveRequest($request), 'leave request list');
         // dd($allLeaveRequest);
         return $this->render('leave_request/apps-leave-calendar.html.twig', [
             'leaveRequests'     => [],

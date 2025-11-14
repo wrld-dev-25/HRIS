@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class EmployeeProfileController extends AbstractController
 {
@@ -41,6 +42,45 @@ class EmployeeProfileController extends AbstractController
         $this->logger = $logger;
         $this->cache = $cache;
     }
+
+    private function decodeApiResponse(ResponseInterface|array|null $response, string $context): array
+    {
+        if ($response instanceof ResponseInterface) {
+            $status = $response->getStatusCode();
+            if ($status >= 200 && $status < 300) {
+                try {
+                    return $response->toArray();
+                } catch (\Throwable $e) {
+                    $this->logger->error(sprintf('Failed decoding %s response.', $context), [
+                        'exception' => $e->getMessage(),
+                    ]);
+                }
+            } else {
+                $this->logger->error(sprintf('%s API returned HTTP %d.', $context, $status));
+            }
+            return [];
+        }
+
+        if (is_array($response)) {
+            if (($response['error'] ?? false) === true) {
+                $this->logger->error(sprintf('%s API responded with an error payload.', $context), [
+                    'details' => $response,
+                ]);
+                return [];
+            }
+            return $response;
+        }
+
+        if ($response === null) {
+            $this->logger->error(sprintf('%s API response is null.', $context));
+            return [];
+        }
+
+        $this->logger->error(sprintf('Unexpected %s response type.', $context), [
+            'type' => get_debug_type($response),
+        ]);
+        return [];
+    }
     
     #[Route('/employee/profile/{employee_code}', name: 'employee_profile')]
     public function viewProfile(Request $request, String $employee_code, LoggerInterface $logger): Response
@@ -54,12 +94,8 @@ class EmployeeProfileController extends AbstractController
         $provinces = $this->getProvinces->getProvinces();
         $getTownCity = $this->getTownCity->getTownCity();
 
-        if($this->apiFunctions->getDivisionList($request)->getStatusCode() === 200){ // Get Divisions list
-            $response = $this->apiFunctions->getDivisionList($request)->toArray();
-            $divisions = $response['division'];
-        } else {
-            $divisions = [];
-        }
+        $divisionPayload = $this->decodeApiResponse($this->apiFunctions->getDivisionList($request), 'division list');
+        $divisions = $divisionPayload['division'] ?? [];
 
         $javascriptSnippet = "<script></script>";
         $statusCode = $request->query->get('status');
@@ -180,16 +216,21 @@ class EmployeeProfileController extends AbstractController
 
         $worker_id = $employee['worker_id'] ?? "";
 
-        $projects                   = $this->apiFunctions->getProjectUsingEmpRecord($request,$id)->toArray();
-        $leave_request              = $this->apiFunctions->getEmpLeaveRequest($request,$id)->toArray();
-        $leave_entitlements         = $this->apiFunctions->getEmpLeaveEntitlements($request,$id)->toArray();
-        $leavePolicies              = $this->apiFunctions->getLeavePolicy($request)->toArray();
-        // $employeeOvertimeRequest    = $this->apiFunctions->getOvertimeRequestByEmp($request,$id)->toArray();
-        $employeeOvertimeRequest    = $this->apiFunctions->getOvertimeRequest($request)->toArray();
+        $projectsPayload            = $this->decodeApiResponse($this->apiFunctions->getProjectUsingEmpRecord($request,$id), 'projects by employee');
+        $leaveRequestPayload        = $this->decodeApiResponse($this->apiFunctions->getEmpLeaveRequest($request,$id), 'employee leave requests');
+        $leaveEntitlementsPayload   = $this->decodeApiResponse($this->apiFunctions->getEmpLeaveEntitlements($request,$id), 'employee leave entitlements');
+        $leavePolicies              = $this->decodeApiResponse($this->apiFunctions->getLeavePolicy($request), 'leave policies');
+        $employeeOvertimeRequest    = $this->decodeApiResponse($this->apiFunctions->getOvertimeRequest($request), 'employee overtime request');
+        $projects                   = $projectsPayload;
+        $leave_request              = $leaveRequestPayload;
+        $leave_entitlements         = $leaveEntitlementsPayload;
         // dd($leave_request);
 
         $payrollProfile = $this->apiFunctions->getEmployeePayrollProfiles($request, $id);
-        $accountabilityRecords = $this->apiFunctions->getAccountabilityRecordsByEmployee($request, $id)->toArray();
+        $accountabilityRecords = $this->decodeApiResponse(
+            $this->apiFunctions->getAccountabilityRecordsByEmployee($request, $id),
+            'accountability records'
+        );
 
         if(is_array($payrollProfile)){
             $payrollProfile = [
@@ -259,7 +300,7 @@ class EmployeeProfileController extends AbstractController
             'employeeAdditionalRecord'              => $employeeAdditionalRecord['employeeAdditionalRecord'] ?? [],
             'employeeAttachment'                    => $employeeAttachments['employeeAttachments'] ?? [],
             'javascriptSnippet'                     => $javascriptSnippet,
-            'projects'                              => $projects['project'],
+            'projects'                              => $projects['project'] ?? [],
             'payrollProfile'                        => $payrollProfile ?? [],
             'leaveEntitlements'                     => [],
             'leaveHistory'                          => [],
