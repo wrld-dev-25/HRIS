@@ -73,11 +73,14 @@ class APIFunctions
         $response = $this->apiService->apiRequest('GET', 'api/employee201', $jsonBody, $token);
         return $response;
     }
-    public function getEmployeesPaginated($request, $page, $limit){
+    public function getEmployeesPaginated($request, $page, $limit, ?string $search = null){
         $jsonBody = [
             'page' => $page,
             'limit' => $limit,
         ];
+        if ($search !== null && $search !== '') {
+            $jsonBody['search'] = $search;
+        }
         $token = $request->getSession()->get('token');
         $response = $this->apiService->apiRequest('POST', 'api/emp_paginated', json_encode($jsonBody), $token);
         return $response;

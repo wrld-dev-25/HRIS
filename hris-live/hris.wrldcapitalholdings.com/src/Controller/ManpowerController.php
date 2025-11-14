@@ -95,8 +95,9 @@ class ManpowerController extends AbstractController
 
         $page = $request->query->getInt('p', 1);
         $limit = $request->query->getInt('l', 50);
+        $searchTerm = trim((string)$request->query->get('search', ''));
 
-        $employeeAPI = $this->apiFunctions->getEmployeesPaginated($request, $page, $limit);
+        $employeeAPI = $this->apiFunctions->getEmployeesPaginated($request, $page, $limit, $searchTerm);
         $employeePayload = $this->decodeApiResponse($employeeAPI, 'paginated employee list');
         $employees = $employeePayload['employees'] ?? [];
         if (isset($employeePayload['totalEmployees'])) {
@@ -118,6 +119,7 @@ class ManpowerController extends AbstractController
             'townCities' => $getTownCity,
             'divisions' => $divisions,
             'affiliated_companies' => $affiliated_companies,
+            'searchTerm' => $searchTerm,
             //'javascriptSnippet' => $javascriptSnippet,
         ]);
     }
