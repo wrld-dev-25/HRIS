@@ -728,7 +728,57 @@
 <script src="{{ asset('assets/js/pages/pages-employees.js') }}"></script>
 
 <script>
-    $(document).ready(function () {});
+  document.addEventListener('DOMContentLoaded', function () {
+    const bulkActionBtn = document.getElementById('bulkActionBtn');
+    const actionSelect = document.getElementById('bulkActionSelect');
+    const employeeList = document.getElementById('employeeList');
+
+    if (!bulkActionBtn || !actionSelect || !employeeList) return;
+
+    const notify = (message, color = 'bg-red-500') => {
+      if (typeof showToast === 'function') {
+        showToast(message, color);
+      } else {
+        alert(message);
+      }
+    };
+
+    bulkActionBtn.addEventListener('click', () => {
+      const selectedAction = actionSelect.value;
+      if (!selectedAction || actionSelect.selectedIndex === 0) {
+        notify('Choose action to perform.', 'bg-red-500');
+        actionSelect.focus();
+        return;
+      }
+
+      const selectedCheckboxes = employeeList.querySelectorAll('.rowCheckbox:checked');
+      if (!selectedCheckboxes.length) {
+        notify('No employees selected.', 'bg-red-500');
+        return;
+      }
+
+      const payload = Array.from(selectedCheckboxes).map((checkbox) => {
+        const row = checkbox.closest('tr');
+        if (!row) return null;
+        const employeeCell = row.querySelector('#employeeData');
+        if (!employeeCell) return null;
+        try {
+          return JSON.parse(employeeCell.dataset.value || '{}');
+        } catch (error) {
+          return null;
+        }
+      }).filter(Boolean);
+
+      const bulkEvent = new CustomEvent('manpower:bulk-action', {
+        detail: {
+          action: selectedAction,
+          employees: payload,
+        },
+      });
+      document.dispatchEvent(bulkEvent);
+      notify('Bulk action ready. Please proceed with the next step.', 'bg-green-500');
+    });
+  });
 </script>
 
 <!-- App js -->
