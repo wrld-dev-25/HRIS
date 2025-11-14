@@ -10,7 +10,9 @@
 /web/uploads/
 
 ### Composer / PHP ###
-/vendor/
+vendor/
+var/
+
 /composer.phar
 /app/bootstrap.php.cache
 /var/bootstrap.php.cache
