@@ -10,7 +10,9 @@ use App\Service\ExportXLSService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/leave-request')]
 class LeaveRequestController extends AbstractController
@@ -65,6 +67,21 @@ class LeaveRequestController extends AbstractController
         $session = $request->getSession();
         $token = $session->get('token');
         $user_id = $session->get('user_id');
+
+        $empCode = $request->request->get('empCode') ?? null;
+        $uploadSize = intval($request->request->get('fileSize')) ?? 25;
+        $type = 'pdf';
+        $file = $request->files->get('attachment');
+
+        // Define allowed file extensions for each type
+        $allowedExtensions = [
+            // 'doc' => ['doc', 'docx'],
+            //'csv' => ['csv'],
+            'pdf' => ['pdf'],
+            //'jpg' => ['jpg', 'jpeg', 'png']
+        ];
+
+        
         // Collect form data from the request, handling optional fields
         $formData = [
             'emp_record_id'         => $request->request->get('emp_record_id'),
@@ -81,12 +98,74 @@ class LeaveRequestController extends AbstractController
         // dd(json_encode($formData));
         // Send POST request to create the LeavePolicy via ApiService
         $response = $this->apiService->apiRequest('POST', 'api/leave/request/create', json_encode($formData), $token);
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode  == 200 && $file || $statusCode  == 201 && $file)
+        {
+            $fileSize = $file->getSize();
+            $originalFileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            if ($file instanceof UploadedFile) {
+                // Check if the file extension is allowed for the given type
+                $fileExtension = $file->getClientOriginalExtension();
+                // if (isset($allowedExtensions[$type]) && in_array($fileExtension, $allowedExtensions[$type])) {
+                    if ($fileSize <= $uploadSize * 1024 * 1024) { // 25MB in bytes by default
+
+                        // Create directory for employee if not exists
+                        $employeeUploadDir = $this->getParameter('uploads_directory') . '/' . $empCode;
+                        if (!file_exists($employeeUploadDir)) {
+                            mkdir($employeeUploadDir, 0755, true);
+                        }
+
+                        $fileName = $originalFileName;
+                        $originalFileName = $originalFileName.'.'.$file->guessExtension();
+                        $filePath = $employeeUploadDir . '/' . $originalFileName;
+
+                        // Move the file to the directory where uploads are stored
+                        try {
+                            $file->move(
+                                $employeeUploadDir,
+                                $originalFileName
+                            );
+
+                            $employeeData = [
+                                "employee_code" => $empCode,
+                                "type" => $type,
+                                "attachment_name" => $fileName,
+                                "attachment_size" => $fileSize,
+                                "file" => $filePath,
+                                "original_file_name" => $originalFileName
+                            ];
+
+                            //dd($employeeData);
+                            $response = $this->apiService->apiRequest('POST', 'api/employee/upload_attachment', json_encode($employeeData), $token);
+                            $status_code = $response->getStatusCode();
+                            //dd($response->getContent(true));
+
+                            if ($status_code  == 200 || $status_code  == 201) {
+                                return $this->redirectToRoute('app_leave_request', ['employee_code' => $empCode, 'status' => $status_code, 'a' => 'fus']); // "action" => "file upload success"
+                            } else {
+                                return $this->redirectToRoute('app_leave_request', ['employee_code' => $empCode, 'status' => $status_code, 'a' => 'fuf']); // "action" => file upload fail
+                            }
+                        } catch (IOExceptionInterface $e) {
+                            return new JsonResponse(['status' => 'error', 'message' => 'File upload failed, '. $e]);
+                            return $this->redirectToRoute('app_leave_request', ['employee_code' => $empCode, 'status' => '404', 'a' => 'fuf']);
+                        }
+                    } else {
+                        return $this->redirectToRoute('app_leave_request', [
+                            'employee_code' => $empCode,
+                            'status' => '404',
+                            'error' => 'File size exceeds 25MB limit!',
+                            'message' => 'File size exceeds 25MB limit!',
+                        ]);
+                    }
+            }
+        }
         // dd($response);
         // Handle potential error response from API
         if (is_array($response) && isset($response['error']) && $response['error'] === true) {
             $errorMessage = 'Error: Status code ' . $response['status'];
             $responseMessage = json_decode($response['message'], true)['message'] ?? $errorMessage;
-
+            
             return $this->redirectToRoute('app_leave_request', [
                 'status'    => $response['status'],
                 'error'     => $errorMessage,

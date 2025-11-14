@@ -1,6 +1,11 @@
 {% extends 'partials/base.html.twig' %}
 {% block title %}Leave Request{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+{% endblock %}
+
 {% block content %}
 
             {{ component('breadcrumb', { pagetitle: 'Leave Request', title: '' }) }}
@@ -110,15 +115,15 @@
             <button data-modal-close="addLeaveRequest" class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500"><i data-lucide="x" class="size-5"></i></button>
         </div>
         <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
-            <form action="{{ path('create_leave_request') }}" method="post">
+            <form action="{{ path('create_leave_request') }}" method="post" enctype="multipart/form-data">
             <div class="grid grid-cols-1 gap-4 xl:grid-cols-12">
                 <div class="xl:col-span-12">
                     <label for="emp_record_id" class="inline-block mb-2 text-base font-medium">Employee</label>
                     <span class="text-red-500">*</span>
-                    <select id="emp_record_id" name="emp_record_id" class="form-input">
+                    <select onchange="getEmpCode()" id="emp_record_id" name="emp_record_id" class="form-input">
                         <option value=""></option>
                         {% for employee in employees %}
-                            <option value="{{ employee.emp_id }}">{{ employee.emp_fullname }}</option>
+                            <option data-extra="{{employee.emp_code}}" data-code="{{employee.emp_code}}" value="{{ employee.emp_id }}">{{ employee.emp_fullname }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -161,7 +166,15 @@
 
                 <div class="xl:col-span-12">
                     <label for="reason" class="inline-block mb-2 text-base font-medium">Reason</label>
-                    <textarea id="reason" name="reason" class="form-input" placeholder="Enter Reason (optional)"></textarea>
+                    <span class="text-red-500">*</span>
+                    <textarea id="reason" name="reason" class="form-input" placeholder="Enter Reason" required></textarea>
+                </div>
+
+                <div class="xl:col-span-12">
+                    <input type="hidden" name="empCode" id="empCode" value="">
+                    <input type="hidden" name="fileSize" value="25">
+                    <label for="attachment" class="inline-block mb-2 text-base font-medium">Attachment</label>
+                    <input type="file" onchange="attachmentChange(event)" class="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" placeholder="Choose file" name="attachment" id="attachment">
                 </div>
             </div>
         </div>
@@ -352,8 +365,34 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent form submission
             showToast('Please fill in all required fields.', 'bg-red-500');
         }
-    });
+    });   
 })
 </script>
+<script>
+// get emp code on change of employee select
+    function getEmpCode(){
+    const select = document.getElementById('emp_record_id');
+    const selectedOption = select.options[select.selectedIndex];
+    var empCode = document.getElementById("empCode");
+    empCode.value = selectedOption.dataset.code;
+    //console.log(selectedOption.dataset.extra);
+    //console.log(selectedOption.dataset.code); 
+    }
+</script>
 
+<script>
+function attachmentChange(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        // Optional: Check file type (add allowed types as needed)
+        const allowedTypes = ['application/pdf'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Please upload a valid file type, it only accepts .pdf file!');
+            event.target.value = '';
+            return;
+        }
+    }
+}
+</script>
 {% endblock %}

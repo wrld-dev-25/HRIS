@@ -67,11 +67,11 @@ class ManpowerController extends AbstractController
 
         if($employeeAPI->getStatusCode() === 200){
             $response = $employeeAPI->toArray();
-            $employees = $response['employees'];
-            $totalEmployees = $response['totalEmployees'];
+            $employees = $response['employees'] ?? [];
+            $totalEmployees = isset($response['totalEmployees']) ? (int) $response['totalEmployees'] : 0;
         } else {
             $employees = [];
-            $totalEmployees = [];
+            $totalEmployees = 0;
         }
 
         $provinces = $this->getProvinces->getProvinces();
@@ -80,7 +80,7 @@ class ManpowerController extends AbstractController
         return $this->render('manpower/apps-employees.html.twig', [
             'employees' => $employees ? $employees : [],
             'currentPage' => $page,
-            'limit' => $totalEmployees ? $limit : 0,
+            'limit' => $limit,
             'totalPages' =>  $totalEmployees ? ceil($totalEmployees / $limit) : 0,
             'totalEmployees' => $totalEmployees,
             'provinces' => $provinces,

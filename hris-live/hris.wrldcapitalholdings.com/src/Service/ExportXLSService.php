@@ -102,22 +102,24 @@ class ExportXLSService
         }
 
         // set cell values of total mandays per column
+        $lastDataRow = count($data) + 5;
+        $totalRow = $lastDataRow + 1;
         for ($col = 2; $col <= count($taskHeader) + 1; $col++) {
-            $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . count($data) + 6;
-            $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . 6 . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . count($data) + 5; // sample result: B1:B11
+            $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $totalRow;
+            $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . '6:' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $lastDataRow; // sample result: B6:B11
             $sheet->setCellValue($columnTotalMandaysCoordinates, '=SUM('.$columnSumRange.')'); 
         }
 
         // set total Mandays from Column Totals and Row Totals
-        $totalMandaysColumnRowCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . count($data) + 6; // sample result: H12
-        $totalMandaysColumnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . 6 . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . count($data) + 5; // sample result: H6:H11
-        $totalMandaysRowSumRange = 'B' . count($data) + 6 . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 1) . count($data) + 6; // sample result: B11:G12
+        $totalMandaysColumnRowCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . $totalRow; // sample result: H12
+        $totalMandaysColumnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . '6:' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . $lastDataRow; // sample result: H6:H11
+        $totalMandaysRowSumRange = 'B' . $totalRow . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 1) . $totalRow; // sample result: B11:G11
         $sheet->setCellValue($totalMandaysColumnRowCoordinates, '=SUM('.$totalMandaysColumnSumRange.','.$totalMandaysRowSumRange.')');
         $sheet->getStyle($totalMandaysColumnRowCoordinates)->applyFromArray(['font' => ['bold' => true, 'size' => 11]]);
 
         //set heading title for Total Mandays
         $rowTotalMandaysHeadingCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($taskHeader) + 2) . 5; // set row to 5 after all the Headers
-        $columnTotalMandaysHeadingCoordinates = 'A' . count($data) + 6;
+        $columnTotalMandaysHeadingCoordinates = 'A' . $totalRow;
         $sheet->setCellValue($rowTotalMandaysHeadingCoordinates, 'Total Mandays');
         $sheet->setCellValue($columnTotalMandaysHeadingCoordinates, 'Total Mandays');
         $sheet->getStyle($columnTotalMandaysHeadingCoordinates)->applyFromArray($headingStyle);
@@ -300,17 +302,20 @@ class ExportXLSService
             $sheet->mergeCells($colLetter . $row . ':' . $colLetterOffset . $row);
 
             $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($dateHeader) + 2);
-            $sheet->setCellValue($colLetter . $row + 1, 'Total Mandays'); // this sets the Table Header Total Mandays
-            $sheet->getStyle($colLetter . $row + 1)->applyFromArray($taskHeaderStyle);
+            $totalHeaderRow = $row + 1;
+            $sheet->setCellValue($colLetter . $totalHeaderRow, 'Total Mandays'); // this sets the Table Header Total Mandays
+            $sheet->getStyle($colLetter . $totalHeaderRow)->applyFromArray($taskHeaderStyle);
 
             $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex((count($dateHeader) * 2) + 3);
-            $sheet->setCellValue($colLetter . $row + 1, 'Total OT (Mandays)'); // this sets the Table Header Total OT
-            $sheet->getStyle($colLetter . $row + 1)->applyFromArray($taskHeaderStyle);
+            $sheet->setCellValue($colLetter . $totalHeaderRow, 'Total OT (Mandays)'); // this sets the Table Header Total OT
+            $sheet->getStyle($colLetter . $totalHeaderRow)->applyFromArray($taskHeaderStyle);
 
-            $sheet->setCellValue('A' . $row + count($employees) + 2, 'Total'); // this sets the Task Header in Rows
-            $sheet->getStyle('A' . $row + count($employees) + 2)->applyFromArray($taskHeaderStyle);
+            $totalRowLabelIndex = $row + count($employees) + 2;
+            $sheet->setCellValue('A' . $totalRowLabelIndex, 'Total'); // this sets the Task Header in Rows
+            $sheet->getStyle('A' . $totalRowLabelIndex)->applyFromArray($taskHeaderStyle);
 
-            $sheet->setCellValue('A' . $row += 1, 'Employees'); //! this sets Employees Header. $row + 1 to set header below Task Header
+            $row += 1;
+            $sheet->setCellValue('A' . $row, 'Employees'); //! this sets Employees Header. $row + 1 to set header below Task Header
             $sheet->getStyle('A' . $row)->applyFromArray($taskHeaderStyle);
 
             //! Populate Data for Mandays Table
@@ -325,7 +330,8 @@ class ExportXLSService
             $dateHeaderRow = $row;
 
             foreach ($employees as $employee => $employeeDateTime) { // this sets the Employee Names on Column A
-                $sheet->setCellValue('A' . $row += 1, $employee);
+                $row += 1;
+                $sheet->setCellValue('A' . $row, $employee);
 
                 $name = $employee;
 
@@ -372,10 +378,11 @@ class ExportXLSService
                 $sheet->getStyle($rowMandaysTotalCoordinates)->applyFromArray($taskHeaderStyle);                
             }
 
+            $columnStartRow = $dateHeaderRow + 1;
+            $columnTotalRow = $columnStartRow + count($employees);
             for ($col = 2; $col <= count($dateHeader) + 2; $col++) { // Set Total Mandays per Column
-
-                $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $dateHeaderRow + 1 + count($employees);
-                $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $dateHeaderRow + 1 . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . ($dateHeaderRow + 1 + count($employees) - 1); // sample result: B1:B11
+                $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $columnTotalRow;
+                $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . $columnStartRow . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($col) . ($columnTotalRow - 1); // sample result: B1:B11
                 /* print_r($columnTotalMandaysCoordinates);
                 echo "<br/>"; */
                 $sheet->setCellValue($columnTotalMandaysCoordinates, '=SUM('.$columnSumRange.')'); 
@@ -438,7 +445,7 @@ class ExportXLSService
                             $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt);
                             $sheet->setCellValue([$colOt, $rowOt + 1], 0);
                             $sheet->getStyle([$colOt, $rowOt + 1])->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-                            $rowOvertimeTotalAlternativeCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt + 1) . $rowOt + 1;
+                            $rowOvertimeTotalAlternativeCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt + 1) . ($rowOt + 1);
                         }
                     }
 
@@ -452,10 +459,11 @@ class ExportXLSService
                 
             }
 
+            $overtimeColumnStartRow = $dateHeaderRow + 1;
+            $overtimeTotalRow = $overtimeColumnStartRow + count($employees);
             for ($colOt = count($dateHeader) + 3; $colOt <= (count($dateHeader) * 2) + 3; $colOt++) { // Set Total Mandays per Column
-
-                $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . $dateHeaderRow + 1 + count($employees);
-                $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . $dateHeaderRow + 1 . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . ($dateHeaderRow + 1 + count($employees) - 1); // sample result: B1:B11
+                $columnTotalMandaysCoordinates = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . $overtimeTotalRow;
+                $columnSumRange = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . $overtimeColumnStartRow . ':' . \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colOt) . ($overtimeTotalRow - 1); // sample result: B1:B11
                 /* print_r($columnTotalMandaysCoordinates);
                 echo "<br/>"; */
                 $sheet->setCellValue($columnTotalMandaysCoordinates, '=SUM('.$columnSumRange.')'); 
@@ -2661,8 +2669,4 @@ class ExportXLSService
             ]
         );
     }
-
-    
-    
 }
-

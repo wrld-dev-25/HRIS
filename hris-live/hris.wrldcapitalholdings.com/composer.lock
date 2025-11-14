@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "d15dc18f2be4f25f939a1be822003f0d",
+=======
+    "content-hash": "4f1a8dc06408706cbb5e3a1d45e1cd96",
+>>>>>>> Arron
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1678,6 +1682,7 @@
         },
         {
             "name": "predis/predis",
+<<<<<<< HEAD
             "version": "v3.2.0",
             "source": {
                 "type": "git",
@@ -1704,6 +1709,36 @@
                 "ext-relay": "Faster connection with in-memory caching (>=0.6.2)"
             },
             "type": "library",
+=======
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/predis/predis.git",
+                "reference": "99c253733dee9447d26257dc669d33d5ac84713d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/predis/predis/zipball/99c253733dee9447d26257dc669d33d5ac84713d",
+                "reference": "99c253733dee9447d26257dc669d33d5ac84713d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0 || ~9.4.4"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.0-dev"
+                }
+            },
+>>>>>>> Arron
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -1715,12 +1750,25 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
+=======
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net",
+                    "role": "Creator & Maintainer"
+                },
+                {
+>>>>>>> Arron
                     "name": "Till Krüss",
                     "homepage": "https://till.im",
                     "role": "Maintainer"
                 }
             ],
+<<<<<<< HEAD
             "description": "A flexible and feature-complete Redis/Valkey client for PHP.",
+=======
+            "description": "A flexible and feature-complete Redis client for PHP.",
+>>>>>>> Arron
             "homepage": "http://github.com/predis/predis",
             "keywords": [
                 "nosql",
@@ -1729,7 +1777,11 @@
             ],
             "support": {
                 "issues": "https://github.com/predis/predis/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/predis/predis/tree/v3.2.0"
+=======
+                "source": "https://github.com/predis/predis/tree/v2.0.0"
+>>>>>>> Arron
             },
             "funding": [
                 {
@@ -1737,7 +1789,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2025-08-06T06:41:24+00:00"
+=======
+            "time": "2022-06-08T13:14:56+00:00"
+>>>>>>> Arron
         },
         {
             "name": "psr/cache",

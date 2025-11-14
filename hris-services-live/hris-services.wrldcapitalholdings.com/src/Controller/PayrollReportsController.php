@@ -48,6 +48,25 @@ class PayrollReportsController extends AbstractController
         $this->auditlog = $auditLog;
         $this->validateAccess = $validateAccess;
     }
+
+    /**
+     * Most GET endpoints expect JSON when called internally, but callers (e.g. Postman/browsers)
+     * may only send query parameters. This helper gracefully falls back to $_GET data when the
+     * request body is empty or invalid JSON so inputs are honored in both cases.
+     */
+    private function getRequestPayload(Request $request): array
+    {
+        $rawContent = trim((string)$request->getContent());
+        if ($rawContent !== '') {
+            $decoded = json_decode($rawContent, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                return $decoded;
+            }
+        }
+
+        $queryParams = $request->query->all();
+        return is_array($queryParams) ? $queryParams : [];
+    }
     
     #[Route('/api/all-employee-payroll', name: 'api_employee_payroll_data', methods: ['GET'])]
     public function getEmployeePayrollProfiles(): JsonResponse
@@ -165,7 +184,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/timesheet', name: 'get_timesheet_data', methods: ['GET'])]
     public function getAllWorkerLogs(Request $request, WorkerLogsRepository $workerLogsRepository): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
     
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -184,6 +203,10 @@ class PayrollReportsController extends AbstractController
         $responseData = [];
         foreach ($workerLogs as $log) {
             $employeeId = $log->getUser()->getId();
+            $employeeRecord = $log->getUser()->getEmpRecord();
+            $company = $employeeRecord?->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
 
             // Initialize employee entry if not yet present
             if (!isset($responseData[$employeeId])) {
@@ -193,6 +216,9 @@ class PayrollReportsController extends AbstractController
                     'lastname' => $log->getUser()->getLastname(),
                     'position' => $log->getUser()->getPosition(),
                     'workerId' => $log->getUser()->getWorkerId(),
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                     'logs' => [] // Initialize empty logs array
                 ];
             }
@@ -223,7 +249,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/payrollsheet', name: 'get_all_employee_payroll_profiles', methods: ['GET'])]
     public function getEmployeePayrolls(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -245,6 +271,9 @@ class PayrollReportsController extends AbstractController
         
         // Loop through active employees to get their payroll profiles
         foreach ($activeEmployees as $employee) {
+            $company = $employee->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
             $payrollProfile = $this->entityManager->getRepository(EmployeePayrollProfile::class)->findOneBy(['employee_record' => $employee]);
     
             // Initialize default payroll details
@@ -327,6 +356,9 @@ class PayrollReportsController extends AbstractController
                     'late_rate' => $payrollProfile->getLateRate(),
                     'payroll_details' => $payrollDetails,
                     'daily_rate' => $payrollProfile->getDailyRate(),
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             } else {
                 // If no payroll profile is found, still add the employee with default values
@@ -344,6 +376,9 @@ class PayrollReportsController extends AbstractController
                     'late_rate' => 0,
                     'payroll_details' => $payrollDetails,
                     'daily_rate' => 0,
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             }
         }
@@ -354,7 +389,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/payrollsheet-with-taxshield', name: 'get_all_employee_payroll_profiles_with_taxshield', methods: ['GET'])]
     public function getEmployeePayrollsWithTaxShield(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -376,6 +411,9 @@ class PayrollReportsController extends AbstractController
     
         // Loop through active employees to get their payroll profiles and tax shield data
         foreach ($activeEmployees as $employee) {
+            $company = $employee->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
             $payrollProfile = $this->entityManager->getRepository(EmployeePayrollProfile::class)->findOneBy(['employee_record' => $employee]);
     
             // Initialize default payroll details
@@ -455,6 +493,9 @@ class PayrollReportsController extends AbstractController
                         'payroll_details' => $payrollDetails,
                         'daily_rate' => $payrollProfile->getDailyRate(),
                         'tax_shield' => $taxShieldData,
+                        'company_id' => $companyId,
+                        'affiliated_company_id' => $companyId,
+                        'company_name' => $companyName,
                     ];
                 }
    
@@ -478,6 +519,9 @@ class PayrollReportsController extends AbstractController
                         'daily_tax_shield' => 0,
                         'remarks' => '',
                     ],
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             }
         }
@@ -623,7 +667,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/payrollsheet-with-cash-advances', name: 'get_all_employee_payroll_profiles_with_cash_advances', methods: ['GET'])]
     public function getEmployeePayrollsWithCashAdvances(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -645,6 +689,9 @@ class PayrollReportsController extends AbstractController
 
         // Loop through active employees to get their payroll profiles and cash advance data
         foreach ($activeEmployees as $employee) {
+            $company = $employee->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
             $payrollProfile = $this->entityManager->getRepository(EmployeePayrollProfile::class)->findOneBy(['employee_record' => $employee]);
 
             // Initialize default payroll details
@@ -744,6 +791,9 @@ class PayrollReportsController extends AbstractController
                         'payroll_details' => $payrollDetails,
                         'daily_rate' => $payrollProfile->getDailyRate(),
                         'cash_advances' => $cashAdvanceHistories,
+                        'company_id' => $companyId,
+                        'affiliated_company_id' => $companyId,
+                        'company_name' => $companyName,
                     ];
                 }
             } else {
@@ -762,6 +812,9 @@ class PayrollReportsController extends AbstractController
                     'payroll_details' => $payrollDetails,
                     'daily_rate' => 0,
                     'cash_advances' => [], // No cash advances
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             }
         }
@@ -772,7 +825,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/payrollsheet-with-salary-adjustment', name: 'get_all_employee_payroll_profiles_with_salary_adjustment', methods: ['GET'])]
     public function getEmployeewithSalaryAdjustment(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -794,6 +847,9 @@ class PayrollReportsController extends AbstractController
 
         // Loop through active employees to get their payroll profiles and cash advance data
         foreach ($activeEmployees as $employee) {
+            $company = $employee->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
             $payrollProfile = $this->entityManager->getRepository(EmployeePayrollProfile::class)->findOneBy(['employee_record' => $employee]);
 
             // Initialize default payroll details
@@ -877,6 +933,9 @@ class PayrollReportsController extends AbstractController
                         'payroll_details' => $payrollDetails,
                         'daily_rate' => $payrollProfile->getDailyRate(),
                         'salary_adjustment' => $employeeSalaryAdjustment,
+                        'company_id' => $companyId,
+                        'affiliated_company_id' => $companyId,
+                        'company_name' => $companyName,
                     ];
                 }
             } else {
@@ -894,7 +953,10 @@ class PayrollReportsController extends AbstractController
                     'late_rate' => 0,
                     'payroll_details' => $payrollDetails,
                     'daily_rate' => 0,
-                    'salary_adjustment' => [], // No cash advances
+                    'salary_adjustment' => [], // No salary adjustments
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             }
         }
@@ -905,7 +967,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/gov-dues', name: 'get_gov_dues', methods: ['GET'])]
     public function getEmployeePayrollsGovDues(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -927,6 +989,9 @@ class PayrollReportsController extends AbstractController
         
         // Loop through active employees to get their payroll profiles
         foreach ($activeEmployees as $employee) {
+            $company = $employee->getAffiliatedCompany();
+            $companyId = $company?->getId();
+            $companyName = $company?->getName();
             $payrollProfile = $this->entityManager->getRepository(EmployeePayrollProfile::class)->findOneBy(['employee_record' => $employee]);
     
             // Initialize default payroll details
@@ -1047,7 +1112,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/gov-total-dues', name: 'get_gov_dues', methods: ['GET'])]
     public function getEmployeePayrollsTotalGovDues(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -1182,6 +1247,9 @@ class PayrollReportsController extends AbstractController
                     'pagibig_no'    => $pagibig_no,
                     'philhealth_no' => $philhealth_no,
                     'tin_no'        => $tin_no,
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             } 
             else {
@@ -1203,6 +1271,9 @@ class PayrollReportsController extends AbstractController
                     'pagibig_no'    => $pagibig_no,
                     'philhealth_no' => $philhealth_no,
                     'tin_no'        => $tin_no,
+                    'company_id' => $companyId,
+                    'affiliated_company_id' => $companyId,
+                    'company_name' => $companyName,
                 ];
             }
         }
@@ -1213,7 +1284,7 @@ class PayrollReportsController extends AbstractController
     #[Route('/api/company-gov-total-dues', name: 'get_company_gov_dues', methods: ['GET'])] 
     public function getCompanyEmployeePayrollsTotalGovDues(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'], $data['company_id'])) {
@@ -1306,6 +1377,8 @@ class PayrollReportsController extends AbstractController
     
         // Return totals as JSON response
         return new JsonResponse([
+            'company_id' => $selectedCompany?->getId(),
+            'affiliated_company_id' => $selectedCompany?->getId(),
             'company_name' => $selectedCompany->getName() ?? '',
             'basic_salary' => $basic_salary,
             'overtime_salary' => $overtime_salary,
@@ -1340,7 +1413,7 @@ class PayrollReportsController extends AbstractController
     public function getPayrollSummaryData(Request $request): JsonResponse
     {
 
-        $data = json_decode($request->getContent(), true);
+        $data = $this->getRequestPayload($request);
         
         // Validate input
         if (!$data || !isset($data['dateFrom'], $data['dateTo'])) {
@@ -1351,6 +1424,7 @@ class PayrollReportsController extends AbstractController
         $dateFrom = new \DateTime($data['dateFrom']);
         $dateTo = new \DateTime($data['dateTo']);
 
+        $companyPayrollSummary = [];
         $allCompanies = $this->entityManager->getRepository(AffiliatedCompany::class)->findAll();
         foreach ($allCompanies as $company) {
             // Process each $company object here
@@ -1412,6 +1486,8 @@ class PayrollReportsController extends AbstractController
             }
 
             $companyPayrollSummary[] = [
+                'company_id'               => $company->getId(),
+                'affiliated_company_id'    => $company->getId(),
                 'company_code'              =>  $company->getCode(),
                 'company_name'              =>  $company->getName(),
                 'companyGrossSalary'        =>  $companyGrossSalary,

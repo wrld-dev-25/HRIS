@@ -1,52 +1,70 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+### Core build artifacts ###
+/build/
+/dist/
+/tmp/
+/.cache/
+/node_modules/
+/public/build/
+/public/assets/
+/web/bundles/
+/web/uploads/
 
-# Email spool folder
-/app/spool/*
-
-# Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
-
-# Logs (Symfony4)
-/var/log/*
-!var/log/.gitkeep
-
-# Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
-
-# Managed by Composer
+### Composer / PHP ###
+/vendor/
+/composer.phar
 /app/bootstrap.php.cache
 /var/bootstrap.php.cache
 /bin/*
 !bin/console
 !bin/symfony_requirements
-/vendor/
 
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
+### Symfony cache/log data ###
+/app/cache/
+/app/logs/
+/app/spool/
+/var/cache/
+/var/log/
+/var/sessions/
+/var/logs/
+/var/
+/hris-live/**/var/
+/hris-services-live/**/var/
 
-# PHPUnit
+### Per-project vendors ###
+/hris-live/**/vendor/
+/hris-services-live/**/vendor/
+
+### Environment configuration ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/.env.test
+/.env.dev
+/hris-live/**/.env
+/hris-live/**/.env.local*
+/hris-services-live/**/.env
+/hris-services-live/**/.env.local*
+
+### Tests ###
 /app/phpunit.xml
 /phpunit.xml
+/phpunit.xml.cache
+/.phpunit.result.cache
+/coverage/
 
-# Build data
-/build/
-
-# Composer PHAR
-/composer.phar
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
-
-# Embedded web-server pid file
+### IDE / OS noise ###
+/.idea/
+/.vscode/
+/*.iml
+/*.code-workspace
+/.nbproject/
+/.DS_Store
+Thumbs.db
 /.web-server-pid
+
+### Generated metadata ###
+**/Entity/*~
+HRIS.7z
+
+### Keep gitkeep placeholders tracked ###
+!**/.gitkeep
