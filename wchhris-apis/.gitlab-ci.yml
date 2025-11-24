@@ -1,0 +1,105 @@
+stages:
+  - deploy_staging
+  - deploy_production
+
+# -----------------------
+# SINGLE OPTIMIZED DEPLOY SCRIPT
+# -----------------------
+.deploy_script: &deploy_script |
+  TIMESTAMP=$(date +%Y%m%d%H%M%S)-$CI_COMMIT_SHORT_SHA
+  RELEASE_DIR="$TARGET_DIR/releases/$TIMESTAMP"
+
+  echo "Creating release directory..."
+  sudo mkdir -p "$RELEASE_DIR"
+
+  echo "Fixing permissions so composer can write..."
+  sudo chown -R $SERVER_USER:$SERVER_USER "$RELEASE_DIR"
+
+  echo "Cloning repository into release..."
+  sudo git clone --branch $CI_COMMIT_REF_NAME $CI_REPOSITORY_URL "$RELEASE_DIR"
+
+  echo "Linking shared directories..."
+  sudo ln -sfn "$TARGET_DIR/shared/var" "$RELEASE_DIR/var"
+  sudo ln -sfn "$TARGET_DIR/shared/public/uploads" "$RELEASE_DIR/public/uploads"
+  sudo ln -sfn "$TARGET_DIR/shared/public/excel_files" "$RELEASE_DIR/public/excel_files"
+  sudo ln -sfn "$TARGET_DIR/shared/.env" "$RELEASE_DIR/.env"
+
+  echo "Installing dependencies and clearing cache..."
+  cd "$RELEASE_DIR"
+  composer install --no-interaction --no-dev --prefer-dist
+  symfony console cache:clear --env=prod
+  symfony console cache:warmup --env=prod
+
+  echo "Updating current symlink..."
+  sudo ln -sfn "$RELEASE_DIR" "$TARGET_DIR/current"
+
+  echo "Restarting Apache..."
+  sudo systemctl restart httpd
+
+  echo "Cleaning old releases (keep last 5)..."
+  cd "$TARGET_DIR/releases"
+  sudo ls -1tr | head -n -5 | xargs -d '\n' rm -rf --
+
+# -----------------------
+# STAGING DEPLOY
+# -----------------------
+deploy_staging:
+  stage: deploy_staging
+  variables:
+    TARGET_DIR: "$UAT_DIR"
+  script:
+    - *deploy_script
+  environment:
+    name: staging
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "feature-staging"'
+      when: on_success
+    - when: never
+
+# -----------------------
+# PRODUCTION DEPLOY
+# -----------------------
+deploy_production:
+  stage: deploy_production
+  variables:
+    TARGET_DIR: "$PROD_DIR"
+  script:
+    - *deploy_script
+  environment:
+    name: production
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: on_success
+    - when: never
+
+# -----------------------
+# ROLLBACK — STAGING
+# -----------------------
+rollback_staging:
+  stage: deploy_staging
+  when: manual
+  variables:
+    TARGET_DIR: "$UAT_DIR"
+  script: |
+    cd "$TARGET_DIR/releases"
+    sudo PREV=$(ls -1tr | tail -n 2 | head -n 1)
+    sudo ln -sfn "$TARGET_DIR/releases/$PREV" "$TARGET_DIR/current"
+    sudo systemctl restart httpd
+  environment:
+    name: staging
+
+# -----------------------
+# ROLLBACK — PRODUCTION
+# -----------------------
+rollback_production:
+  stage: deploy_production
+  when: manual
+  variables:
+    TARGET_DIR: "$PROD_DIR"
+  script: |
+    cd "$TARGET_DIR/releases"
+    sudo PREV=$(ls -1tr | tail -n 2 | head -n 1)
+    sudo ln -sfn "$TARGET_DIR/releases/$PREV" "$TARGET_DIR/current"
+    sudo systemctl restart httpd
+  environment:
+    name: production

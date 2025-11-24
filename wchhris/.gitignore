@@ -1,0 +1,75 @@
+# -------------------------
+# Symfony / PHP
+# -------------------------
+/vendor/
+/var/
+/.env
+/.env.local
+/.env.*.local
+/.env.local.php
+/.env.test
+/.env.test.local
+/.env.backup
+/.php_cs.cache
+/.phpunit.result.cache
+/.symfony/*
+/public/bundles/
+/public/build/
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+/.sass-cache
+
+# Composer
+composer.phar
+#composer.lock # <-- usually you DO commit composer.lock for apps; remove this line if you want composer.lock tracked
+
+# Symfony secrets (if using symfony secrets)
+# Do not accidentally commit private keys
+/config/secrets/prod/*
+/config/secrets/dev/*
+
+# Logs, cache, uploads, sessions
+/var/cache/
+/var/log/
+/var/sessions/
+/var/uploads/
+/var/*.lock
+
+# IDEs and editors
+/.idea/
+/.vscode/
+/*.sublime-workspace
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHPUnit and coverage
+.phpunit.result.cache
+coverage/
+
+# Node / front-end build artifacts
+/dist/
+/build/
+/public/hot
+
+# Docker, environment
+docker-compose.override.yml
+.env.docker
+
+# JetBrains Rider / PhpStorm
+.idea/
+*.iml
+
+# Misc
+*.log
+*.tmp
+*.backup
+*.bak
+
+# Protect local and secret files
+*.pem
+*.key

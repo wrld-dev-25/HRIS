@@ -1,0 +1,248 @@
+{% extends 'partials/base.html.twig' %}
+{% block title %}Payroll Generation & Reports{% endblock %}
+
+{% block content %}
+  {{ component('breadcrumb', { pagetitle: 'Payroll Administration', title: 'Payroll Reports' }) }}
+
+  <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-4">
+
+    {# Generate Timesheet #}
+    <div class="card">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Timesheet</a></h5>
+        </div>
+        <form action="{{ path('generate_mandatories_report') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="gen_timesheet" placeholder="Select Date" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_timesheet" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Payroll Sheet #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Payroll Sheet</a></h5>
+        </div>
+        <form action="{{ path('generate_payroll_sheet') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="payroll_sheet_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_payrollsheet" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Payroll Register Report #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Payroll Register Report</a></h5>
+        </div>
+        <form action="{{ path('generate_payroll_register') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="payroll_register_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_payrollregister" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Payroll Summary #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Payroll Summary</a></h5>
+        </div>
+        <form action="{{ path('generate_payrollsummary') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="payroll_summary_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_payrollsummary" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Salary Adjustment Report #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Salary Adjustment Report</a></h5>
+        </div>
+        <form action="{{ path('generate_salaryadjustment_report') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="salary_adjustment_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_salaryadjustment" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Tax Shield Report #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Tax Shield Report</a></h5>
+        </div>
+        <form action="{{ path('generate_taxshield_report') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="taxshield_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_taxshield" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Cash Advance Report #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Cash Advance Report</a></h5>
+        </div>
+        <form action="{{ path('generate_cashadvance_report') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="cashadvance_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_cashadvance" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100">
+              <option value="">All Companies / Agencies</option>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# ✅ Generate Government Dues (TOTAL) — no dropdown now #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Government Dues Report</a></h5>
+        </div>
+        <form action="{{ path('generate_govdues') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="govdues_total_range" required>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {# Generate Government Dues PER COMPANY #}
+    <div class="card view-payroll_reports">
+      <div class="card-body">
+        <div class="mt-4 text-center">
+          <h5 class="mb-1 text-16"><a href="#!">Generate Government Dues per Company Report</a></h5>
+        </div>
+        <form action="{{ path('generate_company_govdues') }}" method="POST" target="_blank">
+          <div class="mt-4">
+            <label class="inline-block mb-2 text-base font-medium">Date Range</label>
+            <input type="text" name="payroll_date_range" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100"
+                   data-provider="flatpickr" data-date-format="Y-m-d" data-range-date="true" placeholder="Select Date" id="govdues_company_range" required>
+          </div>
+          <div class="mt-4">
+            <select id="company_id_govdues_company" name="company_id" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 dark:bg-zink-700 dark:text-zink-100" required>
+              {% for companyItem in companyList %}
+                <option value="{{ companyItem.id }}">{{ companyItem.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="flex gap-2 mt-5">
+            <button type="submit" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow">Generate</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset('assets/js/app.js') }}"></script>
+{% endblock %}

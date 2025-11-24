@@ -1,0 +1,642 @@
+{% extends 'partials/base.html.twig' %}
+{% block title %}Overtime Request{% endblock %}
+
+{% block content %}
+
+{{ component('breadcrumb', { pagetitle: 'Overtime Request', title: '' }) }}
+
+<div class="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
+    <div class="xl:col-span-12">
+        <div class="card" id="divisionTable">
+            <div class="card-body">
+                    <div class="flex items-center">
+                        <h6 class="text-15 grow">Overtime Requests</h6>
+                        <div class="shrink-0">
+                            <button data-modal-target="addOvertimeRequest" type="button" class="add-overtime_request text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                                <i data-lucide="plus" class="inline-block size-4"></i>
+                                <span class="align-middle">Make a Overtime Request</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="!py-3.5 card-body border-y border-dashed border-slate-200 dark:border-zink-500">
+                <form action="#!">
+                    <div class="grid grid-cols-1 gap-5 xl:grid-cols-12">
+                        <div class="relative xl:col-span-2">
+                            <input type="text" class="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for code, name, description etc..." autocomplete="off">
+                            <i data-lucide="search" class="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600"></i>
+                        </div><!--end col-->
+                    </div><!--end grid-->
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="-mx-5 -mb-5 overflow-x-auto">
+                    {% set currentUserId = app.session.get('user_id') %}
+                    {% set userTypeCode = app.session.get('userTypeCode') %}
+
+                    {# 
+                    Assumption:
+                    - SADM, ADM = approver/admin
+                    - Iba pa = standard user (kasama na dito yung user_type_id = 14 mo)
+                    #}
+                    {% set isStandardUser = userTypeCode != 'SADM' and userTypeCode != 'ADM' %}
+                    <table class="w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap">
+                        <thead class="text-left">
+                            <tr class="relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600">
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employee_share">Employee Name</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employer_share">Reason</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employer_share">Date</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employer_share">OT Hours Requested</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employer_share">Status</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="employer_share">Updated By</th>
+                                <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold">Action</th>
+                            </tr>
+                        </thead>
+                            <tbody class="list">
+                            {% set holiday_status = {
+                                0: 'Pending',
+                                1: 'Approved',
+                                2: 'Rejected'
+                            } %}
+                            {% set currentUserId = app.session.get('user_id') %}
+                            {% set userTypeCode = app.session.get('userTypeCode') %}
+                            {% set isStandardUser = userTypeCode != 'SADM' and userTypeCode != 'ADM' %}
+
+
+                            {% if overtimeRequest %}
+                                {% for ot_request in overtimeRequest %}
+                                    {% if not isStandardUser or ot_request.user_id == currentUserId %}
+                                    <tr class="relative rounded-md after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600">
+                                        {# Employee Name #}
+                                        {% set employeeName = employeeNamesById[ot_request.emp_id|default('')] ?? ot_request.employee_name ?? 'Unknown Employee' %}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 employee_share">
+                                            {{ employeeName }}
+                                        </td>
+
+                                        {# Reason #}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 reason">
+                                            {{ ot_request.ot_reason|default('-') }}
+                                        </td>
+
+                                        {# Date #}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 worker_logs_date">
+                                            {{ ot_request.overtime_date|default('—') }}
+                                        </td>
+
+                                        {# Overtime Hours Requested #}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 hours_requested">
+                                            {% set rawHours = ot_request.ot_hours|default('0:0') %}
+                                            {% set timeParts = rawHours|split(':') %}
+                                            {% set hours = timeParts[0]|default(0)|number_format(0, '.', '') %}
+                                            {% set minutes = timeParts[1]|default(0)|number_format(0, '.', '') %}
+                                            {{ hours > 0 ? hours ~ ' hour/s' : '' }}{{ hours > 0 and minutes > 0 ? ' and ' : '' }}{{ minutes > 0 ? minutes ~ ' min/s' : '' }}
+                                        </td>
+
+                                        {# Status #}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 status">
+                                            {{ holiday_status[ot_request.status]|default('Pending') }}
+                                        </td>
+
+                                        {# Updated By: user_id → full name, fallback sa approved_by string #}
+                                        {% set approverId = ot_request.user_id|default(null) %}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 employer_share">
+                                            {% if approverId and userFullNamesById[approverId] is defined %}
+                                                {{ userFullNamesById[approverId] }}
+                                            {% elseif ot_request.approved_by is defined and ot_request.approved_by is not empty %}
+                                                {{ ot_request.approved_by }}
+                                            {% else %}
+                                                —
+                                            {% endif %}
+                                        </td>
+
+                                        {# Action: ipakita lang kung status == 0 (Pending) #}
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5">
+                                            {% if ot_request.status == 0 %}
+                                                <div class="relative dropdown position-static" data-overtime-actions>
+                                                    <button type="button"
+                                                        class="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20"
+                                                        id="overtimeAction{{ loop.index }}"
+                                                        data-overtime-actions-toggle
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <i data-lucide="more-horizontal" class="size-3"></i>
+                                                    </button>
+                                                    <ul class="absolute z-50 hidden py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600"
+                                                        aria-labelledby="overtimeAction{{ loop.index }}"
+                                                        data-overtime-menu>
+                                                        {% if not isStandardUser or ot_request.user_id == currentUserId %}
+                                                        <li>
+                                                            <a data-modal-target="editOvertimeRequest{{ot_request.id}}"
+                                                              class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
+                                                              href="#!">
+                                                                <i data-lucide="file-edit" class="inline-block size-3 ltr:mr-1 rtl:ml-1"></i>
+                                                                <span class="align-middle">Edit</span>
+                                                            </a>
+                                                        </li>
+                                                        {% endif %}
+                                                        {% if not isStandardUser %}
+                                                        <li>
+                                                            <a data-modal-target="approveOvertimeRequest{{ot_request.id}}"
+                                                            class="edit-model_types block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
+                                                            href="#!">
+                                                                <i data-lucide="check-circle-2" class="inline-block size-3 ltr:mr-1 rtl:ml-1"></i>
+                                                                <span class="align-middle">Approve</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a data-modal-target="rejectOvertimeRequest{{ot_request.id}}"
+                                                            class="edit-model_types block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
+                                                            href="#!">
+                                                                <i data-lucide="x-circle" class="inline-block size-3 ltr:mr-1 rtl:ml-1"></i>
+                                                                <span class="align-middle">Reject</span>
+                                                            </a>
+                                                        </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </div>
+                                            {% else %}
+                                                <span class="text-slate-400 text-xs italic"></span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+
+                    </table>
+                    <div class="noresult" style="display: none">
+                        <div class="py-6 text-center">
+                            <i data-lucide="search" class="size-6 mx-auto text-sky-500 fill-sky-100 dark:fill-sky-500/20"></i>
+                            <h5 class="mt-2">Sorry! No Result Found</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--end card-->
+    </div><!--end col-->
+</div><!--end grid-->
+
+{# ==== ADD NEW OVERTIME REQUEST MODAL ==== #}
+<div id="addOvertimeRequest" modal-center class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+    <div class="w-screen md:w-[32rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full">
+        <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+            <h5 class="text-16">New Overtime Request</h5>
+            <button data-modal-close="addOvertimeRequest" class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
+                <i data-lucide="x" class="size-5"></i>
+            </button>
+        </div>
+        <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+            <form action="{{ path('create_overtime_request') }}" method="post">
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label for="emp_record_id" class="inline-block mb-2 text-base font-medium">Employee</label>
+                        <span class="text-red-500">*</span>
+                        <select id="emp_record_id" name="emp_record_id" class="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" required>
+                            <option value="">Select Employee</option>
+                            {% for employee in employees %}
+                                {% if employee.id is defined %}
+                                    <option value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ot_date" class="inline-block mb-2 text-base font-medium">Date</label>
+                        <span class="text-red-500">*</span>
+                        <input type="date" id="ot_date" name="ot_date" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" required>
+                    </div>
+                    <div>
+                        <label for="ot_hours" class="inline-block mb-2 text-base font-medium">Overtime Hours</label>
+                        <span class="text-red-500">*</span>
+                        <input type="text" id="ot_hours" name="ot_hours" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" placeholder="e.g., 2:30" required>
+                    </div>
+                    <div>
+                        <label for="reason" class="inline-block mb-2 text-base font-medium">Reason</label>
+                        <textarea id="reason" name="reason" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" placeholder="Optional"></textarea>
+                    </div>
+                </div>
+                <div class="flex items-center justify-end gap-2 p-4 mt-4 border-t border-slate-200 dark:border-zink-500">
+                    <button type="reset" data-modal-close="addOvertimeRequest" class="text-red-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-red-600 focus:text-red-600 active:text-red-600 dark:bg-zink-500 dark:border-zink-500">Cancel</button>
+                    <button type="submit" class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{# ==== PER-ROW EDIT / APPROVE / REJECT MODALS ==== #}
+{% if overtimeRequest %}
+    {% for ot_request in overtimeRequest %}
+
+        {# EDIT MODAL → uses update_overtime_request_v2 #}
+        <div id="editOvertimeRequest{{ ot_request.id }}" modal-center
+             class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+            <div class="w-screen md:w-[32rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full">
+                <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+                    <h5 class="text-16">Edit Overtime Request</h5>
+                    <button data-modal-close="editOvertimeRequest{{ ot_request.id }}"
+                            class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
+                        <i data-lucide="x" class="size-5"></i>
+                    </button>
+                </div>
+
+                <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+                    <form action="{{ path('update_overtime_request_v2') }}" method="post">
+                        <input type="hidden" name="ot_request_id" value="{{ ot_request.id }}">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="inline-block mb-2 text-base font-medium">Employee</label>
+                                <input type="text" class="form-input border-slate-200 dark:border-zink-500"
+                                       value="{{ employeeNamesById[ot_request.emp_id|default('')] ?? ot_request.employee_name ?? 'Unknown Employee' }}"
+                                       disabled>
+                            </div>
+                            <div>
+                                <label class="inline-block mb-2 text-base font-medium">Date</label>
+                                <input type="date" name="ot_date"
+                                       class="form-input border-slate-200 dark:border-zink-500"
+                                       value="{{ ot_request.overtime_date|default('') }}">
+                            </div>
+                            <div>
+                                <label class="inline-block mb-2 text-base font-medium">Overtime Hours</label>
+                                <input type="text" name="ot_hours"
+                                       class="form-input border-slate-200 dark:border-zink-500"
+                                       value="{{ ot_request.ot_hours|default('') }}">
+                            </div>
+                            <div>
+                                <label class="inline-block mb-2 text-base font-medium">Reason</label>
+                                <textarea name="reason"
+                                          class="form-input border-slate-200 dark:border-zink-500">{{ ot_request.ot_reason|default('') }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-2 p-4 mt-4 border-t border-slate-200 dark:border-zink-500">
+                            <button type="button"
+                                    data-modal-close="editOvertimeRequest{{ ot_request.id }}"
+                                    class="text-red-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-red-600 focus:text-red-600 active:text-red-600 dark:bg-zink-500 dark:border-zink-500">
+                                Cancel
+                            </button>
+                            <button type="submit"
+                                    class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {# APPROVE MODAL → uses update_overtime_request_status (status = 1) #}
+        <div id="approveOvertimeRequest{{ ot_request.id }}" modal-center
+             class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+            <div class="w-full md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col h-full">
+                <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+                    <h5 class="text-16">Approve Overtime Request</h5>
+                    <button data-modal-close="approveOvertimeRequest{{ ot_request.id }}"
+                            class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
+                        <i data-lucide="x" class="size-5"></i>
+                    </button>
+                </div>
+
+                <div class="p-4">
+                    <p class="mb-4 text-sm text-slate-600 dark:text-zink-100"> Are you sure you want to approve this overtime request?</p>
+                    <form action="{{ path('update_overtime_request_status') }}" method="post">
+                        <input type="hidden" name="ot_request_id" value="{{ ot_request.id }}">
+                        <input type="hidden" name="status" value="1">
+                        <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-200 dark:border-zink-500">
+                            <button type="button"
+                                    data-modal-close="approveOvertimeRequest{{ ot_request.id }}"
+                                    class="text-red-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-red-600 focus:text-red-600 active:text-red-600 dark:bg-zink-500 dark:border-zink-500">
+                                Cancel
+                            </button>
+                            <button type="submit"
+                                    class="text-white transition-all duration-200 ease-linear btn bg-emerald-500 border-emerald-500 hover:text-white hover:bg-emerald-600 hover:border-emerald-600 focus:text-white focus:bg-emerald-600 focus:border-emerald-600 focus:ring focus:ring-emerald-100 active:text-white active:bg-emerald-600 active:border-emerald-600 active:ring active:ring-emerald-100 dark:ring-emerald-400/20">
+                                Approve
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {# REJECT MODAL → uses update_overtime_request_status (status = 2) #}
+            <div id="rejectOvertimeRequest{{ ot_request.id }}" modal-center
+                class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+                <div class=" w-full md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col ">
+                    <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+                        <h5 class="text-16">Update Overtime Request</h5>
+                        <button data-modal-close="rejectOvertimeRequest{{ ot_request.id }}"
+                                class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
+                            <i data-lucide="x" class="size-5"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4">
+                        <h6 class="mb-2 text-base font-semibold text-slate-800 dark:text-zink-100">
+                            Reject Overtime?
+                        </h6>
+                        <p class="mb-4 text-sm text-slate-600 dark:text-zink-100">
+                            Are you sure you want to reject this overtime request?
+                        </p>
+
+                        <form action="{{ path('update_overtime_request_status') }}" method="post">
+                            <input type="hidden" name="ot_request_id" value="{{ ot_request.id }}">
+                            <input type="hidden" name="status" value="2">
+
+                            <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-200 dark:border-zink-500">
+                                <button type="button"
+                                        data-modal-close="rejectOvertimeRequest{{ ot_request.id }}"
+                                        class="text-slate-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-slate-700 focus:text-slate-700 active:text-slate-700 dark:bg-zink-500 dark:border-zink-500">
+                                    Cancel
+                                </button>
+                                <button type="submit"
+                                        class="text-white transition-all duration-200 ease-linear btn bg-red-500 border-red-500 hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-red-400/20">
+                                    Reject
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endif %}
+
+{% for flash_message in app.flashes('status') %}
+    <div class="hidden" id="status" data-status="{{ flash_message }}"></div>
+{% endfor %}
+
+{% endblock %}
+    
+{% block javascripts %}
+
+<script src="{{ asset('assets/libs/list.js/list.min.js') }}"></script>
+<script src="{{ asset('assets/libs/list.pagination.js/list.pagination.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/apps-list-init.js') }}"></script>
+
+{# Popper (optional, gagamitin kung available – same as sa Employees) #}
+<script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // --- DROPDOWN / POPOVER FOR OVERTIME ACTIONS ---
+
+    const dropdownNodes = document.querySelectorAll(
+        '#divisionTable .dropdown[data-overtime-actions]'
+    );
+
+    if (!dropdownNodes.length) {
+        return;
+    }
+
+    const hasPopper =
+        typeof window !== 'undefined' &&
+        window.Popper &&
+        typeof window.Popper.createPopper === 'function';
+
+    const DROPDOWN_Z_INDEX = 70;
+    let activeDropdown = null;
+    let globalsAttached = false;
+
+    // Portal sa body para maayos ang z-index at positioning
+    const ensureDropdownPortal = () => {
+        let portal = document.getElementById('overtimeDropdownPortal');
+        if (!portal) {
+            portal = document.createElement('div');
+            portal.id = 'overtimeDropdownPortal';
+            portal.style.position = 'absolute';
+            portal.style.left = '0';
+            portal.style.top = '0';
+            portal.style.width = '100%';
+            portal.style.zIndex = DROPDOWN_Z_INDEX.toString();
+            document.body.appendChild(portal);
+        }
+        return portal;
+    };
+
+    const dropdownPortal = ensureDropdownPortal();
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const detachActiveDropdown = () => {
+        if (!activeDropdown) return;
+
+        const { menu, toggle, popperInstance, placeholder } = activeDropdown;
+
+        if (popperInstance && typeof popperInstance.destroy === 'function') {
+            popperInstance.destroy();
+        }
+
+        menu.classList.add('hidden');
+        menu.dataset.open = 'false';
+        toggle.setAttribute('aria-expanded', 'false');
+
+        if (placeholder && placeholder.parentNode) {
+            placeholder.parentNode.insertBefore(menu, placeholder);
+            placeholder.remove();
+        }
+
+        [
+            'position',
+            'left',
+            'top',
+            'right',
+            'bottom',
+            'zIndex',
+            'visibility',
+            'transform',
+        ].forEach((prop) => {
+            menu.style[prop] = '';
+        });
+
+        activeDropdown.popperInstance = null;
+        activeDropdown = null;
+    };
+
+    const updateManualPosition = (entry) => {
+        if (!entry) return;
+
+        const { toggle, menu, menuGap } = entry;
+        const toggleRect = toggle.getBoundingClientRect();
+        const rect = menu.getBoundingClientRect();
+
+        const menuWidth = Math.max(rect.width, menu.offsetWidth || 0);
+        const menuHeight = Math.max(rect.height, menu.offsetHeight || 0);
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight;
+
+        // Default: right-aligned sa toggle
+        let left = toggleRect.right - menuWidth;
+
+        // Kung mas makitid ang menu kesa sa button, pwede i-align sa left
+        if (menuWidth < toggleRect.width) {
+            left = toggleRect.left;
+        }
+
+        left = clamp(left, 12, viewportWidth - menuWidth - 12);
+
+        // Default: sa baba ng toggle
+        let top = toggleRect.bottom + menuGap;
+
+        // Kung lalampas sa baba, ilagay sa taas
+        if (top + menuHeight > viewportHeight - 12) {
+            top = toggleRect.top - menuGap - menuHeight;
+        }
+
+        top = clamp(top, 12, viewportHeight - menuHeight - 12);
+
+        menu.style.position = 'fixed';
+        menu.style.left = `${left}px`;
+        menu.style.top = `${top}px`;
+        menu.style.zIndex = DROPDOWN_Z_INDEX.toString();
+    };
+
+    const updateActivePosition = () => {
+        if (!activeDropdown) return;
+
+        if (activeDropdown.popperInstance) {
+            activeDropdown.popperInstance.update();
+        } else {
+            updateManualPosition(activeDropdown);
+        }
+    };
+
+    const handleDocumentClick = (event) => {
+        if (!activeDropdown) return;
+
+        const { dropdown, menu } = activeDropdown;
+
+        // Pag-click sa loob ng dropdown, huwag isara
+        if (dropdown.contains(event.target) || menu.contains(event.target)) {
+            return;
+        }
+
+        detachActiveDropdown();
+        detachGlobalListeners();
+    };
+
+    const attachGlobalListeners = () => {
+        if (globalsAttached) return;
+        document.addEventListener('click', handleDocumentClick);
+        window.addEventListener('resize', updateActivePosition);
+        window.addEventListener('scroll', updateActivePosition, true);
+        globalsAttached = true;
+    };
+
+    const detachGlobalListeners = () => {
+        if (!globalsAttached) return;
+        document.removeEventListener('click', handleDocumentClick);
+        window.removeEventListener('resize', updateActivePosition);
+        window.removeEventListener('scroll', updateActivePosition, true);
+        globalsAttached = false;
+    };
+
+    const closeAllDropdowns = () => {
+        detachActiveDropdown();
+        detachGlobalListeners();
+    };
+
+    dropdownNodes.forEach((dropdown) => {
+        const toggle = dropdown.querySelector('[data-overtime-actions-toggle]');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        if (!toggle || !menu) return;
+
+        const entry = {
+            dropdown,
+            toggle,
+            menu,
+            menuGap: 8,
+            popperInstance: null,
+            placeholder: null,
+        };
+
+        const computedGap = parseFloat(window.getComputedStyle(menu).marginTop);
+        if (!Number.isNaN(computedGap) && computedGap > 0) {
+            entry.menuGap = computedGap;
+        }
+
+        const openDropdown = () => {
+            // Kung same dropdown, toggle lang (close)
+            if (activeDropdown === entry) {
+                closeAllDropdowns();
+                return;
+            }
+
+            // Isara muna iba
+            detachActiveDropdown();
+
+            // Placeholder para maibalik sa original DOM position pag close
+            if (!entry.placeholder) {
+                entry.placeholder = document.createElement('div');
+                entry.placeholder.className = 'overtime-dropdown-placeholder hidden';
+            }
+
+            if (!entry.placeholder.parentNode) {
+                menu.parentNode.insertBefore(entry.placeholder, menu);
+            }
+
+            // Dalhin sa portal
+            dropdownPortal.appendChild(menu);
+
+            menu.classList.remove('hidden');
+            menu.dataset.open = 'true';
+            menu.style.zIndex = DROPDOWN_Z_INDEX.toString();
+            menu.style.visibility = 'hidden';
+
+            toggle.setAttribute('aria-expanded', 'true');
+
+            activeDropdown = entry;
+
+            if (hasPopper) {
+                entry.popperInstance = window.Popper.createPopper(toggle, menu, {
+                    placement: 'bottom-end',
+                    strategy: 'absolute',
+                    modifiers: [
+                        {
+                            name: 'offset',
+                            options: { offset: [0, entry.menuGap] },
+                        },
+                        {
+                            name: 'flip',
+                            options: { padding: 12 },
+                        },
+                        {
+                            name: 'preventOverflow',
+                            options: { padding: 12 },
+                        },
+                    ],
+                });
+            } else {
+                updateManualPosition(entry);
+            }
+
+            attachGlobalListeners();
+            updateActivePosition();
+
+            requestAnimationFrame(() => {
+                updateActivePosition();
+                menu.style.visibility = '';
+            });
+        };
+
+        toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            openDropdown();
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeAllDropdowns();
+        }
+    });
+});
+</script>
+
+<!-- App js -->
+<script src="{{ asset('assets/js/app.js') }}"></script>
+
+{% endblock %}
